@@ -51,7 +51,7 @@ export const SignInPage = () => {
       setIsSubmitted(true);
 
       setTimeout(() => {
-        navigate("/agent/all");
+        navigate("/worker/personal-info");
       }, 2000);
     } catch (error) {
       console.error("Sign in error:", error);

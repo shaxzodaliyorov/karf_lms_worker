@@ -1,14 +1,16 @@
 import Dashboard from "@/layout/dashboard/dashboard";
 import {
-  AddWorkerPage,
-  AllWorkersPage,
-  AutoPartsManufacturingPage,
-  ItDeveloperPage,
-  MechanicalEngineerPage,
-  SheetMetalPaintingMaintenancePage,
+  CollegePage,
+  EmergencyContactPage,
+  ForeignExperiencePage,
+  LanguageProficiencyPage,
+  PersonalInfoPage,
+  ProfessionalCertificatePage,
+  SettingsPage,
   SignInPage,
+  WorkplaceInformationPage,
 } from "@/pages";
-import { CivilEngineeringExpertPage } from "@/pages/civil-engineering-expert/civil-engineering-expert";
+import { VideoDetailsPage } from "@/pages/videos";
 import { createBrowserRouter, Navigate, Outlet } from "react-router-dom";
 
 export const ROUTES = createBrowserRouter([
@@ -39,7 +41,7 @@ export const ROUTES = createBrowserRouter([
     ],
   },
   {
-    path: "/agent",
+    path: "/worker",
     element: <Outlet />,
     children: [
       {
@@ -55,58 +57,75 @@ export const ROUTES = createBrowserRouter([
         ),
       },
       {
-        path: "all",
+        path: "personal-info",
         element: (
           <Dashboard>
-            <AllWorkersPage />
+            <PersonalInfoPage />
+          </Dashboard>
+        ),
+      },
+
+      {
+        path: "emergency-contact",
+        element: (
+          <Dashboard>
+            <EmergencyContactPage />
           </Dashboard>
         ),
       },
       {
-        path: "sheet-metal-painting-maintenance",
+        path: "college",
         element: (
           <Dashboard>
-            <SheetMetalPaintingMaintenancePage />
+            <CollegePage />
           </Dashboard>
         ),
       },
       {
-        path: "auto-parts-manufacturing",
+        path: "foreign-experience",
         element: (
           <Dashboard>
-            <AutoPartsManufacturingPage />
+            <ForeignExperiencePage />
           </Dashboard>
         ),
       },
       {
-        path: "civil-engineering-expert",
+        path: "language-proficiency",
         element: (
           <Dashboard>
-            <CivilEngineeringExpertPage />
+            <LanguageProficiencyPage />
           </Dashboard>
         ),
       },
       {
-        path: "mechanical-engineer",
+        path: "professional-certificate",
         element: (
           <Dashboard>
-            <MechanicalEngineerPage />
+            <ProfessionalCertificatePage />
           </Dashboard>
         ),
       },
       {
-        path: "it-developer",
+        path: "workplace-info",
         element: (
           <Dashboard>
-            <ItDeveloperPage />
+            <WorkplaceInformationPage />
           </Dashboard>
         ),
       },
       {
-        path: "add-worker",
+        path: "videos",
         element: (
           <Dashboard>
-            <AddWorkerPage />
+            <VideoDetailsPage />
+          </Dashboard>
+        ),
+      },
+      {
+        path: "settings",
+        element: (
+          <Dashboard>
+            <SettingsPage />
           </Dashboard>
         ),
       },

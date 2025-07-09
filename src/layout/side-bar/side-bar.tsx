@@ -1,21 +1,15 @@
 import type * as React from "react";
-import { ChevronRight, LogOut as LogOutIcon } from "lucide-react";
 import {
-  AiFillBuild,
-  AiFillSetting,
-  AiFillTool,
-  AiOutlineBuild,
-  AiOutlineCode,
-  AiOutlineSetting,
-  AiOutlineTool,
-} from "react-icons/ai";
-import {
-  IoGridOutline,
-  IoStatsChart,
-  IoStatsChartOutline,
-} from "react-icons/io5";
-import { TfiLayoutListThumb, TfiLayoutListThumbAlt } from "react-icons/tfi";
-import { IoGrid } from "react-icons/io5";
+  Award,
+  Briefcase,
+  ChevronRight,
+  Globe,
+  GraduationCap,
+  Languages,
+  LogOut as LogOutIcon,
+  User,
+  Video,
+} from "lucide-react";
 
 import {
   Collapsible,
@@ -66,59 +60,67 @@ interface NavigationItem {
 
 const navigationData: NavigationItem[] = [
   {
-    title: "Dashboard",
-    url: "/agent/dashboard",
+    title: "Personal Information",
+    url: "/worker/personal-info",
     icon: {
-      outline: <IoGridOutline />,
-      filled: <IoGrid />,
+      outline: <User size={16} />,
+      filled: <User size={16} />,
     },
   },
   {
-    title: "All",
-    url: "/agent/all",
+    title: "Emergency Contact",
+    url: "/worker/emergency-contact",
     icon: {
-      outline: <TfiLayoutListThumb size={16} />,
-      filled: <TfiLayoutListThumbAlt size={16} />,
+      outline: <User />,
+      filled: <User />,
     },
   },
   {
-    title: "Sheet Metal Painting & Maintenance Technician",
-    url: "/agent/sheet-metal-painting-maintenance",
+    title: "College",
+    url: "/worker/college",
     icon: {
-      outline: <AiOutlineTool />,
-      filled: <AiFillTool />,
+      outline: <GraduationCap size={16} />,
+      filled: <GraduationCap size={16} />,
     },
   },
   {
-    title: "Auto Parts Manufacturing",
-    url: "/agent/auto-parts-manufacturing",
+    title: "Foreign Experience",
+    url: "/worker/foreign-experience",
     icon: {
-      outline: <IoStatsChartOutline size={16} />,
-      filled: <IoStatsChart size={16} />,
+      outline: <Globe />,
+      filled: <Globe />,
     },
   },
   {
-    title: "Civil Engineering Expert",
-    url: "/agent/civil-engineering-expert",
+    title: "Language Proficiency",
+    url: "/worker/language-proficiency",
     icon: {
-      outline: <AiOutlineBuild />,
-      filled: <AiFillBuild />,
+      outline: <Languages />,
+      filled: <Languages />,
     },
   },
   {
-    title: "Mechanical Engineer",
-    url: "/agent/mechanical-engineer",
+    title: "Professional Certificate",
+    url: "/worker/professional-certificate",
     icon: {
-      outline: <AiOutlineSetting />,
-      filled: <AiFillSetting />,
+      outline: <Award />,
+      filled: <Award />,
     },
   },
   {
-    title: "IT Related Developer",
-    url: "/agent/it-developer",
+    title: "Workplace Information",
+    url: "/worker/workplace-info",
     icon: {
-      outline: <AiOutlineCode />,
-      filled: <AiOutlineCode />,
+      outline: <Briefcase />,
+      filled: <Briefcase />,
+    },
+  },
+  {
+    title: "video",
+    url: "/worker/videos",
+    icon: {
+      outline: <Video />,
+      filled: <Video />,
     },
   },
 ];

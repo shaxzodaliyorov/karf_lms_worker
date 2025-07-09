@@ -1,16 +1,15 @@
-import { Bell } from "lucide-react";
+import { Bell, LogOut, Settings } from "lucide-react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { SidebarTrigger } from "@/components/ui/sidebar";
 import { Separator } from "@/components/ui/separator";
+import { useNavigate } from "react-router-dom";
 
 interface DashboardHeaderProps {
   userName: string;
@@ -18,11 +17,8 @@ interface DashboardHeaderProps {
   userRole: string;
 }
 
-export function DashboardHeader({
-  userName,
-  userEmail,
-  userRole,
-}: DashboardHeaderProps) {
+export function DashboardHeader({ userName }: DashboardHeaderProps) {
+  const navigate = useNavigate();
   return (
     <header className="flex h-16 shrink-0 !border-b items-center gap-2 transition-[width,height] ease-linear group-has-[[data-collapsible=icon]]/sidebar-wrapper:h-12">
       <div className="flex items-center gap-2 px-4">
@@ -60,22 +56,13 @@ export function DashboardHeader({
               </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent className="w-56" align="end" forceMount>
-              <DropdownMenuLabel className="font-normal">
-                <div className="flex flex-col space-y-1">
-                  <p className="text-sm font-medium leading-none">{userName}</p>
-                  <p className="text-xs leading-none text-muted-foreground">
-                    {userEmail}
-                  </p>
-                  <p className="text-xs leading-none text-muted-foreground">
-                    Role: {userRole}
-                  </p>
-                </div>
-              </DropdownMenuLabel>
-              <DropdownMenuSeparator />
-              <DropdownMenuItem>Profile</DropdownMenuItem>
-              <DropdownMenuItem>Settings</DropdownMenuItem>
-              <DropdownMenuSeparator />
-              <DropdownMenuItem>Log out</DropdownMenuItem>
+              <DropdownMenuItem onClick={() => navigate("/worker/settings")}>
+                <Settings />
+                Settings
+              </DropdownMenuItem>
+              <DropdownMenuItem>
+                <LogOut /> Log out
+              </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
         </div>
