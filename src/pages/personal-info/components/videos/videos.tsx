@@ -14,7 +14,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 
-export const VideoDetailsPage = () => {
+export const VideoDetails = () => {
   const videoInformation = {
     interviewVideo: {
       type: "YouTube Link",
@@ -134,7 +134,7 @@ export const VideoDetailsPage = () => {
                 Video Showcase
               </h3>
 
-              <div className="grid gap-6 lg:grid-cols-3">
+              <div className="grid gap-6 lg:grid-cols-1">
                 {/* Interview Video */}
                 <Card className="border-l-4 border-l-green-500">
                   <CardContent className="p-6">

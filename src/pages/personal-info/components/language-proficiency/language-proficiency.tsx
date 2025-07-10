@@ -17,7 +17,7 @@ import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { Progress } from "@/components/ui/progress";
 
-export const LanguageProficiencyPage = () => {
+export const LanguageProficiency = () => {
   const languageProficiencies = [
     {
       id: 1,
@@ -222,7 +222,7 @@ export const LanguageProficiencyPage = () => {
                 Language Skills Overview
               </h3>
 
-              <div className="grid gap-6 md:grid-cols-2">
+              <div className="grid gap-6 md:grid-cols-1">
                 {languageProficiencies.map((language) => (
                   <Card
                     key={language.id}

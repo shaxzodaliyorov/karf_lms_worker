@@ -1,15 +1,5 @@
 import type * as React from "react";
-import {
-  Award,
-  Briefcase,
-  ChevronRight,
-  Globe,
-  GraduationCap,
-  Languages,
-  LogOut as LogOutIcon,
-  User,
-  Video,
-} from "lucide-react";
+import { ChevronRight, LogOut as LogOutIcon, User } from "lucide-react";
 
 import {
   Collapsible,
@@ -22,7 +12,6 @@ import {
   SidebarFooter,
   SidebarGroup,
   SidebarGroupContent,
-  SidebarGroupLabel,
   SidebarHeader,
   SidebarMenu,
   SidebarMenuButton,
@@ -67,62 +56,62 @@ const navigationData: NavigationItem[] = [
       filled: <User size={16} />,
     },
   },
-  {
-    title: "Emergency Contact",
-    url: "/worker/emergency-contact",
-    icon: {
-      outline: <User />,
-      filled: <User />,
-    },
-  },
-  {
-    title: "College",
-    url: "/worker/college",
-    icon: {
-      outline: <GraduationCap size={16} />,
-      filled: <GraduationCap size={16} />,
-    },
-  },
-  {
-    title: "Foreign Experience",
-    url: "/worker/foreign-experience",
-    icon: {
-      outline: <Globe />,
-      filled: <Globe />,
-    },
-  },
-  {
-    title: "Language Proficiency",
-    url: "/worker/language-proficiency",
-    icon: {
-      outline: <Languages />,
-      filled: <Languages />,
-    },
-  },
-  {
-    title: "Professional Certificate",
-    url: "/worker/professional-certificate",
-    icon: {
-      outline: <Award />,
-      filled: <Award />,
-    },
-  },
-  {
-    title: "Workplace Information",
-    url: "/worker/workplace-info",
-    icon: {
-      outline: <Briefcase />,
-      filled: <Briefcase />,
-    },
-  },
-  {
-    title: "video",
-    url: "/worker/videos",
-    icon: {
-      outline: <Video />,
-      filled: <Video />,
-    },
-  },
+  // {
+  //   title: "Emergency Contact",
+  //   url: "/worker/emergency-contact",
+  //   icon: {
+  //     outline: <User />,
+  //     filled: <User />,
+  //   },
+  // },
+  // {
+  //   title: "College",
+  //   url: "/worker/college",
+  //   icon: {
+  //     outline: <GraduationCap size={16} />,
+  //     filled: <GraduationCap size={16} />,
+  //   },
+  // },
+  // {
+  //   title: "Foreign Experience",
+  //   url: "/worker/foreign-experience",
+  //   icon: {
+  //     outline: <Globe />,
+  //     filled: <Globe />,
+  //   },
+  // },
+  // {
+  //   title: "Language Proficiency",
+  //   url: "/worker/language-proficiency",
+  //   icon: {
+  //     outline: <Languages />,
+  //     filled: <Languages />,
+  //   },
+  // },
+  // {
+  //   title: "Professional Certificate",
+  //   url: "/worker/professional-certificate",
+  //   icon: {
+  //     outline: <Award />,
+  //     filled: <Award />,
+  //   },
+  // },
+  // {
+  //   title: "Workplace Information",
+  //   url: "/worker/workplace-info",
+  //   icon: {
+  //     outline: <Briefcase />,
+  //     filled: <Briefcase />,
+  //   },
+  // },
+  // {
+  //   title: "video",
+  //   url: "/worker/videos",
+  //   icon: {
+  //     outline: <Video />,
+  //     filled: <Video />,
+  //   },
+  // },
 ];
 
 interface AppSidebarProps extends React.ComponentProps<typeof Sidebar> {
@@ -155,7 +144,6 @@ export function AppSidebar({ activeUrl, ...props }: AppSidebarProps) {
       </SidebarHeader>
       <SidebarContent>
         <SidebarGroup>
-          <SidebarGroupLabel>Navigation</SidebarGroupLabel>
           <SidebarGroupContent>
             <SidebarMenu>
               {navigationData?.map((item) => {

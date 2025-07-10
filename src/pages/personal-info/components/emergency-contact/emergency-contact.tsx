@@ -3,7 +3,7 @@ import { Phone, User, Calendar, Heart } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 
-export const EmergencyContactPage = () => {
+export const EmergencyContact = () => {
   const emergencyContact = {
     relationship: "Mother",
     phoneNumber: "+998 90 123 45 67",
@@ -11,8 +11,8 @@ export const EmergencyContactPage = () => {
     dateOfBirth: "25/08/1965",
   };
   return (
-    <div className="min-h-screen">
-      <div className="mx-auto">
+    <div className="w-full">
+      <div className="w-full">
         <Card className="shadow-lg">
           <CardHeader className="border-b bg-white">
             <CardTitle className="flex items-center gap-2 text-xl font-semibold">

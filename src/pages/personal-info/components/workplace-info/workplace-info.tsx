@@ -14,7 +14,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 
-export const WorkplaceInformationPage = () => {
+export const WorkplaceInformation = () => {
   const workplaceInformation = [
     {
       id: 1,

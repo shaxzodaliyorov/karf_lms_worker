@@ -1,102 +1,84 @@
 import {
-  Globe,
-  MapPin,
-  Clock,
-  Target,
+  Award,
+  Building,
+  Calendar,
   FileText,
   Download,
   Eye,
-  Calendar,
+  CheckCircle,
+  Clock,
 } from "lucide-react";
-
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 
-export const ForeignExperiencePage = () => {
-  const foreignExperiences = [
+export const ProfessionalCertificate = () => {
+  const professionalCertificates = [
     {
       id: 1,
-      visitedCountry: "United States",
-      duration: "6 months",
-      purpose: "Work",
-      startDate: "01/01/2023",
-      endDate: "30/06/2023",
-      documents: [
-        { name: "Work_Visa_USA.pdf", size: "2.3 MB", type: "pdf" },
-        { name: "Employment_Letter.pdf", size: "1.1 MB", type: "pdf" },
-      ],
-      description: "Software development internship at tech company",
+      certificateType: "Project Management Professional (PMP)",
+      issuingInstitution: "Project Management Institute",
+      issueDate: "15/06/2023",
+      status: "Active",
+      documents: [{ name: "PMP_Certificate.pdf", size: "1.8 MB", type: "pdf" }],
     },
     {
       id: 2,
-      visitedCountry: "Germany",
-      duration: "3 months",
-      purpose: "Study",
-      startDate: "15/09/2022",
-      endDate: "15/12/2022",
+      certificateType: "Microsoft Azure Fundamentals",
+      issuingInstitution: "Microsoft Corporation",
+      issueDate: "22/03/2023",
+      status: "Active",
       documents: [
-        { name: "Student_Visa_Germany.pdf", size: "1.8 MB", type: "pdf" },
-        { name: "University_Acceptance.pdf", size: "0.9 MB", type: "pdf" },
+        {
+          name: "Azure_Fundamentals_Certificate.pdf",
+          size: "1.2 MB",
+          type: "pdf",
+        },
       ],
-      description: "Exchange program at Technical University of Munich",
     },
     {
       id: 3,
-      visitedCountry: "Japan",
-      duration: "2 weeks",
-      purpose: "Tourism",
-      startDate: "10/05/2022",
-      endDate: "24/05/2022",
+      certificateType: "Certified Scrum Master",
+      issuingInstitution: "Scrum Alliance",
+      issueDate: "10/01/2023",
+      status: "Active",
       documents: [
-        { name: "Tourist_Visa_Japan.pdf", size: "1.2 MB", type: "pdf" },
+        { name: "Scrum_Master_Certificate.pdf", size: "2.1 MB", type: "pdf" },
       ],
-      description: "Cultural exploration and sightseeing tour",
     },
   ];
 
-  const getPurposeColor = (purpose: string) => {
-    switch (purpose.toLowerCase()) {
-      case "work":
-        return "bg-blue-50 text-blue-700 border-blue-200";
-      case "study":
+  const getStatusColor = (status: string) => {
+    switch (status.toLowerCase()) {
+      case "active":
         return "bg-green-50 text-green-700 border-green-200";
-      case "tourism":
-        return "bg-purple-50 text-purple-700 border-purple-200";
-      case "business":
-        return "bg-orange-50 text-orange-700 border-orange-200";
+      case "expired":
+        return "bg-red-50 text-red-700 border-red-200";
       default:
         return "bg-gray-50 text-gray-700 border-gray-200";
     }
   };
 
-  const getPurposeIcon = (purpose: string) => {
-    switch (purpose.toLowerCase()) {
-      case "work":
-        return "💼";
-      case "study":
-        return "📚";
-      case "tourism":
-        return "🏖️";
-      case "business":
-        return "🤝";
+  const getStatusIcon = (status: string) => {
+    switch (status.toLowerCase()) {
+      case "active":
+        return <CheckCircle className="h-4 w-4 text-green-500" />;
+      case "expired":
+        return <Clock className="h-4 w-4 text-red-500" />;
       default:
-        return "🌍";
+        return <Clock className="h-4 w-4 text-gray-500" />;
     }
   };
 
-  const totalCountries = foreignExperiences.length;
-  const totalDuration = foreignExperiences.reduce((acc, exp) => {
-    // Simple duration calculation - in a real app you'd parse the duration properly
-    const months = exp.duration.includes("month")
-      ? Number.parseInt(exp.duration)
-      : 0;
-    const weeks = exp.duration.includes("week")
-      ? Number.parseInt(exp.duration) / 4
-      : 0;
-    return acc + months + weeks;
-  }, 0);
+  const totalCertificates = professionalCertificates.length;
+  const activeCertificates = professionalCertificates.filter(
+    (cert) => cert.status === "Active"
+  ).length;
+  const totalDocuments = professionalCertificates.reduce(
+    (acc, cert) => acc + cert.documents.length,
+    0
+  );
 
   return (
     <div className="min-h-screen">
@@ -104,153 +86,120 @@ export const ForeignExperiencePage = () => {
         <Card className="shadow-lg">
           <CardHeader className="border-b bg-white">
             <CardTitle className="flex items-center gap-2 text-xl font-semibold">
-              <Globe className="h-5 w-5 text-blue-600" />
-              Foreign Experience
+              <Award className="h-5 w-5 text-blue-600" />
+              Professional Certificate
             </CardTitle>
             <p className="text-sm text-gray-600 mt-1">
-              International travel and experience history
+              Professional certifications and credentials
             </p>
           </CardHeader>
           <CardContent className="space-y-6 p-6">
-            {/* Experience Summary Stats */}
-            <div className="grid gap-4 md:grid-cols-4">
+            {/* Certificate Summary Stats */}
+            <div className="grid gap-4 md:grid-cols-3">
               <div className="rounded-lg border bg-blue-50 p-4">
                 <div className="flex items-center gap-2">
-                  <Globe className="h-5 w-5 text-blue-600" />
+                  <Award className="h-5 w-5 text-blue-600" />
                   <span className="text-sm font-medium text-blue-800">
-                    Countries Visited
+                    Total Certificates
                   </span>
                 </div>
                 <p className="text-2xl font-bold text-blue-900 mt-1">
-                  {totalCountries}
+                  {totalCertificates}
                 </p>
               </div>
 
               <div className="rounded-lg border bg-green-50 p-4">
                 <div className="flex items-center gap-2">
-                  <Clock className="h-5 w-5 text-green-600" />
+                  <CheckCircle className="h-5 w-5 text-green-600" />
                   <span className="text-sm font-medium text-green-800">
-                    Total Duration
+                    Active Certificates
                   </span>
                 </div>
                 <p className="text-2xl font-bold text-green-900 mt-1">
-                  {Math.round(totalDuration)}mo
+                  {activeCertificates}
                 </p>
               </div>
 
               <div className="rounded-lg border bg-purple-50 p-4">
                 <div className="flex items-center gap-2">
-                  <Target className="h-5 w-5 text-purple-600" />
+                  <FileText className="h-5 w-5 text-purple-600" />
                   <span className="text-sm font-medium text-purple-800">
-                    Main Purpose
-                  </span>
-                </div>
-                <p className="text-lg font-bold text-purple-900 mt-1">Work</p>
-              </div>
-
-              <div className="rounded-lg border bg-orange-50 p-4">
-                <div className="flex items-center gap-2">
-                  <FileText className="h-5 w-5 text-orange-600" />
-                  <span className="text-sm font-medium text-orange-800">
                     Documents
                   </span>
                 </div>
-                <p className="text-2xl font-bold text-orange-900 mt-1">
-                  {foreignExperiences.reduce(
-                    (acc, exp) => acc + exp.documents.length,
-                    0
-                  )}
+                <p className="text-2xl font-bold text-purple-900 mt-1">
+                  {totalDocuments}
                 </p>
               </div>
             </div>
 
             <Separator />
 
-            {/* Experience Timeline */}
+            {/* Certificates List */}
             <div className="space-y-6">
               <h3 className="text-lg font-medium text-gray-900">
-                International Experience Timeline
+                Certificate Details
               </h3>
 
-              {foreignExperiences.map((experience) => (
-                <div key={experience.id} className="relative">
+              {professionalCertificates.map((certificate) => (
+                <div key={certificate.id} className="relative">
                   <Card className="border-l-4 border-l-blue-500">
                     <CardContent className="p-6">
                       <div className="flex items-start gap-4">
                         {/* Timeline dot */}
                         <div className="flex h-12 w-12 items-center justify-center rounded-full bg-blue-100 border-2 border-blue-300 flex-shrink-0">
-                          <span className="text-lg">
-                            {getPurposeIcon(experience.purpose)}
-                          </span>
+                          <Award className="h-6 w-6 text-blue-600" />
                         </div>
 
-                        {/* Experience details */}
+                        {/* Certificate details */}
                         <div className="flex-1 space-y-4">
                           <div className="flex flex-wrap items-center gap-2">
-                            <h4 className="text-lg font-semibold text-gray-900 flex items-center gap-2">
-                              <MapPin className="h-4 w-4 text-gray-500" />
-                              {experience.visitedCountry}
+                            <h4 className="text-lg font-semibold text-gray-900">
+                              {certificate.certificateType}
                             </h4>
                             <Badge
                               variant="outline"
-                              className={getPurposeColor(experience.purpose)}
+                              className={getStatusColor(certificate.status)}
                             >
-                              {experience.purpose}
+                              {getStatusIcon(certificate.status)}
+                              {certificate.status}
                             </Badge>
                           </div>
 
-                          {experience.description && (
-                            <p className="text-sm text-gray-600 italic">
-                              {experience.description}
-                            </p>
-                          )}
-
-                          <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+                          <div className="grid gap-4 md:grid-cols-2">
                             <div className="space-y-1">
                               <p className="text-sm font-medium text-gray-500">
-                                Duration
+                                Issuing Institution
                               </p>
                               <div className="flex items-center gap-2">
-                                <Clock className="h-4 w-4 text-green-500" />
+                                <Building className="h-4 w-4 text-blue-500" />
                                 <p className="text-sm text-gray-900 font-medium">
-                                  {experience.duration}
+                                  {certificate.issuingInstitution}
                                 </p>
                               </div>
                             </div>
 
                             <div className="space-y-1">
                               <p className="text-sm font-medium text-gray-500">
-                                Start Date
+                                Issue Date
                               </p>
                               <div className="flex items-center gap-2">
-                                <Calendar className="h-4 w-4 text-blue-500" />
+                                <Calendar className="h-4 w-4 text-green-500" />
                                 <p className="text-sm text-gray-900">
-                                  {experience.startDate}
-                                </p>
-                              </div>
-                            </div>
-
-                            <div className="space-y-1">
-                              <p className="text-sm font-medium text-gray-500">
-                                End Date
-                              </p>
-                              <div className="flex items-center gap-2">
-                                <Calendar className="h-4 w-4 text-purple-500" />
-                                <p className="text-sm text-gray-900">
-                                  {experience.endDate}
+                                  {certificate.issueDate}
                                 </p>
                               </div>
                             </div>
                           </div>
 
                           {/* Documents Section */}
-                          {experience.documents.length > 0 && (
+                          {certificate.documents.length > 0 && (
                             <div className="space-y-3">
                               <p className="text-sm font-medium text-gray-700">
-                                Supporting Documents
+                                Certificate Documents
                               </p>
-                              <div className="grid gap-2 md:grid-cols-2">
-                                {experience.documents.map((doc, docIndex) => (
+                              <div className="grid gap-2">
+                                {certificate.documents.map((doc, docIndex) => (
                                   <div
                                     key={docIndex}
                                     className="flex items-center justify-between p-3 bg-gray-50 rounded-lg border"
