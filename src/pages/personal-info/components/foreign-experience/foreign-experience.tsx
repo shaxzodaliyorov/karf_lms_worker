@@ -1,3 +1,5 @@
+"use client";
+
 import {
   Globe,
   MapPin,
@@ -6,15 +8,125 @@ import {
   FileText,
   Download,
   Eye,
-  Calendar,
+  Plus,
+  CalendarIcon,
 } from "lucide-react";
+import { CiCalendar } from "react-icons/ci";
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+  DialogFooter,
+} from "@/components/ui/dialog";
+import { Input } from "@/components/ui/input";
+import {
+  Select,
+  SelectContent,
+  SelectGroup,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import { Label } from "@/components/ui/label";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuGroup,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import { TbEdit } from "react-icons/tb";
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogTrigger,
+} from "@/components/ui/alert-dialog";
+import { RiDeleteBinLine } from "react-icons/ri";
+import { MdOutlineCancel } from "react-icons/md";
+import { AiOutlineCheck } from "react-icons/ai";
+import { useState } from "react";
+import { PiDotsThreeOutlineVerticalFill } from "react-icons/pi";
+import { Controller, useForm } from "react-hook-form";
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover";
+import { Calendar } from "@/components/ui/calendar";
+import MultiFileUpload from "@/components/file-upload/file-upload";
+
+type FormValues = {
+  country: string;
+  purpose: string;
+  major: string;
+  description: string;
+  location: string;
+  startDate: Date | undefined;
+  endDate: Date | undefined;
+  gpa: string;
+  profileImage: FileList;
+  file: File[];
+};
 
 export const ForeignExperience = () => {
+  const [open, setOpen] = useState(false);
+  const [startDateOpen, setStartDateOpen] = useState(false);
+  const {
+    control: addControl,
+    register: addRegister,
+    handleSubmit: handleAddSubmit,
+    formState: { errors: addErrors },
+  } = useForm<FormValues>({
+    defaultValues: {
+      file: [],
+    },
+  });
+
+  const {
+    control: editControl,
+    register: editRegister,
+    handleSubmit: handleEditSubmit,
+    formState: { errors: editErrors },
+  } = useForm<FormValues>({
+    defaultValues: {
+      country: "",
+      purpose: "",
+      major: "",
+      description: "",
+      location: "",
+      startDate: undefined,
+      endDate: undefined,
+      gpa: "",
+    },
+  });
+
+  const [disableDescription, setDisableDescription] = useState(false);
+
+  const handleCheckboxChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setDisableDescription(e.target.checked);
+  };
+
+  const onAddSubmit = (data: FormValues) => {
+    console.log("Add Data:", data);
+  };
+
+  const onEditSubmit = (data: FormValues) => {
+    console.log("Edit Data:", data);
+  };
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
   const foreignExperiences = [
     {
       id: 1,
@@ -88,7 +200,6 @@ export const ForeignExperience = () => {
 
   const totalCountries = foreignExperiences.length;
   const totalDuration = foreignExperiences.reduce((acc, exp) => {
-    // Simple duration calculation - in a real app you'd parse the duration properly
     const months = exp.duration.includes("month")
       ? Number.parseInt(exp.duration)
       : 0;
@@ -102,14 +213,296 @@ export const ForeignExperience = () => {
     <div className="w-full">
       <Card className="shadow-lg">
         <CardHeader className="border-b bg-white">
-          <CardTitle className="flex items-center gap-2 text-xl font-semibold">
-            <Globe className="h-5 w-5 text-blue-600" />
-            Foreign Experience
-          </CardTitle>
+          <div className="flex items-center justify-between">
+            <CardTitle className="flex items-center gap-2 text-xl font-semibold">
+              <Globe className="h-5 w-5 text-blue-600" />
+              Foreign Experience
+            </CardTitle>
+
+            {/* Add Modal */}
+            <Dialog>
+              <DialogTrigger asChild>
+                <Button variant="outline">
+                  <Plus />
+                  Add
+                </Button>
+              </DialogTrigger>
+
+              <DialogContent className="max-w-lg overflow-y-auto">
+                <DialogHeader>
+                  <DialogTitle>Add Foreign Experience</DialogTitle>
+                </DialogHeader>
+
+                <form
+                  onSubmit={handleAddSubmit(onAddSubmit)}
+                  className=" grid gap-2 py-4 max-h-[80vh]  "
+                  style={{
+                    scrollbarWidth: "none",
+                    msOverflowStyle: "none",
+                  }}
+                >
+                  <div className="space-y-2">
+                    <Label>Country</Label>
+                    <Input
+                      {...addRegister("country", {
+                        required: "Country is required",
+                      })}
+                      placeholder="Enter Country visited"
+                      className={`w-full border ${
+                        addErrors.country ? "border-red-500 " : ""
+                      }`}
+                    />
+                    {addErrors.country && (
+                      <p className="text-red-500">
+                        {addErrors.country.message}
+                      </p>
+                    )}
+                  </div>
+
+                  <div className="space-y-2">
+                    <Label>Purpose</Label>
+
+                    <Controller
+                      name="purpose"
+                      control={addControl}
+                      rules={{ required: "Purpose is required!" }}
+                      render={({ field }) => (
+                        <Select
+                          onValueChange={field.onChange}
+                          value={field.value}
+                        >
+                          <SelectTrigger
+                            className={`w-full ${
+                              addErrors.purpose
+                                ? "border-red-500 focus:ring-red-500"
+                                : ""
+                            }`}
+                          >
+                            <SelectValue placeholder="Select Purpose" />
+                          </SelectTrigger>
+                          <SelectContent>
+                            <SelectGroup>
+                              <SelectItem value="bachelor">
+                                Graduated{" "}
+                              </SelectItem>
+                              <SelectItem value="master">
+                                In Progress
+                              </SelectItem>
+                              <SelectItem value="phd">PhD</SelectItem>
+                            </SelectGroup>
+                          </SelectContent>
+                        </Select>
+                      )}
+                    />
+                    {addErrors.purpose && (
+                      <p className="text-red-500">
+                        {addErrors.purpose.message}
+                      </p>
+                    )}
+                  </div>
+
+                  <div className="space-y-2">
+                    <Label>Description</Label>
+                    <Input
+                      {...addRegister("description", {
+                        required: "Description is required",
+                      })}
+                      placeholder="Enter duration"
+                      className={`w-full border ${
+                        addErrors.description ? "border-red-500 " : ""
+                      }`}
+                    />
+                    {addErrors.description && (
+                      <p className="text-red-500">
+                        {addErrors.description.message}
+                      </p>
+                    )}
+                  </div>
+
+                  <div className="grid gap-3">
+                    <Label htmlFor="dateOfBirth" className="px-1">
+                      Start Date
+                    </Label>
+
+                    <Controller
+                      name="startDate"
+                      control={addControl}
+                      rules={{ required: "Start date is required" }}
+                      render={({ field }) => (
+                        <Popover
+                          open={startDateOpen}
+                          onOpenChange={setStartDateOpen}
+                        >
+                          <PopoverTrigger asChild>
+                            <Button
+                              variant="outline"
+                              id="dateOfBirth"
+                              className={`w-full justify-between font-normal ${
+                                addErrors.startDate ? "border-red-500" : ""
+                              }`}
+                            >
+                              {field.value instanceof Date
+                                ? field.value.toLocaleDateString()
+                                : "Select date"}
+                              <CalendarIcon
+                                color="gray"
+                                className="w-4 h-4 ml-2"
+                              />
+                            </Button>
+                          </PopoverTrigger>
+                          <PopoverContent
+                            className="w-auto overflow-hidden p-0"
+                            align="start"
+                          >
+                            <Calendar
+                              mode="single"
+                              selected={field.value || undefined}
+                              onSelect={(date) => {
+                                field.onChange(date);
+                                setStartDateOpen(false);
+                              }}
+                              captionLayout="dropdown"
+                            />
+                          </PopoverContent>
+                        </Popover>
+                      )}
+                    />
+
+                    {addErrors.startDate && (
+                      <span className="text-red-500 text-sm px-1">
+                        {addErrors.startDate.message}
+                      </span>
+                    )}
+                  </div>
+
+                  <div className="grid gap-3">
+                    <Label htmlFor="graduationDate" className="px-1">
+                      End Date
+                    </Label>
+
+                    <Controller
+                      name="endDate"
+                      control={addControl}
+                      rules={{
+                        required: "Graduation is required",
+                      }}
+                      render={({ field }) => (
+                        <Popover open={open} onOpenChange={setOpen}>
+                          <PopoverTrigger asChild>
+                            <Button
+                              variant="outline"
+                              id="graduationDate"
+                              className={`w-full justify-between font-normal ${
+                                addErrors.endDate ? "border-red-500" : ""
+                              }`}
+                            >
+                              {field.value instanceof Date
+                                ? field.value.toLocaleDateString()
+                                : "Select date"}
+                              <CalendarIcon
+                                color="gray"
+                                className="w-4 h-4 ml-2"
+                              />
+                            </Button>
+                          </PopoverTrigger>
+                          <PopoverContent
+                            className="w-auto overflow-hidden p-0"
+                            align="start"
+                          >
+                            <Calendar
+                              mode="single"
+                              selected={field.value || undefined}
+                              onSelect={(date) => {
+                                field.onChange(date);
+                                setOpen(false);
+                              }}
+                              captionLayout="dropdown"
+                            />
+                          </PopoverContent>
+                        </Popover>
+                      )}
+                    />
+
+                    {addErrors.endDate && (
+                      <span className="text-red-500 text-sm px-1">
+                        {addErrors.endDate.message}
+                      </span>
+                    )}
+                  </div>
+
+                  <div className="space-y-2">
+                    <Label
+                      className={`${
+                        disableDescription ? "text-gray-400 cursor-default" : ""
+                      }`}
+                    >
+                      Description
+                    </Label>
+                    <Input
+                      {...addRegister("description", {
+                        required: "Duration is required",
+                      })}
+                      placeholder="Brief description"
+                      disabled={disableDescription}
+                      className={`w-full border ${
+                        addErrors.description ? "border-red-500 " : ""
+                      }`}
+                    />
+                    {addErrors.description && (
+                      <p className="text-red-500">
+                        {addErrors.description.message}
+                      </p>
+                    )}
+
+                    <div className="flex items-center  gap-2 mt-2">
+                      <input
+                        type="checkbox"
+                        id="disableDescription"
+                        checked={disableDescription}
+                        onChange={handleCheckboxChange}
+                        className="accent-blue-600 h-4 w-4"
+                      />
+                      {/* <Label htmlFor="disableDescription">
+                        Disable description input
+                      </Label> */}
+                    </div>
+                  </div>
+
+                  <div className="space-y-2">
+                    <Controller
+                      name="file"
+                      control={addControl}
+                      rules={{
+                        required: "Please upload at least one file",
+                      }}
+                      render={({ field, fieldState }) => (
+                        <MultiFileUpload
+                          maxSizeMB={10}
+                          onFileSelect={(files) => field.onChange(files)}
+                          error={fieldState.error?.message}
+                        />
+                      )}
+                    />
+                  </div>
+
+                  <DialogFooter className="py-4">
+                    <Button
+                      type="submit"
+                      className="bg-blue-700 w-25 hover:bg-blue-600"
+                    >
+                      <Plus className="h-4 w-4 mr-1" /> Add
+                    </Button>
+                  </DialogFooter>
+                </form>
+              </DialogContent>
+            </Dialog>
+          </div>
+
           <p className="text-sm text-gray-600 mt-1">
             International travel and experience history
           </p>
         </CardHeader>
+
         <CardContent className="space-y-6 p-6">
           {/* Experience Summary Stats */}
           <div className="grid gap-4 md:grid-cols-4">
@@ -174,16 +567,14 @@ export const ForeignExperience = () => {
             {foreignExperiences.map((experience) => (
               <div key={experience.id} className="relative">
                 <Card className="border-l-4 border-l-blue-500">
-                  <CardContent className="p-6">
+                  <CardContent className="s space-y-8 p-8">
                     <div className="flex items-start gap-4">
-                      {/* Timeline dot */}
                       <div className="flex h-12 w-12 items-center justify-center rounded-full bg-blue-100 border-2 border-blue-300 flex-shrink-0">
                         <span className="text-lg">
                           {getPurposeIcon(experience.purpose)}
                         </span>
                       </div>
 
-                      {/* Experience details */}
                       <div className="flex-1 space-y-4">
                         <div className="flex flex-wrap items-center gap-2">
                           <h4 className="text-lg font-semibold text-gray-900 flex items-center gap-2">
@@ -222,7 +613,7 @@ export const ForeignExperience = () => {
                               Start Date
                             </p>
                             <div className="flex items-center gap-2">
-                              <Calendar className="h-4 w-4 text-blue-500" />
+                              <CiCalendar className="h-4 w-4 text-blue-500" />
                               <p className="text-sm text-gray-900">
                                 {experience.startDate}
                               </p>
@@ -234,7 +625,7 @@ export const ForeignExperience = () => {
                               End Date
                             </p>
                             <div className="flex items-center gap-2">
-                              <Calendar className="h-4 w-4 text-purple-500" />
+                              <CiCalendar className="h-4 w-4 text-purple-500" />
                               <p className="text-sm text-gray-900">
                                 {experience.endDate}
                               </p>
@@ -242,7 +633,6 @@ export const ForeignExperience = () => {
                           </div>
                         </div>
 
-                        {/* Documents Section */}
                         {experience.documents.length > 0 && (
                           <div className="space-y-3">
                             <p className="text-sm font-medium text-gray-700">
@@ -287,6 +677,348 @@ export const ForeignExperience = () => {
                           </div>
                         )}
                       </div>
+                    </div>
+                    <div className="absolute top-3 right-3">
+                      <DropdownMenu>
+                        <DropdownMenuTrigger asChild>
+                          <Button variant="ghost" size="icon">
+                            <PiDotsThreeOutlineVerticalFill />
+                          </Button>
+                        </DropdownMenuTrigger>
+                        <DropdownMenuContent align="start" className="mr-4">
+                          <DropdownMenuGroup>
+                            <Dialog
+                              open={isDialogOpen}
+                              onOpenChange={setIsDialogOpen}
+                            >
+                              <DialogTrigger asChild>
+                                <DropdownMenuItem
+                                  onSelect={(e) => e.preventDefault()}
+                                >
+                                  <TbEdit size={16} />
+                                  <span className="ml-2">Edit</span>
+                                </DropdownMenuItem>
+                              </DialogTrigger>
+
+                              <DialogContent className="sm:max-w-[500px] p-6 overflow-y-auto">
+                                <DialogHeader>
+                                  <DialogTitle>
+                                    Edit Foreign Experience
+                                  </DialogTitle>
+                                </DialogHeader>
+
+                                <form
+                                  onSubmit={handleEditSubmit(onEditSubmit)}
+                                  className=" grid gap-2 py-4 max-h-[80vh] "
+                                  style={{
+                                    scrollbarWidth: "none",
+                                    msOverflowStyle: "none",
+                                  }}
+                                >
+                                  <div className="space-y-2">
+                                    <Label>Country</Label>
+                                    <Input
+                                      {...editRegister("country", {
+                                        required: "Country is required",
+                                      })}
+                                      placeholder="Enter Country visited"
+                                      className={`w-full border ${
+                                        editErrors.country
+                                          ? "border-red-500 "
+                                          : ""
+                                      }`}
+                                    />
+                                    {editErrors.country && (
+                                      <p className="text-red-500">
+                                        {editErrors.country.message}
+                                      </p>
+                                    )}
+                                  </div>
+
+                                  <div className="space-y-2">
+                                    <Label>Purpose</Label>
+
+                                    <Controller
+                                      name="purpose"
+                                      control={editControl}
+                                      rules={{
+                                        required: "Purpose is required!",
+                                      }}
+                                      render={({ field }) => (
+                                        <Select
+                                          onValueChange={field.onChange}
+                                          value={field.value}
+                                        >
+                                          <SelectTrigger
+                                            className={`w-full ${
+                                              editErrors.purpose
+                                                ? "border-red-500 focus:ring-red-500"
+                                                : ""
+                                            }`}
+                                          >
+                                            <SelectValue placeholder="Select Purpose" />
+                                          </SelectTrigger>
+                                          <SelectContent>
+                                            <SelectGroup>
+                                              <SelectItem value="bachelor">
+                                                Graduated{" "}
+                                              </SelectItem>
+                                              <SelectItem value="master">
+                                                In Progress
+                                              </SelectItem>
+                                              <SelectItem value="phd">
+                                                PhD
+                                              </SelectItem>
+                                            </SelectGroup>
+                                          </SelectContent>
+                                        </Select>
+                                      )}
+                                    />
+                                    {editErrors.purpose && (
+                                      <p className="text-red-500">
+                                        {editErrors.purpose.message}
+                                      </p>
+                                    )}
+                                  </div>
+
+                                  <div className="space-y-2">
+                                    <Label>Description</Label>
+                                    <Input
+                                      {...editRegister("description", {
+                                        required: "Description is required",
+                                      })}
+                                      placeholder="Enter duration"
+                                      className={`w-full border ${
+                                        editErrors.description
+                                          ? "border-red-500 "
+                                          : ""
+                                      }`}
+                                    />
+                                    {editErrors.description && (
+                                      <p className="text-red-500">
+                                        {editErrors.description.message}
+                                      </p>
+                                    )}
+                                  </div>
+
+                                  <div className="grid gap-3">
+                                    <Label
+                                      htmlFor="dateOfBirth"
+                                      className="px-1"
+                                    >
+                                      Start Date
+                                    </Label>
+
+                                    <Controller
+                                      name="startDate"
+                                      control={editControl}
+                                      rules={{
+                                        required: "Start date is required",
+                                      }}
+                                      render={({ field }) => (
+                                        <Popover
+                                          open={startDateOpen}
+                                          onOpenChange={setStartDateOpen}
+                                        >
+                                          <PopoverTrigger asChild>
+                                            <Button
+                                              variant="outline"
+                                              id="dateOfBirth"
+                                              className={`w-full justify-between font-normal ${
+                                                addErrors.startDate
+                                                  ? "border-red-500"
+                                                  : ""
+                                              }`}
+                                            >
+                                              {field.value instanceof Date
+                                                ? field.value.toLocaleDateString()
+                                                : "Select date"}
+                                              <CalendarIcon
+                                                color="gray"
+                                                className="w-4 h-4 ml-2"
+                                              />
+                                            </Button>
+                                          </PopoverTrigger>
+                                          <PopoverContent
+                                            className="w-auto overflow-hidden p-0"
+                                            align="start"
+                                          >
+                                            <Calendar
+                                              mode="single"
+                                              selected={
+                                                field.value || undefined
+                                              }
+                                              onSelect={(date) => {
+                                                field.onChange(date);
+                                                setStartDateOpen(false);
+                                              }}
+                                              captionLayout="dropdown"
+                                            />
+                                          </PopoverContent>
+                                        </Popover>
+                                      )}
+                                    />
+
+                                    {editErrors.startDate && (
+                                      <span className="text-red-500 text-sm px-1">
+                                        {editErrors.startDate.message}
+                                      </span>
+                                    )}
+                                  </div>
+
+                                  <div className="grid gap-3">
+                                    <Label
+                                      htmlFor="graduationDate"
+                                      className="px-1"
+                                    >
+                                      End Date
+                                    </Label>
+
+                                    <Controller
+                                      name="endDate"
+                                      control={editControl}
+                                      rules={{
+                                        required: "Graduation is required",
+                                      }}
+                                      render={({ field }) => (
+                                        <Popover
+                                          open={open}
+                                          onOpenChange={setOpen}
+                                        >
+                                          <PopoverTrigger asChild>
+                                            <Button
+                                              variant="outline"
+                                              id="graduationDate"
+                                              className={`w-full justify-between font-normal ${
+                                                editErrors.endDate
+                                                  ? "border-red-500"
+                                                  : ""
+                                              }`}
+                                            >
+                                              {field.value instanceof Date
+                                                ? field.value.toLocaleDateString()
+                                                : "Select date"}
+                                              <CalendarIcon
+                                                color="gray"
+                                                className="w-4 h-4 ml-2"
+                                              />
+                                            </Button>
+                                          </PopoverTrigger>
+                                          <PopoverContent
+                                            className="w-auto overflow-hidden p-0"
+                                            align="start"
+                                          >
+                                            <Calendar
+                                              mode="single"
+                                              selected={
+                                                field.value || undefined
+                                              }
+                                              onSelect={(date) => {
+                                                field.onChange(date);
+                                                setOpen(false);
+                                              }}
+                                              captionLayout="dropdown"
+                                            />
+                                          </PopoverContent>
+                                        </Popover>
+                                      )}
+                                    />
+
+                                    {editErrors.endDate && (
+                                      <span className="text-red-500 text-sm px-1">
+                                        {editErrors.endDate.message}
+                                      </span>
+                                    )}
+                                  </div>
+
+                                  <div className="space-y-2">
+                                    <Label>Description</Label>
+                                    <Input
+                                      {...editRegister("description", {
+                                        required: "Duration is required",
+                                      })}
+                                      placeholder="Brief description"
+                                      className={`w-full border ${
+                                        editErrors.description
+                                          ? "border-red-500 "
+                                          : ""
+                                      }`}
+                                    />
+                                    {editErrors.description && (
+                                      <p className="text-red-500">
+                                        {editErrors.description.message}
+                                      </p>
+                                    )}
+                                  </div>
+
+                                  <Controller
+                                    name="file"
+                                    control={editControl}
+                                    rules={{
+                                      required:
+                                        "Please upload at least one file",
+                                    }}
+                                    render={({ field, fieldState }) => (
+                                      <MultiFileUpload
+                                        maxSizeMB={10}
+                                        onFileSelect={(files) =>
+                                          field.onChange(files)
+                                        }
+                                        error={fieldState.error?.message}
+                                      />
+                                    )}
+                                  />
+
+                                  <DialogFooter className="py-4">
+                                    <Button
+                                      type="submit"
+                                      className="bg-blue-700 w-25 hover:bg-blue-600"
+                                    >
+                                      <Plus className="h-4 w-4 mr-1" /> Add
+                                    </Button>
+                                  </DialogFooter>
+                                </form>
+                              </DialogContent>
+                            </Dialog>
+
+                            <AlertDialog>
+                              <AlertDialogTrigger asChild>
+                                <DropdownMenuItem
+                                  onSelect={(e) => e.preventDefault()}
+                                >
+                                  <RiDeleteBinLine size={16} />
+                                  <span className="ml-2">Delete</span>
+                                </DropdownMenuItem>
+                              </AlertDialogTrigger>
+
+                              <AlertDialogContent>
+                                <AlertDialogHeader>
+                                  <AlertDialogTitle>
+                                    Are you sure you want to delete?
+                                  </AlertDialogTitle>
+                                  <AlertDialogDescription>
+                                    This action cannot be undone. The contact
+                                    will be permanently deleted.
+                                  </AlertDialogDescription>
+                                </AlertDialogHeader>
+
+                                <AlertDialogFooter>
+                                  <AlertDialogCancel className="h-10">
+                                    <div className="flex items-center gap-2">
+                                      <MdOutlineCancel size={16} /> No
+                                    </div>
+                                  </AlertDialogCancel>
+                                  <AlertDialogAction className="bg-red-600 hover:bg-red-700 h-10">
+                                    <div className="flex items-center gap-2">
+                                      <AiOutlineCheck size={16} /> Yes, Delete
+                                    </div>
+                                  </AlertDialogAction>
+                                </AlertDialogFooter>
+                              </AlertDialogContent>
+                            </AlertDialog>
+                          </DropdownMenuGroup>
+                        </DropdownMenuContent>
+                      </DropdownMenu>
                     </div>
                   </CardContent>
                 </Card>

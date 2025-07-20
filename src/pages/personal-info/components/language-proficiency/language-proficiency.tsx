@@ -9,6 +9,7 @@ import {
   Eye,
   Award,
   Globe,
+  Plus,
 } from "lucide-react";
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -16,8 +17,89 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { Progress } from "@/components/ui/progress";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+  DialogFooter,
+} from "@/components/ui/dialog";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { useState } from "react";
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogTrigger,
+} from "@/components/ui/alert-dialog";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuGroup,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import { RiDeleteBinLine } from "react-icons/ri";
+import { MdOutlineCancel } from "react-icons/md";
+import { AiOutlineCheck } from "react-icons/ai";
+import { PiDotsThreeOutlineVerticalFill } from "react-icons/pi";
+import { TbEdit } from "react-icons/tb";
+import { Controller, useForm } from "react-hook-form";
+import {
+  Select,
+  SelectContent,
+  SelectGroup,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import MultiFileUpload from "@/components/file-upload/file-upload";
+type FormValues = {
+  language: string;
+  proficiencyLevel: string;
+  file: File[];
+};
 
 export const LanguageProficiency = () => {
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
+  const {
+    control: addControl,
+    register: addRegister,
+    handleSubmit: handleAddSubmit,
+    formState: { errors: addErrors },
+  } = useForm<FormValues>({
+    defaultValues: {
+      file: [],
+    },
+  });
+
+  const {
+    control: editControl,
+    register: editRegister,
+    handleSubmit: handleEditSubmit,
+    formState: { errors: editErrors },
+  } = useForm<FormValues>({
+    defaultValues: {
+      language: "",
+      proficiencyLevel: "",
+      file: [],
+    },
+  });
+
+  const onAddSubmit = (data: FormValues) => {
+    console.log("Add Data:", data);
+  };
+
+  const onEditSubmit = (data: FormValues) => {
+    console.log("Edit Data:", data);
+  };
   const languageProficiencies = [
     {
       id: 1,
@@ -154,14 +236,119 @@ export const LanguageProficiency = () => {
       <div className="mx-auto">
         <Card className="shadow-lg">
           <CardHeader className="border-b bg-white">
-            <CardTitle className="flex items-center gap-2 text-xl font-semibold">
-              <Languages className="h-5 w-5 text-blue-600" />
-              Language Proficiency
-            </CardTitle>
-            <p className="text-sm text-gray-600 mt-1">
-              Multilingual skills and language certifications
-            </p>
+            <div className="flex items-center justify-between">
+              <div>
+                <CardTitle className="flex items-center gap-2 text-xl font-semibold">
+                  <Languages className="h-5 w-5 text-blue-600" />
+                  Language Proficiency
+                </CardTitle>
+                <p className="text-sm text-gray-600 mt-1">
+                  Multilingual skills and language certifications
+                </p>
+              </div>
+
+              <Dialog>
+                <DialogTrigger asChild>
+                  <Button variant="outline">
+                    <Plus className="h-4 w-4 mr-1" /> Add
+                  </Button>
+                </DialogTrigger>
+                <DialogContent>
+                  <DialogHeader>
+                    <DialogTitle>Add Language Proficiency</DialogTitle>
+                  </DialogHeader>
+
+                  <form
+                    onSubmit={handleAddSubmit(onAddSubmit)}
+                    className=" grid gap-2 py-4 max-h-[80vh] overflow-y-auto "
+                    style={{
+                      scrollbarWidth: "none",
+                      msOverflowStyle: "none",
+                    }}
+                  >
+                    <div className="space-y-2">
+                      <Label>Language</Label>
+
+                      <Controller
+                        name="language"
+                        control={addControl}
+                        rules={{ required: "Language is required!" }}
+                        render={({ field }) => (
+                          <Select
+                            onValueChange={field.onChange}
+                            value={field.value}
+                          >
+                            <SelectTrigger
+                              className={`w-full ${
+                                addErrors.language
+                                  ? "border-red-500 focus:ring-red-500"
+                                  : ""
+                              }`}
+                            >
+                              <SelectValue placeholder="Select Language" />
+                            </SelectTrigger>
+                            <SelectContent>
+                              <SelectGroup>
+                                <SelectItem value="bachelor">UZ </SelectItem>
+                                <SelectItem value="master">Eng </SelectItem>
+                                <SelectItem value="phd">Ru</SelectItem>
+                              </SelectGroup>
+                            </SelectContent>
+                          </Select>
+                        )}
+                      />
+                      {addErrors.language && (
+                        <p className="text-red-500">
+                          {addErrors.language.message}
+                        </p>
+                      )}
+                    </div>
+                    <div className="space-y-2">
+                      <Label>Proficiency Level</Label>
+                      <Input
+                        {...addRegister("proficiencyLevel", {
+                          required: "Duration is required",
+                        })}
+                        placeholder="e.g. Intermediate"
+                        className={`w-full border ${
+                          addErrors.proficiencyLevel ? "border-red-500 " : ""
+                        }`}
+                      />
+                      {addErrors.proficiencyLevel && (
+                        <p className="text-red-500">
+                          {addErrors.proficiencyLevel.message}
+                        </p>
+                      )}
+                    </div>
+
+                    <div className="space-y-2">
+                      <Controller
+                        name="file"
+                        control={addControl}
+                        rules={{ required: "Please upload at least one file" }}
+                        render={({ field, fieldState }) => (
+                          <MultiFileUpload
+                            maxSizeMB={10}
+                            onFileSelect={(files) => field.onChange(files)}
+                            error={fieldState.error?.message}
+                          />
+                        )}
+                      />
+                    </div>
+                    <DialogFooter>
+                      <Button
+                        type="submit"
+                        className="bg-blue-700 w-25 hover:bg-blue-600"
+                      >
+                        <Plus className="h-4 w-4 mr-1" /> Add
+                      </Button>
+                    </DialogFooter>
+                  </form>
+                </DialogContent>
+              </Dialog>
+            </div>
           </CardHeader>
+
           <CardContent className="space-y-6 p-6">
             {/* Language Summary Stats */}
             <div className="grid gap-4 md:grid-cols-4">
@@ -228,153 +415,333 @@ export const LanguageProficiency = () => {
                     key={language.id}
                     className="border-l-4 border-l-blue-500"
                   >
-                    <CardContent className="p-6">
-                      <div className="space-y-4">
-                        {/* Language Header */}
-                        <div className="flex items-center justify-between">
-                          <div className="flex items-center gap-3">
-                            <span className="text-2xl">
-                              {getLanguageFlag(language.language)}
-                            </span>
-                            <div>
-                              <h4 className="text-lg font-semibold text-gray-900">
-                                {language.language}
-                              </h4>
-                              {language.nativeLanguage && (
+                    <CardContent className="p-6 relative">
+                      <div>
+                        <div className="space-y-4 ">
+                          {/* Language Header */}
+                          <div className="flex items-center justify-between">
+                            <div className="flex items-center gap-3">
+                              <span className="text-2xl">
+                                {getLanguageFlag(language.language)}
+                              </span>
+                              <div>
+                                <h4 className="text-lg font-semibold text-gray-900">
+                                  {language.language}
+                                </h4>
+                                {language.nativeLanguage && (
+                                  <Badge
+                                    variant="outline"
+                                    className="text-xs bg-green-50 text-green-700 border-green-200"
+                                  >
+                                    Native Language
+                                  </Badge>
+                                )}
+                              </div>
+                            </div>
+                            <div className="text-right">
+                              <p className="text-2xl font-bold text-blue-600">
+                                {language.overallScore}%
+                              </p>
+                              <p className="text-xs text-gray-500">Overall</p>
+                            </div>
+                          </div>
+
+                          {/* Proficiency Levels */}
+                          <div className="space-y-3">
+                            <div className="space-y-1">
+                              <div className="flex justify-between items-center">
+                                <span className="text-sm font-medium text-gray-600 flex items-center gap-1">
+                                  <MessageCircle className="h-3 w-3" />
+                                  Speaking
+                                </span>
                                 <Badge
                                   variant="outline"
-                                  className="text-xs bg-green-50 text-green-700 border-green-200"
+                                  className={getProficiencyColor(
+                                    language.speakingLevel
+                                  )}
                                 >
-                                  Native Language
+                                  {language.speakingLevel}
                                 </Badge>
-                              )}
-                            </div>
-                          </div>
-                          <div className="text-right">
-                            <p className="text-2xl font-bold text-blue-600">
-                              {language.overallScore}%
-                            </p>
-                            <p className="text-xs text-gray-500">Overall</p>
-                          </div>
-                        </div>
-
-                        {/* Proficiency Levels */}
-                        <div className="space-y-3">
-                          <div className="space-y-1">
-                            <div className="flex justify-between items-center">
-                              <span className="text-sm font-medium text-gray-600 flex items-center gap-1">
-                                <MessageCircle className="h-3 w-3" />
-                                Speaking
-                              </span>
-                              <Badge
-                                variant="outline"
-                                className={getProficiencyColor(
+                              </div>
+                              <Progress
+                                value={getProficiencyProgress(
                                   language.speakingLevel
                                 )}
-                              >
-                                {language.speakingLevel}
-                              </Badge>
+                                className="h-2"
+                              />
                             </div>
-                            <Progress
-                              value={getProficiencyProgress(
-                                language.speakingLevel
-                              )}
-                              className="h-2"
-                            />
-                          </div>
 
-                          <div className="space-y-1">
-                            <div className="flex justify-between items-center">
-                              <span className="text-sm font-medium text-gray-600 flex items-center gap-1">
-                                <PenTool className="h-3 w-3" />
-                                Writing & Reading
-                              </span>
-                              <Badge
-                                variant="outline"
-                                className={getProficiencyColor(
+                            <div className="space-y-1">
+                              <div className="flex justify-between items-center">
+                                <span className="text-sm font-medium text-gray-600 flex items-center gap-1">
+                                  <PenTool className="h-3 w-3" />
+                                  Writing & Reading
+                                </span>
+                                <Badge
+                                  variant="outline"
+                                  className={getProficiencyColor(
+                                    language.writingReadingLevel
+                                  )}
+                                >
+                                  {language.writingReadingLevel}
+                                </Badge>
+                              </div>
+                              <Progress
+                                value={getProficiencyProgress(
                                   language.writingReadingLevel
                                 )}
-                              >
-                                {language.writingReadingLevel}
-                              </Badge>
+                                className="h-2"
+                              />
                             </div>
-                            <Progress
-                              value={getProficiencyProgress(
-                                language.writingReadingLevel
-                              )}
-                              className="h-2"
-                            />
-                          </div>
 
-                          <div className="space-y-1">
-                            <div className="flex justify-between items-center">
-                              <span className="text-sm font-medium text-gray-600 flex items-center gap-1">
-                                <Languages className="h-3 w-3" />
-                                Overall Proficiency
-                              </span>
-                              <Badge
-                                variant="outline"
-                                className={getProficiencyColor(
+                            <div className="space-y-1">
+                              <div className="flex justify-between items-center">
+                                <span className="text-sm font-medium text-gray-600 flex items-center gap-1">
+                                  <Languages className="h-3 w-3" />
+                                  Overall Proficiency
+                                </span>
+                                <Badge
+                                  variant="outline"
+                                  className={getProficiencyColor(
+                                    language.proficiencyLevel
+                                  )}
+                                >
+                                  {language.proficiencyLevel}
+                                </Badge>
+                              </div>
+                              <Progress
+                                value={getProficiencyProgress(
                                   language.proficiencyLevel
                                 )}
-                              >
-                                {language.proficiencyLevel}
-                              </Badge>
+                                className="h-2"
+                              />
                             </div>
-                            <Progress
-                              value={getProficiencyProgress(
-                                language.proficiencyLevel
-                              )}
-                              className="h-2"
-                            />
                           </div>
-                        </div>
 
-                        {language.certificates.length > 0 && (
-                          <div className="space-y-2">
-                            <p className="text-sm font-medium text-gray-700 flex items-center gap-1">
-                              <Award className="h-4 w-4" />
-                              Certifications
-                            </p>
+                          {language.certificates.length > 0 && (
                             <div className="space-y-2">
-                              {language.certificates.map((cert, certIndex) => (
-                                <div
-                                  key={certIndex}
-                                  className="flex items-center justify-between p-2 bg-gray-50 rounded-lg border"
-                                >
-                                  <div className="flex items-center gap-2">
-                                    <FileText className="h-4 w-4 text-blue-500" />
-                                    <div>
-                                      <p className="text-sm font-medium text-gray-900">
-                                        {cert.name}
-                                      </p>
-                                      <p className="text-xs text-gray-500">
-                                        Score: {cert.score} • {cert.date} •{" "}
-                                        {cert.size}
-                                      </p>
+                              <p className="text-sm font-medium text-gray-700 flex items-center gap-1">
+                                <Award className="h-4 w-4" />
+                                Certifications
+                              </p>
+                              <div className="space-y-2">
+                                {language.certificates.map(
+                                  (cert, certIndex) => (
+                                    <div
+                                      key={certIndex}
+                                      className="flex items-center justify-between p-2 bg-gray-50 rounded-lg border"
+                                    >
+                                      <div className="flex items-center gap-2">
+                                        <FileText className="h-4 w-4 text-blue-500" />
+                                        <div>
+                                          <p className="text-sm font-medium text-gray-900">
+                                            {cert.name}
+                                          </p>
+                                          <p className="text-xs text-gray-500">
+                                            Score: {cert.score} • {cert.date} •{" "}
+                                            {cert.size}
+                                          </p>
+                                        </div>
+                                      </div>
+                                      <div className="flex gap-1">
+                                        <Button
+                                          size="sm"
+                                          variant="ghost"
+                                          className="h-7 w-7 p-0"
+                                        >
+                                          <Eye className="h-3 w-3" />
+                                        </Button>
+                                        <Button
+                                          size="sm"
+                                          variant="ghost"
+                                          className="h-7 w-7 p-0"
+                                        >
+                                          <Download className="h-3 w-3" />
+                                        </Button>
+                                      </div>
                                     </div>
-                                  </div>
-                                  <div className="flex gap-1">
-                                    <Button
-                                      size="sm"
-                                      variant="ghost"
-                                      className="h-7 w-7 p-0"
-                                    >
-                                      <Eye className="h-3 w-3" />
-                                    </Button>
-                                    <Button
-                                      size="sm"
-                                      variant="ghost"
-                                      className="h-7 w-7 p-0"
-                                    >
-                                      <Download className="h-3 w-3" />
-                                    </Button>
-                                  </div>
-                                </div>
-                              ))}
+                                  )
+                                )}
+                              </div>
                             </div>
-                          </div>
-                        )}
+                          )}
+                        </div>
+                        <div className="absolute top-[-15px] right-1">
+                          <DropdownMenu>
+                            <DropdownMenuTrigger asChild>
+                              <Button variant="ghost" size="icon">
+                                <PiDotsThreeOutlineVerticalFill />
+                              </Button>
+                            </DropdownMenuTrigger>
+                            <DropdownMenuContent align="start" className="mr-4">
+                              <DropdownMenuGroup>
+                                <Dialog
+                                  open={isDialogOpen}
+                                  onOpenChange={setIsDialogOpen}
+                                >
+                                  <DialogTrigger asChild>
+                                    <DropdownMenuItem
+                                      onSelect={(e) => e.preventDefault()}
+                                    >
+                                      <TbEdit size={16} />
+                                      <span className="ml-2">Edit</span>
+                                    </DropdownMenuItem>
+                                  </DialogTrigger>
+
+                                  <DialogContent className="sm:max-w-[500px] p-6">
+                                    <DialogHeader>
+                                      <DialogTitle>
+                                        Edit Foreign Experience
+                                      </DialogTitle>
+                                    </DialogHeader>
+
+                                    <form
+                                      onSubmit={handleEditSubmit(onEditSubmit)}
+                                      className=" grid gap-2 py-4 max-h-[80vh] overflow-y-auto "
+                                      style={{
+                                        scrollbarWidth: "none",
+                                        msOverflowStyle: "none",
+                                      }}
+                                    >
+                                      <div className="space-y-2">
+                                        <Label>Language</Label>
+
+                                        <Controller
+                                          name="language"
+                                          control={editControl}
+                                          rules={{
+                                            required: "Language is required!",
+                                          }}
+                                          render={({ field }) => (
+                                            <Select
+                                              onValueChange={field.onChange}
+                                              value={field.value}
+                                            >
+                                              <SelectTrigger
+                                                className={`w-full ${
+                                                  editErrors.language
+                                                    ? "border-red-500 focus:ring-red-500"
+                                                    : ""
+                                                }`}
+                                              >
+                                                <SelectValue placeholder="Select Language" />
+                                              </SelectTrigger>
+                                              <SelectContent>
+                                                <SelectGroup>
+                                                  <SelectItem value="bachelor">
+                                                    UZ{" "}
+                                                  </SelectItem>
+                                                  <SelectItem value="master">
+                                                    Eng{" "}
+                                                  </SelectItem>
+                                                  <SelectItem value="phd">
+                                                    Ru
+                                                  </SelectItem>
+                                                </SelectGroup>
+                                              </SelectContent>
+                                            </Select>
+                                          )}
+                                        />
+                                        {editErrors.language && (
+                                          <p className="text-red-500">
+                                            {editErrors.language.message}
+                                          </p>
+                                        )}
+                                      </div>
+                                      <div className="space-y-2">
+                                        <Label>Proficiency Level</Label>
+                                        <Input
+                                          {...editRegister("proficiencyLevel", {
+                                            required: "Duration is required",
+                                          })}
+                                          placeholder="e.g. Intermediate"
+                                          className={`w-full border ${
+                                            editErrors.proficiencyLevel
+                                              ? "border-red-500 "
+                                              : ""
+                                          }`}
+                                        />
+                                        {editErrors.proficiencyLevel && (
+                                          <p className="text-red-500">
+                                            {
+                                              editErrors.proficiencyLevel
+                                                .message
+                                            }
+                                          </p>
+                                        )}
+                                      </div>
+
+                                      <div className="space-y-2">
+                                        <Controller
+                                          name="file"
+                                          control={editControl}
+                                          rules={{
+                                            required:
+                                              "Please upload at least one file",
+                                          }}
+                                          render={({ field, fieldState }) => (
+                                            <MultiFileUpload
+                                              maxSizeMB={10}
+                                              onFileSelect={(files) =>
+                                                field.onChange(files)
+                                              }
+                                              error={fieldState.error?.message}
+                                            />
+                                          )}
+                                        />
+                                      </div>
+                                      <DialogFooter>
+                                        <Button
+                                          type="submit"
+                                          className="bg-blue-700 w-25 hover:bg-blue-600"
+                                        >
+                                          <Plus className="h-4 w-4 mr-1" /> Add
+                                        </Button>
+                                      </DialogFooter>
+                                    </form>
+                                  </DialogContent>
+                                </Dialog>
+
+                                <AlertDialog>
+                                  <AlertDialogTrigger asChild>
+                                    <DropdownMenuItem
+                                      onSelect={(e) => e.preventDefault()}
+                                    >
+                                      <RiDeleteBinLine size={16} />
+                                      <span className="ml-2">Delete</span>
+                                    </DropdownMenuItem>
+                                  </AlertDialogTrigger>
+
+                                  <AlertDialogContent>
+                                    <AlertDialogHeader>
+                                      <AlertDialogTitle>
+                                        Are you sure you want to delete?
+                                      </AlertDialogTitle>
+                                      <AlertDialogDescription>
+                                        This action cannot be undone. The
+                                        contact will be permanently deleted.
+                                      </AlertDialogDescription>
+                                    </AlertDialogHeader>
+
+                                    <AlertDialogFooter>
+                                      <AlertDialogCancel className="h-10">
+                                        <div className="flex items-center gap-2">
+                                          <MdOutlineCancel size={16} /> No
+                                        </div>
+                                      </AlertDialogCancel>
+                                      <AlertDialogAction className="bg-red-600 hover:bg-red-700 h-10">
+                                        <div className="flex items-center gap-2">
+                                          <AiOutlineCheck size={16} /> Yes,
+                                          Delete
+                                        </div>
+                                      </AlertDialogAction>
+                                    </AlertDialogFooter>
+                                  </AlertDialogContent>
+                                </AlertDialog>
+                              </DropdownMenuGroup>
+                            </DropdownMenuContent>
+                          </DropdownMenu>
+                        </div>
                       </div>
                     </CardContent>
                   </Card>

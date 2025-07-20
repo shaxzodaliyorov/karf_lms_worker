@@ -1,20 +1,129 @@
 import {
   Briefcase,
   Building,
-  Calendar,
   Clock,
   Target,
   User,
   FileText,
   Download,
   Eye,
+  Plus,
+  CalendarIcon,
 } from "lucide-react";
+import { CiCalendar } from "react-icons/ci";
+
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
+import {
+  Dialog,
+  DialogContent,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
+import { Label } from "@/components/ui/label";
+import { Input } from "@/components/ui/input";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuGroup,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import { PiDotsThreeOutlineVerticalFill } from "react-icons/pi";
+import { useState } from "react";
+import { TbEdit } from "react-icons/tb";
+import {
+  Select,
+  SelectContent,
+  SelectGroup,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogTrigger,
+} from "@/components/ui/alert-dialog";
+import { RiDeleteBinLine } from "react-icons/ri";
+import { MdOutlineCancel } from "react-icons/md";
+import { AiOutlineCheck } from "react-icons/ai";
+import { Controller, useForm } from "react-hook-form";
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover";
+import { Calendar } from "@/components/ui/calendar";
+import MultiFileUpload from "@/components/file-upload/file-upload";
+type FormValues = {
+  language: string;
+  position: string;
+  startDate: Date | undefined;
+  endDate: Date | undefined;
+  field: string;
+  workingPeriod: string;
+  proficiencyLevel: string;
+  file: File[];
+};
 
 export const WorkplaceInformation = () => {
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
+  const [open, setOpen] = useState(false);
+  const [startDateOpen, setStartDateOpen] = useState(false);
+  const {
+    control: addControl,
+    register: addRegister,
+    handleSubmit: handleAddSubmit,
+    formState: { errors: addErrors },
+  } = useForm<FormValues>({
+    defaultValues: {
+      file: [],
+      position: "",
+      field: "",
+      startDate: undefined,
+      endDate: undefined,
+      workingPeriod: "",
+      language: "",
+      proficiencyLevel: "",
+    },
+  });
+
+  const {
+    control: editControl,
+    register: editRegister,
+    handleSubmit: handleEditSubmit,
+    formState: { errors: editErrors },
+  } = useForm<FormValues>({
+    defaultValues: {
+      language: "",
+      field: "",
+      startDate: undefined,
+      endDate: undefined,
+      proficiencyLevel: "",
+      workingPeriod: "",
+      file: [],
+      position: "",
+    },
+  });
+
+  const onAddSubmit = (data: FormValues) => {
+    console.log("Add Data:", data);
+  };
+
+  const onEditSubmit = (data: FormValues) => {
+    console.log("Edit Data:", data);
+  };
   const workplaceInformation = [
     {
       id: 1,
@@ -97,16 +206,317 @@ export const WorkplaceInformation = () => {
       <div className="mx-auto ">
         <Card className="shadow-lg">
           <CardHeader className="border-b bg-white">
-            <CardTitle className="flex items-center gap-2 text-xl font-semibold">
-              <Briefcase className="h-5 w-5 text-blue-600" />
-              Workplace Information
-            </CardTitle>
-            <p className="text-sm text-gray-600 mt-1">
-              Professional work experience and employment history
-            </p>
+            <div className="flex items-center justify-between">
+              <div>
+                <CardTitle className="flex items-center gap-2 text-xl font-semibold">
+                  <Briefcase className="h-5 w-5 text-blue-600" />
+                  Workplace Information
+                </CardTitle>
+                <p className="text-sm text-gray-600 mt-1">
+                  Professional work experience and employment history
+                </p>
+              </div>
+              <Dialog>
+                <DialogTrigger asChild>
+                  <Button variant="outline">
+                    <Plus className="h-4 w-4 mr-1" /> Add
+                  </Button>
+                </DialogTrigger>
+                <DialogContent className="overflow-y-auto">
+                  <DialogHeader>
+                    <DialogTitle>Add Work Experience Timeline</DialogTitle>
+                  </DialogHeader>
+
+                  <form
+                    onSubmit={handleAddSubmit(onAddSubmit)}
+                    className=" grid gap-2 py-4 max-h-[80vh]  "
+                    style={{
+                      scrollbarWidth: "none",
+                      msOverflowStyle: "none",
+                    }}
+                  >
+                    <div className="space-y-2">
+                      <Label>Position</Label>
+
+                      <Controller
+                        name="position"
+                        control={addControl}
+                        rules={{ required: "Position is required!" }}
+                        render={({ field }) => (
+                          <Select
+                            onValueChange={field.onChange}
+                            value={field.value}
+                          >
+                            <SelectTrigger
+                              className={`w-full ${
+                                addErrors.position
+                                  ? "border-red-500 focus:ring-red-500"
+                                  : ""
+                              }`}
+                            >
+                              <SelectValue placeholder="Select Position" />
+                            </SelectTrigger>
+                            <SelectContent>
+                              <SelectGroup>
+                                <SelectItem value="bachelor">
+                                  Graduated{" "}
+                                </SelectItem>
+                                <SelectItem value="master">
+                                  In Progress
+                                </SelectItem>
+                                <SelectItem value="phd">PhD</SelectItem>
+                              </SelectGroup>
+                            </SelectContent>
+                          </Select>
+                        )}
+                      />
+                      {addErrors.position && (
+                        <p className="text-red-500">
+                          {addErrors.position.message}
+                        </p>
+                      )}
+                    </div>
+                    <div className="space-y-2">
+                      <Label>Working Period</Label>
+
+                      <Controller
+                        name="workingPeriod"
+                        control={addControl}
+                        rules={{ required: "Working Peroid is required!" }}
+                        render={({ field }) => (
+                          <Select
+                            onValueChange={field.onChange}
+                            value={field.value}
+                          >
+                            <SelectTrigger
+                              className={`w-full ${
+                                addErrors.workingPeriod
+                                  ? "border-red-500 focus:ring-red-500"
+                                  : ""
+                              }`}
+                            >
+                              <SelectValue placeholder="Select Issuing Institution" />
+                            </SelectTrigger>
+                            <SelectContent>
+                              <SelectGroup>
+                                <SelectItem value="bachelor">
+                                  Graduated{" "}
+                                </SelectItem>
+                                <SelectItem value="master">
+                                  In Progress
+                                </SelectItem>
+                                <SelectItem value="phd">PhD</SelectItem>
+                              </SelectGroup>
+                            </SelectContent>
+                          </Select>
+                        )}
+                      />
+                      {addErrors.workingPeriod && (
+                        <p className="text-red-500">
+                          {addErrors.workingPeriod.message}
+                        </p>
+                      )}
+                    </div>
+
+                    <div className="space-y-2">
+                      <Label>Field</Label>
+
+                      <Controller
+                        name="field"
+                        control={addControl}
+                        rules={{ required: "Field is required!" }}
+                        render={({ field }) => (
+                          <Select
+                            onValueChange={field.onChange}
+                            value={field.value}
+                          >
+                            <SelectTrigger
+                              className={`w-full ${
+                                addErrors.field
+                                  ? "border-red-500 focus:ring-red-500"
+                                  : ""
+                              }`}
+                            >
+                              <SelectValue placeholder="Select Field" />
+                            </SelectTrigger>
+                            <SelectContent>
+                              <SelectGroup>
+                                <SelectItem value="bachelor">
+                                  Graduated{" "}
+                                </SelectItem>
+                                <SelectItem value="master">
+                                  In Progress
+                                </SelectItem>
+                                <SelectItem value="phd">PhD</SelectItem>
+                              </SelectGroup>
+                            </SelectContent>
+                          </Select>
+                        )}
+                      />
+                      {addErrors.field && (
+                        <p className="text-red-500">
+                          {addErrors.field.message}
+                        </p>
+                      )}
+                    </div>
+
+                    <div className="grid gap-3">
+                      <Label htmlFor="dateOfBirth" className="px-1">
+                        Start Date
+                      </Label>
+
+                      <Controller
+                        name="startDate"
+                        control={addControl}
+                        rules={{ required: "Start date is required" }}
+                        render={({ field }) => (
+                          <Popover
+                            open={startDateOpen}
+                            onOpenChange={setStartDateOpen}
+                          >
+                            <PopoverTrigger asChild>
+                              <Button
+                                variant="outline"
+                                id="dateOfBirth"
+                                className={`w-full h-10 justify-between font-normal ${
+                                  addErrors.startDate ? "border-red-500" : ""
+                                }`}
+                              >
+                                {field.value instanceof Date
+                                  ? field.value.toLocaleDateString()
+                                  : "Select date"}
+                                <CalendarIcon
+                                  color="gray"
+                                  className="w-4 h-4 ml-2"
+                                />{" "}
+                              </Button>
+                            </PopoverTrigger>
+                            <PopoverContent
+                              className="w-auto overflow-hidden p-0"
+                              align="start"
+                            >
+                              <Calendar
+                                mode="single"
+                                selected={field.value || undefined}
+                                onSelect={(date) => {
+                                  field.onChange(date);
+                                  setStartDateOpen(false);
+                                }}
+                                captionLayout="dropdown"
+                              />
+                            </PopoverContent>
+                          </Popover>
+                        )}
+                      />
+
+                      {addErrors.startDate && (
+                        <span className="text-red-500 text-sm px-1">
+                          {addErrors.startDate.message}
+                        </span>
+                      )}
+                    </div>
+
+                    <div className="grid gap-3">
+                      <Label htmlFor="graduationDate" className="px-1">
+                        End Date
+                      </Label>
+
+                      <Controller
+                        name="endDate"
+                        control={addControl}
+                        rules={{
+                          required: "Graduation is required",
+                        }}
+                        render={({ field }) => (
+                          <Popover open={open} onOpenChange={setOpen}>
+                            <PopoverTrigger asChild>
+                              <Button
+                                variant="outline"
+                                id="graduationDate"
+                                className={`w-full h-10 justify-between font-normal ${
+                                  addErrors.endDate ? "border-red-500" : ""
+                                }`}
+                              >
+                                {field.value instanceof Date
+                                  ? field.value.toLocaleDateString()
+                                  : "Select date"}
+                                <CalendarIcon
+                                  color="gray"
+                                  className="w-4 h-4 ml-2"
+                                />{" "}
+                              </Button>
+                            </PopoverTrigger>
+                            <PopoverContent
+                              className="w-auto overflow-hidden p-0"
+                              align="start"
+                            >
+                              <Calendar
+                                className=""
+                                mode="single"
+                                selected={field.value || undefined}
+                                onSelect={(date) => {
+                                  field.onChange(date);
+                                  setOpen(false);
+                                }}
+                                captionLayout="dropdown"
+                              />
+                            </PopoverContent>
+                          </Popover>
+                        )}
+                      />
+
+                      {addErrors.endDate && (
+                        <span className="text-red-500 text-sm px-1">
+                          {addErrors.endDate.message}
+                        </span>
+                      )}
+                    </div>
+
+                    <div className="space-y-2">
+                      <Controller
+                        name="file"
+                        control={addControl}
+                        rules={{ required: "Please upload at least one file" }}
+                        render={({ field, fieldState }) => (
+                          <MultiFileUpload
+                            maxSizeMB={10}
+                            onFileSelect={(files) => field.onChange(files)}
+                            error={fieldState.error?.message}
+                          />
+                        )}
+                      />
+                    </div>
+                    <div className="space-y-2">
+                      <Label>Language</Label>
+                      <Input
+                        {...addRegister("language", {
+                          required: "Language is required",
+                        })}
+                        placeholder="e.g. Spanish "
+                        className={`w-full border ${
+                          addErrors.language ? "border-red-500 " : ""
+                        }`}
+                      />
+                      {addErrors.language && (
+                        <p className="text-red-500">
+                          {addErrors.language.message}
+                        </p>
+                      )}
+                    </div>
+                    <DialogFooter className="py-4">
+                      <Button
+                        type="submit"
+                        className="bg-blue-700 w-25 hover:bg-blue-600"
+                      >
+                        <Plus className="h-4 w-4 mr-1" /> Add
+                      </Button>
+                    </DialogFooter>
+                  </form>
+                </DialogContent>
+              </Dialog>
+            </div>
           </CardHeader>
           <CardContent className="space-y-6 p-6">
-            {/* Workplace Summary Stats */}
             <div className="grid gap-4 md:grid-cols-4">
               <div className="rounded-lg border bg-blue-50 p-4">
                 <div className="flex items-center gap-2">
@@ -230,7 +640,7 @@ export const WorkplaceInformation = () => {
                                 Start Date
                               </p>
                               <div className="flex items-center gap-2">
-                                <Calendar className="h-4 w-4 text-orange-500" />
+                                <CiCalendar className="h-4 w-4 text-orange-500" />
                                 <p className="text-sm text-gray-900">
                                   {workplace.startDate}
                                 </p>
@@ -242,7 +652,7 @@ export const WorkplaceInformation = () => {
                                 End Date
                               </p>
                               <div className="flex items-center gap-2">
-                                <Calendar className="h-4 w-4 text-red-500" />
+                                <CiCalendar className="h-4 w-4 text-red-500" />
                                 <p className="text-sm text-gray-900">
                                   {calculateEndDate(
                                     workplace.startDate,
@@ -310,6 +720,414 @@ export const WorkplaceInformation = () => {
                             </div>
                           )}
                         </div>
+                      </div>
+
+                      <div className="absolute top-2 right-2">
+                        <DropdownMenu>
+                          <DropdownMenuTrigger asChild>
+                            <Button variant="ghost" size="icon">
+                              <PiDotsThreeOutlineVerticalFill />
+                            </Button>
+                          </DropdownMenuTrigger>
+                          <DropdownMenuContent align="start" className="mr-4">
+                            <DropdownMenuGroup>
+                              <Dialog
+                                open={isDialogOpen}
+                                onOpenChange={setIsDialogOpen}
+                              >
+                                <DialogTrigger asChild>
+                                  <DropdownMenuItem
+                                    onSelect={(e) => e.preventDefault()}
+                                  >
+                                    <TbEdit size={16} />
+                                    <span className="ml-2">Edit</span>
+                                  </DropdownMenuItem>
+                                </DialogTrigger>
+
+                                <DialogContent className="sm:max-w-[500px] p-6 overflow-y-auto ">
+                                  <DialogHeader>
+                                    <DialogTitle>
+                                      Edit Foreign Experience
+                                    </DialogTitle>
+                                  </DialogHeader>
+
+                                  <form
+                                    onSubmit={handleEditSubmit(onEditSubmit)}
+                                    className=" grid gap-2 py-4 max-h-[80vh] "
+                                    style={{
+                                      scrollbarWidth: "none",
+                                      msOverflowStyle: "none",
+                                    }}
+                                  >
+                                    <div className="space-y-2">
+                                      <Label>Position</Label>
+
+                                      <Controller
+                                        name="position"
+                                        control={editControl}
+                                        rules={{
+                                          required: "Position is required!",
+                                        }}
+                                        render={({ field }) => (
+                                          <Select
+                                            onValueChange={field.onChange}
+                                            value={field.value}
+                                          >
+                                            <SelectTrigger
+                                              className={`w-full ${
+                                                editErrors.position
+                                                  ? "border-red-500 focus:ring-red-500"
+                                                  : ""
+                                              }`}
+                                            >
+                                              <SelectValue placeholder="Select Position" />
+                                            </SelectTrigger>
+                                            <SelectContent>
+                                              <SelectGroup>
+                                                <SelectItem value="bachelor">
+                                                  Graduated{" "}
+                                                </SelectItem>
+                                                <SelectItem value="master">
+                                                  In Progress
+                                                </SelectItem>
+                                                <SelectItem value="phd">
+                                                  PhD
+                                                </SelectItem>
+                                              </SelectGroup>
+                                            </SelectContent>
+                                          </Select>
+                                        )}
+                                      />
+                                      {editErrors.position && (
+                                        <p className="text-red-500">
+                                          {editErrors.position.message}
+                                        </p>
+                                      )}
+                                    </div>
+                                    <div className="space-y-2">
+                                      <Label>Working Period</Label>
+
+                                      <Controller
+                                        name="workingPeriod"
+                                        control={editControl}
+                                        rules={{
+                                          required:
+                                            "Working Peroid is required!",
+                                        }}
+                                        render={({ field }) => (
+                                          <Select
+                                            onValueChange={field.onChange}
+                                            value={field.value}
+                                          >
+                                            <SelectTrigger
+                                              className={`w-full ${
+                                                editErrors.workingPeriod
+                                                  ? "border-red-500 focus:ring-red-500"
+                                                  : ""
+                                              }`}
+                                            >
+                                              <SelectValue placeholder="Select Issuing Institution" />
+                                            </SelectTrigger>
+                                            <SelectContent>
+                                              <SelectGroup>
+                                                <SelectItem value="bachelor">
+                                                  Graduated{" "}
+                                                </SelectItem>
+                                                <SelectItem value="master">
+                                                  In Progress
+                                                </SelectItem>
+                                                <SelectItem value="phd">
+                                                  PhD
+                                                </SelectItem>
+                                              </SelectGroup>
+                                            </SelectContent>
+                                          </Select>
+                                        )}
+                                      />
+                                      {editErrors.workingPeriod && (
+                                        <p className="text-red-500">
+                                          {editErrors.workingPeriod.message}
+                                        </p>
+                                      )}
+                                    </div>
+
+                                    <div className="space-y-2">
+                                      <Label>Field</Label>
+
+                                      <Controller
+                                        name="field"
+                                        control={editControl}
+                                        rules={{
+                                          required: "Field is required!",
+                                        }}
+                                        render={({ field }) => (
+                                          <Select
+                                            onValueChange={field.onChange}
+                                            value={field.value}
+                                          >
+                                            <SelectTrigger
+                                              className={`w-full ${
+                                                editErrors.field
+                                                  ? "border-red-500 focus:ring-red-500"
+                                                  : ""
+                                              }`}
+                                            >
+                                              <SelectValue placeholder="Select Field" />
+                                            </SelectTrigger>
+                                            <SelectContent>
+                                              <SelectGroup>
+                                                <SelectItem value="bachelor">
+                                                  Graduated{" "}
+                                                </SelectItem>
+                                                <SelectItem value="master">
+                                                  In Progress
+                                                </SelectItem>
+                                                <SelectItem value="phd">
+                                                  PhD
+                                                </SelectItem>
+                                              </SelectGroup>
+                                            </SelectContent>
+                                          </Select>
+                                        )}
+                                      />
+                                      {editErrors.field && (
+                                        <p className="text-red-500">
+                                          {editErrors.field.message}
+                                        </p>
+                                      )}
+                                    </div>
+
+                                    <div className="grid gap-3">
+                                      <Label
+                                        htmlFor="dateOfBirth"
+                                        className="px-1"
+                                      >
+                                        Start Date
+                                      </Label>
+
+                                      <Controller
+                                        name="startDate"
+                                        control={editControl}
+                                        rules={{
+                                          required: "Start date is required",
+                                        }}
+                                        render={({ field }) => (
+                                          <Popover
+                                            open={startDateOpen}
+                                            onOpenChange={setStartDateOpen}
+                                          >
+                                            <PopoverTrigger
+                                              asChild
+                                              className="h-[40px]"
+                                            >
+                                              <Button
+                                                variant="outline"
+                                                id="dateOfBirth"
+                                                className={`w-full h-10 justify-between font-normal ${
+                                                  editErrors.startDate
+                                                    ? "border-red-500"
+                                                    : ""
+                                                }`}
+                                              >
+                                                {field.value instanceof Date
+                                                  ? field.value.toLocaleDateString()
+                                                  : "Select date"}
+                                                <CalendarIcon
+                                                  color="gray"
+                                                  className="w-4 h-4 ml-2"
+                                                />{" "}
+                                              </Button>
+                                            </PopoverTrigger>
+                                            <PopoverContent
+                                              className="w-auto overflow-hidden p-0"
+                                              align="start"
+                                            >
+                                              <Calendar
+                                                mode="single"
+                                                selected={
+                                                  field.value || undefined
+                                                }
+                                                onSelect={(date) => {
+                                                  field.onChange(date);
+                                                  setStartDateOpen(false);
+                                                }}
+                                                captionLayout="dropdown"
+                                              />
+                                            </PopoverContent>
+                                          </Popover>
+                                        )}
+                                      />
+
+                                      {editErrors.startDate && (
+                                        <span className="text-red-500 text-sm px-1">
+                                          {editErrors.startDate.message}
+                                        </span>
+                                      )}
+                                    </div>
+
+                                    <div className="grid gap-3">
+                                      <Label
+                                        htmlFor="graduationDate"
+                                        className="px-1"
+                                      >
+                                        End Date
+                                      </Label>
+
+                                      <Controller
+                                        name="endDate"
+                                        control={editControl}
+                                        rules={{
+                                          required: "Graduation is required",
+                                        }}
+                                        render={({ field }) => (
+                                          <Popover
+                                            open={open}
+                                            onOpenChange={setOpen}
+                                          >
+                                            <PopoverTrigger
+                                              asChild
+                                              className="h-[40px]"
+                                            >
+                                              <Button
+                                                variant="outline"
+                                                id="graduationDate"
+                                                className={`w-full h-10 justify-between font-normal ${
+                                                  editErrors.endDate
+                                                    ? "border-red-500"
+                                                    : ""
+                                                }`}
+                                              >
+                                                {field.value instanceof Date
+                                                  ? field.value.toLocaleDateString()
+                                                  : "Select date"}
+                                                <CalendarIcon
+                                                  color="gray"
+                                                  className="w-4 h-4 ml-2"
+                                                />{" "}
+                                              </Button>
+                                            </PopoverTrigger>
+                                            <PopoverContent
+                                              className="w-auto overflow-hidden p-0"
+                                              align="start"
+                                            >
+                                              <Calendar
+                                                className=""
+                                                mode="single"
+                                                selected={
+                                                  field.value || undefined
+                                                }
+                                                onSelect={(date) => {
+                                                  field.onChange(date);
+                                                  setOpen(false);
+                                                }}
+                                                captionLayout="dropdown"
+                                              />
+                                            </PopoverContent>
+                                          </Popover>
+                                        )}
+                                      />
+
+                                      {editErrors.endDate && (
+                                        <span className="text-red-500 text-sm px-1">
+                                          {editErrors.endDate.message}
+                                        </span>
+                                      )}
+                                    </div>
+
+                                    <div className="space-y-2">
+                                      <Controller
+                                        name="file"
+                                        control={addControl}
+                                        rules={{
+                                          required:
+                                            "At least one file is required",
+                                        }}
+                                        render={({ field }) => (
+                                          <div className="grid gap-2">
+                                            <MultiFileUpload
+                                              maxSizeMB={10}
+                                              onFileSelect={(files: File[]) =>
+                                                field.onChange(files)
+                                              }
+                                            />
+                                            {addErrors.file && (
+                                              <p className="text-red-500">
+                                                {addErrors.file.message}
+                                              </p>
+                                            )}
+                                          </div>
+                                        )}
+                                      />
+                                    </div>
+                                    <div className="space-y-2">
+                                      <Label>Language</Label>
+                                      <Input
+                                        {...editRegister("language", {
+                                          required: "Language is required",
+                                        })}
+                                        placeholder="e.g. Spanish "
+                                        className={`w-full border ${
+                                          editErrors.language
+                                            ? "border-red-500 "
+                                            : ""
+                                        }`}
+                                      />
+                                      {editErrors.language && (
+                                        <p className="text-red-500">
+                                          {editErrors.language.message}
+                                        </p>
+                                      )}
+                                    </div>
+                                    <DialogFooter className="py-4">
+                                      <Button
+                                        type="submit"
+                                        className="bg-blue-700 w-25 hover:bg-blue-600"
+                                      >
+                                        <Plus className="h-4 w-4 mr-1" /> Add
+                                      </Button>
+                                    </DialogFooter>
+                                  </form>
+                                </DialogContent>
+                              </Dialog>
+
+                              <AlertDialog>
+                                <AlertDialogTrigger asChild>
+                                  <DropdownMenuItem
+                                    onSelect={(e) => e.preventDefault()}
+                                  >
+                                    <RiDeleteBinLine size={16} />
+                                    <span className="ml-2">Delete</span>
+                                  </DropdownMenuItem>
+                                </AlertDialogTrigger>
+
+                                <AlertDialogContent>
+                                  <AlertDialogHeader>
+                                    <AlertDialogTitle>
+                                      Are you sure you want to delete?
+                                    </AlertDialogTitle>
+                                    <AlertDialogDescription>
+                                      This action cannot be undone. The contact
+                                      will be permanently deleted.
+                                    </AlertDialogDescription>
+                                  </AlertDialogHeader>
+
+                                  <AlertDialogFooter>
+                                    <AlertDialogCancel className="h-10">
+                                      <div className="flex items-center gap-2">
+                                        <MdOutlineCancel size={16} /> No
+                                      </div>
+                                    </AlertDialogCancel>
+                                    <AlertDialogAction className="bg-red-600 hover:bg-red-700 h-10">
+                                      <div className="flex items-center gap-2">
+                                        <AiOutlineCheck size={16} /> Yes, Delete
+                                      </div>
+                                    </AlertDialogAction>
+                                  </AlertDialogFooter>
+                                </AlertDialogContent>
+                              </AlertDialog>
+                            </DropdownMenuGroup>
+                          </DropdownMenuContent>
+                        </DropdownMenu>
                       </div>
                     </CardContent>
                   </Card>
