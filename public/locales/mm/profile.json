@@ -1,0 +1,19 @@
+{
+  "sections": {
+    "profile": "ကိုယ်ရေးအချက်အလက်",
+    "basicInfo": "အခြေခံအချက်အလက်",
+    "location": "တည်နေရာ",
+    "contactInfo": "ဆက်သွယ်ရန်အချက်အလက်",
+    "physicalInfo": "ကိုယ်ခန္ဓာဆိုင်ရာအချက်အလက်",
+    "emergencyContact": "အရေးပေါ်ဆက်သွယ်ရန်",
+    "college": "ကောလိပ်",
+    "foreignExperience": "နိုင်ငံခြားအတွေ့အကြုံ",
+    "languageProficiency": "ဘာသာစကားကျွမ်းကျင်မှု",
+    "professionalCertificate": "ကျွမ်းကျင်မှုလက်မှတ်",
+    "workplaceInfo": "အလုပ်ခွင် အချက်အလက်",
+    "video": "ဗီဒီယို"
+  },
+  "messages":{
+    "completeProfile": "သင်၏ပရိုဖိုင်ကို ပိုမိုကောင်းမွန်စေရန် အပိုင်းအားလုံးကို ဖြည့်စွက်ပါ။"
+  }
+}

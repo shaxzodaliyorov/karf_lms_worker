@@ -1,0 +1,33 @@
+{
+    "education": {
+        "title": "Lịch Sử Học Tập",
+        "description": "Học vấn và chứng chỉ",
+        "startDate": "Ngày Bắt Đầu",
+        "endDate": "Ngày Kết Thúc",
+        "gpa": "Điểm Trung Bình",
+        "diploma": "Bằng Cấp",
+        "major": "Chuyên Ngành",
+        "location": "Địa Điểm",
+        "duration": "Thời Gian"
+    },
+    "status":{
+        "total": "Tổng Số Trường",
+        "completed": "Đã Hoàn Thành",
+        "inProgress": "Đang Học",
+        "graduated": "Tốt Nghiệp",
+        "status": "Trạng Thái"
+    },
+    "degree": {
+        "bachelor": "Cử Nhân",
+        "master": "Thạc Sĩ",
+        "phd": "Tiến Sĩ"
+    },
+    "journey": {
+        "title": "Hành Trình Học Tập"
+    },
+    "major":{
+        "cs": "Khoa Học Máy Tính",
+        "ai": "Trí Tuệ Nhân Tạo",
+        "ml": "Học Máy"
+    }
+}

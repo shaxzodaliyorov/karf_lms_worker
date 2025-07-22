@@ -1,0 +1,20 @@
+{
+    "sections": {
+      "profile": "Профиль",
+      "basicInfo": "Основная информация",
+      "location": "Местоположение",
+      "contactInfo": "Контактная информация",
+      "physicalInfo": "Физические данные",
+      "emergencyContact": "Экстренный контакт",
+      "college": "Колледж",
+      "foreignExperience": "Зарубежный опыт",
+      "languageProficiency": "Владение языками",
+      "professionalCertificate": "Профессиональный сертификат",
+      "workplaceInfo": "Информация о рабочем месте",
+      "video": "Видео"
+    },
+    "messages":{
+      "completeProfile": "Заполните все разделы, чтобы улучшить ваш профиль"
+    }
+  }
+  

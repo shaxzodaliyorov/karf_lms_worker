@@ -1,0 +1,15 @@
+{
+    "details": {
+        "title": "Emergency Contact Information",
+        "fullName": "Full Name",
+        "relationship": "Relationship",
+        "phoneNumber": "Phone Number",
+        "dateOfBirth": "Date of Birth"
+    },
+    "danger": {
+        "title": "Emergency Contact",
+        "description": "In case of emergency, contact:",
+        "name": "Name",
+        "phoneNumber": "Phone"
+    }
+}

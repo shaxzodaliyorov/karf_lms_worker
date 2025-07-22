@@ -1,0 +1,20 @@
+{
+  "sections": {
+    "profile": "පැතිකඩ",
+    "basicInfo": "මූලික තොරතුරු",
+    "location": "ස්ථානය",
+    "contactInfo": "සම්බන්ධතා තොරතුරු",
+    "physicalInfo": "ශාරීරික තොරතුරු",
+    "emergencyContact": "අනතුරුදායක සම්බන්ධතා",
+    "college": "විද්‍යාලය",
+    "foreignExperience": "විදේශ අත්දැකීම්",
+    "languageProficiency": "භාෂා දක්ෂතා",
+    "professionalCertificate": "වෘත්තීය සහතිකය",
+    "workplaceInfo": "වැඩ ස්ථාන තොරතුරු",
+    "video": "වීඩියෝ"
+  },
+  "messages":{
+    "completeProfile": "ඔබගේ පැතිකඩ වැඩිදියුණු කිරීමට සියලු කොටස් සම්පූර්ණ කරන්න"
+  }
+
+}

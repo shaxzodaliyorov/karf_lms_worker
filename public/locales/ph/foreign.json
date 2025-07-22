@@ -1,0 +1,50 @@
+{
+    "foreign": {
+        "title": "Karanasan sa Ibang Bansa",
+        "description": "Kasaysayan ng paglalakbay at karanasang pandaigdig",
+        "startDate": "Petsa ng Simula",
+        "endDate": "Petsa ng Katapusan",
+        "purpose": "Pangunahing Layunin",
+        "documents": "Mga Dokumentong Sumusuporta",
+        "duration": "Kabuuang Tagal",
+        "visitedCountry": "Mga Bansa na Nadalaw",
+        "country": "Bansa",
+        "experienceDescription": "Deskripsyon",
+        "selectPurpose": "Pumili ng Layunin",
+        "briefDescription": "Maikling Deskripsyon",
+        "noDescription": "Walang deskripsyon",
+        "uploadDocuments": "Mag-upload ng mga Dokumentong Sumusuporta",
+        "countriesVisited": "Mga Bansa na Nadalaw",
+        "totalDuration": "Kabuuang Tagal",
+        "purposeOfWork": "Trabaho",
+        "purposeOfStudy": "Pag-aaral",
+        "purposeOfTourism": "Turismo",
+        "deleteConfirmation": {
+            "title": "Sigurado ka bang gusto mong burahin?",
+            "description": "Hindi na ito mababawi. Ang talaan ay permanenteng mabubura.",
+            "cancel": "Hindi, huwag burahin",
+            "confirm": "Oo, burahin"
+        },
+        "editTitle": "I-edit ang Karanasan sa Ibang Bansa",
+        "addTitle": "Magdagdag ng Karanasan sa Ibang Bansa"
+    },
+    "timeline": {
+        "title": "Talaorasan ng Pandaigdigang Karanasan"
+    },
+    "purposes": {
+        "business": "Negosyo",
+        "tourism": "Turismo",
+        "work": "Trabaho",
+        "study": "Pag-aaral",
+        "other": "Iba Pa"
+    },
+    "actions": {
+        "edit": "I-edit",
+        "delete": "Burahin",
+        "view": "Tingnan",
+        "download": "I-download",
+        "cancel": "Kanselahin",
+        "save": "I-save ang mga Pagbabago",
+        "add": "Magdagdag ng Bago"
+    }
+}

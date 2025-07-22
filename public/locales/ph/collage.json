@@ -1,0 +1,33 @@
+{
+    "education": {
+        "title": "Kasaysayan ng Edukasyon",
+        "description": "Edukasyon at mga Kwalipikasyon",
+        "startDate": "Petsa ng Simula",
+        "endDate": "Petsa ng Pagtatapos",
+        "gpa": "Marka",
+        "diploma": "Diploma",
+        "major": "Pangunahing Kursong Pinag-aralan",
+        "location": "Lokasyon",
+        "duration": "Tagal"
+    },
+    "status":{
+        "total": "Kabuuang Institusyon",
+        "completed": "Natapos",
+        "inProgress": "Kasulukuyan",
+        "graduated": "Nagtapos",
+        "status": "Katayuan"
+    },
+    "degree": {
+        "bachelor": "Batsilyer",
+        "master": "Masterado",
+        "phd": "Doktorado"
+    },
+    "journey": {
+        "title": "Paglalakbay sa Edukasyon"
+    },
+    "major":{
+        "cs": "Agham Pangkompyuter",
+        "ai": "Artipisyal na Katalinuhan",
+        "ml": "Paggamit ng Makina"
+    }
+}

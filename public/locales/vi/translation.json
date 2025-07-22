@@ -1,0 +1,28 @@
+{
+  "language": {
+    "en": "Tiếng Anh",
+    "ru": "Tiếng Nga",
+    "uz": "Tiếng Uzbek",
+    "ko": "Tiếng Hàn",
+    "vi": "Tiếng Việt",
+    "lk": "Tiếng Sinhala",
+    "th": "Tiếng Thái",
+    "ph": "Tiếng Philippines",
+    "id": "Tiếng Indonesia",
+    "kh": "Tiếng Khmer",
+    "mm": "Tiếng Miến Điện",
+    "zh": "Tiếng Trung"
+  },
+  "common": {
+    "language": "Ngôn ngữ",
+    "settings": "Cài đặt",
+    "logout": "Đăng xuất",
+    "notifications": "Thông báo",
+    "personalInfo": "Thông tin cá nhân",
+    "isRequired": "bắt buộc",
+    "enter": "Nhập",
+    "select": "Chọn",
+    "edit": "Chỉnh Sửa",
+    "add": "Thêm"
+  }
+}

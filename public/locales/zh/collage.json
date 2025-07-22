@@ -1,0 +1,33 @@
+{
+    "education": {
+        "title": "教育背景",
+        "description": "学历与资格",
+        "startDate": "开始日期",
+        "endDate": "结束日期",
+        "gpa": "平均成绩",
+        "diploma": "学历",
+        "major": "专业",
+        "location": "地点",
+        "duration": "持续时间"
+    },
+    "status":{
+        "total": "总教育机构",
+        "completed": "已完成",
+        "inProgress": "进行中",
+        "graduated": "已毕业",
+        "status": "状态"
+    },
+    "degree": {
+        "bachelor": "学士",
+        "master": "硕士",
+        "phd": "博士"
+    },
+    "journey": {
+        "title": "学术历程"
+    },
+    "major":{
+        "cs": "计算机科学",
+        "ai": "人工智能",
+        "ml": "机器学习"
+    }
+}

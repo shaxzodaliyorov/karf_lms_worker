@@ -1,0 +1,19 @@
+{
+  "sections": {
+    "profile": "ទម្រង់",
+    "basicInfo": "ព័ត៌មានមូលដ្ឋាន",
+    "location": "ទីតាំង",
+    "contactInfo": "ព័ត៌មានទំនាក់ទំនង",
+    "physicalInfo": "ព័ត៌មានរាងកាយ",
+    "emergencyContact": "ទំនាក់ទំនងអាសន្ន",
+    "college": "មហាវិទ្យាល័យ",
+    "foreignExperience": "បទពិសោធន៍បរទេស",
+    "languageProficiency": "កម្រិតភាសា",
+    "professionalCertificate": "សញ្ញាប័ត្រវិជ្ជាជីវៈ",
+    "workplaceInfo": "ព័ត៌មានកន្លែងធ្វើការ",
+    "video": "វីដេអូ"
+  },
+  "messages":{
+    "completeProfile": "បំពេញគ្រប់ផ្នែកដើម្បីបង្កើនប្រវត្តិរូបរបស់អ្នក" 
+  }
+}

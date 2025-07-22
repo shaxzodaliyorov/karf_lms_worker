@@ -1,0 +1,33 @@
+{
+    "education": {
+        "title": "Riwayat Pendidikan",
+        "description": "Pendidikan dan kualifikasi",
+        "startDate": "Tanggal Mulai",
+        "endDate": "Tanggal Selesai",
+        "gpa": "IPK",
+        "diploma": "Ijazah",
+        "major": "Jurusan",
+        "location": "Lokasi",
+        "duration": "Durasi"
+    },
+    "status":{
+        "total": "Total Institusi",
+        "completed": "Selesai",
+        "inProgress": "Dalam Proses",
+        "graduated": "Lulus",
+        "status": "Status"
+    },
+    "degree": {
+        "bachelor": "Sarjana",
+        "master": "Magister",
+        "phd": "Doktor"
+    },
+    "journey": {
+        "title": "Perjalanan Akademik"
+    },
+    "major":{
+        "cs": "Ilmu Komputer",
+        "ai": "Kecerdasan Buatan",
+        "ml": "Pembelajaran Mesin"
+    }
+}
