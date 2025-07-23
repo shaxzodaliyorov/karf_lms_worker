@@ -1,0 +1,33 @@
+{
+    "education": {
+        "title": "Education History",
+        "description": "Complete academic background and qualifications",
+        "startDate": "Start Date",
+        "endDate": "Graduation Date",
+        "gpa": "GPA",
+        "diploma": "Diploma",
+        "major": "Major",
+        "location": "Location",
+        "duration": "Duration"
+    },
+    "status":{
+        "total": "Total Institutions",
+        "completed": "Completed",
+        "inProgress": "In Progress",
+        "graduated": "Graduated",
+        "status": "Status"
+    },
+    "degree": {
+        "bachelor": "Bachelor's Degree",
+        "master": "Master's Degree",
+        "phd": "PhD"
+    },
+    "journey": {
+        "title": "Academic Journey"
+    },
+    "major":{
+        "cs": "Computer Science",
+        "ai": "Artificial Intelligence",
+        "ml": "Machine Learning"
+    }
+}

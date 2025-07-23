@@ -1,0 +1,19 @@
+{
+  "sections": {
+    "profile": "Propayl",
+    "basicInfo": "Pangunahing Impormasyon",
+    "location": "Lokasyon",
+    "contactInfo": "Impormasyon sa Pakikipag-ugnayan",
+    "physicalInfo": "Pisikal na Impormasyon",
+    "emergencyContact": "Kontak sa Emergency",
+    "college": "Kolehiyo",
+    "foreignExperience": "Karanasan sa Ibang Bansa",
+    "languageProficiency": "Kasanayan sa Wika",
+    "professionalCertificate": "Sertipikong Propesyonal",
+    "workplaceInfo": "Impormasyon sa Pinagtatrabahuhan",
+    "video": "Bidyo"
+  },
+  "messages":{
+    "completeProfile": "Kumpletuhin ang lahat ng seksyon upang mapahusay ang iyong profile"
+  }
+}

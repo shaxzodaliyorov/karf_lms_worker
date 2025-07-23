@@ -1,0 +1,28 @@
+{
+  "language": {
+    "en": "Inggris",
+    "ru": "Rusia",
+    "uz": "Uzbek",
+    "ko": "Korea",
+    "vi": "Vietnam",
+    "lk": "Sinhala",
+    "th": "Thailand",
+    "ph": "Filipina",
+    "id": "Indonesia",
+    "kh": "Kamboja",
+    "mm": "Myanmar",
+    "zh": "Tionghoa"
+  },
+  "common": {
+    "language": "Bahasa",
+    "settings": "Pengaturan",
+    "logout": "Keluar",
+    "notifications": "Notifikasi",
+    "personalInfo": "Informasi Pribadi",
+    "isRequired": "wajib diisi",
+    "enter": "Masukkan",
+    "select": "Pilih",
+    "edit": "Edit",
+    "add": "Tambah"
+  }
+}

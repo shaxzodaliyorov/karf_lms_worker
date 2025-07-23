@@ -1,6 +1,5 @@
 import type * as React from "react";
 import { ChevronRight, LogOut as LogOutIcon, User } from "lucide-react";
-
 import {
   Collapsible,
   CollapsibleContent,
@@ -27,6 +26,7 @@ import {
   TooltipContent,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
+import { useTranslation } from "react-i18next";
 
 type UserRole = "Admin" | "Company" | "Agency" | "Worker";
 
@@ -49,69 +49,13 @@ interface NavigationItem {
 
 const navigationData: NavigationItem[] = [
   {
-    title: "Personal Information",
+    title: ("common.personalInfo"),
     url: "/worker/personal-info",
     icon: {
       outline: <User size={16} />,
       filled: <User size={16} />,
     },
   },
-  // {
-  //   title: "Emergency Contact",
-  //   url: "/worker/emergency-contact",
-  //   icon: {
-  //     outline: <User />,
-  //     filled: <User />,
-  //   },
-  // },
-  // {
-  //   title: "College",
-  //   url: "/worker/college",
-  //   icon: {
-  //     outline: <GraduationCap size={16} />,
-  //     filled: <GraduationCap size={16} />,
-  //   },
-  // },
-  // {
-  //   title: "Foreign Experience",
-  //   url: "/worker/foreign-experience",
-  //   icon: {
-  //     outline: <Globe />,
-  //     filled: <Globe />,
-  //   },
-  // },
-  // {
-  //   title: "Language Proficiency",
-  //   url: "/worker/language-proficiency",
-  //   icon: {
-  //     outline: <Languages />,
-  //     filled: <Languages />,
-  //   },
-  // },
-  // {
-  //   title: "Professional Certificate",
-  //   url: "/worker/professional-certificate",
-  //   icon: {
-  //     outline: <Award />,
-  //     filled: <Award />,
-  //   },
-  // },
-  // {
-  //   title: "Workplace Information",
-  //   url: "/worker/workplace-info",
-  //   icon: {
-  //     outline: <Briefcase />,
-  //     filled: <Briefcase />,
-  //   },
-  // },
-  // {
-  //   title: "video",
-  //   url: "/worker/videos",
-  //   icon: {
-  //     outline: <Video />,
-  //     filled: <Video />,
-  //   },
-  // },
 ];
 
 interface AppSidebarProps extends React.ComponentProps<typeof Sidebar> {
@@ -126,6 +70,8 @@ export function AppSidebar({ activeUrl, ...props }: AppSidebarProps) {
   const userEmail = "john.doe@example.com";
   const userAvatarUrl =
     "https://images.unsplash.com/photo-1633332755192-727a05c4013d?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dXNlcnxlbnwwfHwwfHx8MA%3D%3D";
+
+    const { t } = useTranslation();
 
   return (
     <Sidebar collapsible="icon" {...props}>
@@ -163,11 +109,11 @@ export function AppSidebar({ activeUrl, ...props }: AppSidebarProps) {
                       <SidebarMenuItem>
                         <CollapsibleTrigger asChild>
                           <SidebarMenuButton
-                            tooltip={item.title}
+                            tooltip={t(item.title)}
                             isActive={isActive}
                           >
                             {isActive ? item.icon.filled : item.icon.outline}
-                            <span>{item.title}</span>
+                            <span className="text-white">{t(item.title)}</span>
                             <ChevronRight className="ml-auto transition-transform duration-200 group-data-[state=open]/collapsible:rotate-90" />
                           </SidebarMenuButton>
                         </CollapsibleTrigger>
@@ -187,13 +133,13 @@ export function AppSidebar({ activeUrl, ...props }: AppSidebarProps) {
                                           (activeUrl === subItem.url
                                             ? subItem.icon.filled
                                             : subItem.icon.outline)}
-                                        <span>{subItem.title}</span>
+                                        <span>{t(subItem.title)}</span>
                                       </Link>
                                     </SidebarMenuSubButton>
                                   </SidebarMenuSubItem>
                                 </TooltipTrigger>
                                 <TooltipContent side="right">
-                                  <p>{subItem.title}</p>
+                                  <p>{t(subItem.title)}</p>
                                 </TooltipContent>
                               </Tooltip>
                             ))}
@@ -210,19 +156,19 @@ export function AppSidebar({ activeUrl, ...props }: AppSidebarProps) {
                       <SidebarMenuItem>
                         <SidebarMenuButton
                           asChild
-                          tooltip={item.title}
+                          tooltip={t(item.title)}
                           isActive={isActive}
                           className="data-[active=true]:bg-blue-600 data-[active=true]:text-white "
                         >
                           <Link to={item.url}>
                             {isActive ? item.icon.filled : item.icon.outline}
-                            <span>{item.title}</span>
+                            <span className="text-white">{t(item.title)}</span>
                           </Link>
                         </SidebarMenuButton>
                       </SidebarMenuItem>
                     </TooltipTrigger>
                     <TooltipContent side="right">
-                      <p>{item.title}</p>
+                      <p>{t(item.title)}</p>
                     </TooltipContent>
                   </Tooltip>
                 );

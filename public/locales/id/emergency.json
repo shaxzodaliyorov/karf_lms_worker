@@ -1,0 +1,15 @@
+{
+    "details": {
+        "title": "Informasi Kontak Darurat",
+        "fullName": "Nama Lengkap",
+        "relationship": "Hubungan",
+        "phoneNumber": "Nomor Telepon",
+        "dateOfBirth": "Tanggal Lahir"
+    },
+    "danger": {
+        "title": "Kontak Darurat",
+        "description": "Dalam keadaan darurat, hubungi:",
+        "name": "Nama",
+        "phoneNumber": "Telepon"
+    }
+}

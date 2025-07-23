@@ -1,0 +1,33 @@
+{
+    "education": {
+        "title": "Ta'lim Tarixi",
+        "description": "To'liq akademik ma'lumot va malakalar",
+        "startDate": "Boshlanish Sanasi",
+        "endDate": "Tugatish Sanasi",
+        "gpa": "O'rtacha Baho",
+        "diploma": "Diplom",
+        "major": "Mutaxassislik",
+        "location": "Manzil",
+        "duration": "Davomiylik"
+    },
+    "status":{
+        "total": "Jami Ta'lim Muassasalari",
+        "completed": "Tugallangan",
+        "inProgress": "Jarayonda",
+        "graduated": "Bitirgan",
+        "status": "Holati"
+    },
+    "degree": {
+        "bachelor": "Bakalavr",
+        "master": "Magistr",
+        "phd": "PhD"
+    },
+    "journey": {
+        "title": "Akademik Yo'l"
+    },
+    "major":{
+        "cs": "Dasturiy Ta'minot",
+        "ai": "Sun'iy Intellekt",
+        "ml": "Mashina O'rganishi"
+    }
+}

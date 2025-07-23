@@ -1,0 +1,15 @@
+{
+    "details": {
+        "title": "비상 연락처 정보",
+        "fullName": "성명",
+        "relationship": "관계",
+        "phoneNumber": "전화번호",
+        "dateOfBirth": "생년월일"
+    },
+    "danger": {
+        "title": "비상 연락처",
+        "description": "비상시 연락처:",
+        "name": "이름",
+        "phoneNumber": "전화"
+    }
+}

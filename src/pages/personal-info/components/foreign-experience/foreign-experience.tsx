@@ -67,6 +67,7 @@ import {
 } from "@/components/ui/popover";
 import { Calendar } from "@/components/ui/calendar";
 import MultiFileUpload from "@/components/file-upload/file-upload";
+import { useTranslation } from "react-i18next";
 
 type FormValues = {
   country: string;
@@ -82,6 +83,8 @@ type FormValues = {
 };
 
 export const ForeignExperience = () => {
+  const { t } = useTranslation(["foreign", "translation"]);
+
   const [open, setOpen] = useState(false);
   const [startDateOpen, setStartDateOpen] = useState(false);
   const {
@@ -132,7 +135,7 @@ export const ForeignExperience = () => {
       id: 1,
       visitedCountry: "United States",
       duration: "6 months",
-      purpose: "Work",
+      purpose: t("purposes.work"),
       startDate: "01/01/2023",
       endDate: "30/06/2023",
       documents: [
@@ -145,7 +148,7 @@ export const ForeignExperience = () => {
       id: 2,
       visitedCountry: "Germany",
       duration: "3 months",
-      purpose: "Study",
+      purpose: t("purposes.study"),
       startDate: "15/09/2022",
       endDate: "15/12/2022",
       documents: [
@@ -158,7 +161,7 @@ export const ForeignExperience = () => {
       id: 3,
       visitedCountry: "Japan",
       duration: "2 weeks",
-      purpose: "Tourism",
+      purpose: t("purposes.tourism"),
       startDate: "10/05/2022",
       endDate: "24/05/2022",
       documents: [
@@ -169,14 +172,14 @@ export const ForeignExperience = () => {
   ];
 
   const getPurposeColor = (purpose: string) => {
-    switch (purpose.toLowerCase()) {
-      case "work":
+    switch (purpose) {
+      case t("purposes.work"):
         return "bg-blue-50 text-blue-700 border-blue-200";
-      case "study":
+      case t("purposes.study"):
         return "bg-green-50 text-green-700 border-green-200";
-      case "tourism":
+      case t("purposes.tourism"):
         return "bg-purple-50 text-purple-700 border-purple-200";
-      case "business":
+      case t("purposes.business"):
         return "bg-orange-50 text-orange-700 border-orange-200";
       default:
         return "bg-gray-50 text-gray-700 border-gray-200";
@@ -184,14 +187,14 @@ export const ForeignExperience = () => {
   };
 
   const getPurposeIcon = (purpose: string) => {
-    switch (purpose.toLowerCase()) {
-      case "work":
+    switch (purpose) {
+      case t("purposes.work"):
         return "💼";
-      case "study":
+      case t("purposes.study"):
         return "📚";
-      case "tourism":
+      case t("purposes.tourism"):
         return "🏖️";
-      case "business":
+      case t("purposes.business"):
         return "🤝";
       default:
         return "🌍";
@@ -216,7 +219,7 @@ export const ForeignExperience = () => {
           <div className="flex items-center justify-between">
             <CardTitle className="flex items-center gap-2 text-xl font-semibold">
               <Globe className="h-5 w-5 text-blue-600" />
-              Foreign Experience
+              {t("foreign.title")}
             </CardTitle>
 
             {/* Add Modal */}
@@ -224,13 +227,13 @@ export const ForeignExperience = () => {
               <DialogTrigger asChild>
                 <Button variant="outline">
                   <Plus />
-                  Add
+                  {t("translation:common.add")}
                 </Button>
               </DialogTrigger>
 
               <DialogContent className="max-w-lg overflow-y-auto">
                 <DialogHeader>
-                  <DialogTitle>Add Foreign Experience</DialogTitle>
+                  <DialogTitle>{t("foreign.title")}</DialogTitle>
                 </DialogHeader>
 
                 <form
@@ -242,12 +245,12 @@ export const ForeignExperience = () => {
                   }}
                 >
                   <div className="space-y-2">
-                    <Label>Country</Label>
+                    <Label>{t("foreign.visitedCountry")}</Label>
                     <Input
                       {...addRegister("country", {
                         required: "Country is required",
                       })}
-                      placeholder="Enter Country visited"
+                      placeholder={t("translation:common.enter") + " " + t("foreign.visitedCountry")}
                       className={`w-full border ${
                         addErrors.country ? "border-red-500 " : ""
                       }`}
@@ -260,7 +263,7 @@ export const ForeignExperience = () => {
                   </div>
 
                   <div className="space-y-2">
-                    <Label>Purpose</Label>
+                    <Label>{t("foreign.purpose")}</Label>
 
                     <Controller
                       name="purpose"
@@ -278,7 +281,7 @@ export const ForeignExperience = () => {
                                 : ""
                             }`}
                           >
-                            <SelectValue placeholder="Select Purpose" />
+                            <SelectValue placeholder={t("translation:common.select") + " " + t("foreign.purpose")} />
                           </SelectTrigger>
                           <SelectContent>
                             <SelectGroup>
@@ -302,12 +305,12 @@ export const ForeignExperience = () => {
                   </div>
 
                   <div className="space-y-2">
-                    <Label>Description</Label>
+                    <Label>{t("foreign.description")}</Label>
                     <Input
                       {...addRegister("description", {
                         required: "Description is required",
                       })}
-                      placeholder="Enter duration"
+                      placeholder={t("translation:common.enter") + " " + t("foreign.description")}
                       className={`w-full border ${
                         addErrors.description ? "border-red-500 " : ""
                       }`}
@@ -321,7 +324,7 @@ export const ForeignExperience = () => {
 
                   <div className="grid gap-3">
                     <Label htmlFor="dateOfBirth" className="px-1">
-                      Start Date
+                      {t("foreign.startDate")}
                     </Label>
 
                     <Controller
@@ -343,7 +346,7 @@ export const ForeignExperience = () => {
                             >
                               {field.value instanceof Date
                                 ? field.value.toLocaleDateString()
-                                : "Select date"}
+                                : t("translation:common.select") + " " + t("foreign.startDate")}
                               <CalendarIcon
                                 color="gray"
                                 className="w-4 h-4 ml-2"
@@ -377,7 +380,7 @@ export const ForeignExperience = () => {
 
                   <div className="grid gap-3">
                     <Label htmlFor="graduationDate" className="px-1">
-                      End Date
+                      {t("foreign.endDate")}
                     </Label>
 
                     <Controller
@@ -398,7 +401,7 @@ export const ForeignExperience = () => {
                             >
                               {field.value instanceof Date
                                 ? field.value.toLocaleDateString()
-                                : "Select date"}
+                                : t("translation:common.select") + " " + t("foreign.endDate")}
                               <CalendarIcon
                                 color="gray"
                                 className="w-4 h-4 ml-2"
@@ -436,13 +439,13 @@ export const ForeignExperience = () => {
                         disableDescription ? "text-gray-400 cursor-default" : ""
                       }`}
                     >
-                      Description
+                      {t("foreign.description")}
                     </Label>
                     <Input
                       {...addRegister("description", {
                         required: "Duration is required",
                       })}
-                      placeholder="Brief description"
+                      placeholder={t("translation:common.enter") + " " + t("foreign.description")}
                       disabled={disableDescription}
                       className={`w-full border ${
                         addErrors.description ? "border-red-500 " : ""
@@ -462,9 +465,7 @@ export const ForeignExperience = () => {
                         onChange={handleCheckboxChange}
                         className="accent-blue-600 h-4 w-4"
                       />
-                      {/* <Label htmlFor="disableDescription">
-                        Disable description input
-                      </Label> */}
+       
                     </div>
                   </div>
 
@@ -490,7 +491,7 @@ export const ForeignExperience = () => {
                       type="submit"
                       className="bg-blue-700 w-25 hover:bg-blue-600"
                     >
-                      <Plus className="h-4 w-4 mr-1" /> Add
+                      <Plus className="h-4 w-4 mr-1" /> {t("translation.add")}
                     </Button>
                   </DialogFooter>
                 </form>
@@ -499,7 +500,7 @@ export const ForeignExperience = () => {
           </div>
 
           <p className="text-sm text-gray-600 mt-1">
-            International travel and experience history
+            {t("foreign.description")}
           </p>
         </CardHeader>
 
@@ -510,7 +511,7 @@ export const ForeignExperience = () => {
               <div className="flex items-center gap-2">
                 <Globe className="h-5 w-5 text-blue-600" />
                 <span className="text-sm font-medium text-blue-800">
-                  Countries Visited
+                  {t("foreign.visitedCountry")}
                 </span>
               </div>
               <p className="text-2xl font-bold text-blue-900 mt-1">
@@ -522,7 +523,7 @@ export const ForeignExperience = () => {
               <div className="flex items-center gap-2">
                 <Clock className="h-5 w-5 text-green-600" />
                 <span className="text-sm font-medium text-green-800">
-                  Total Duration
+                  {t("foreign.duration")}
                 </span>
               </div>
               <p className="text-2xl font-bold text-green-900 mt-1">
@@ -534,17 +535,17 @@ export const ForeignExperience = () => {
               <div className="flex items-center gap-2">
                 <Target className="h-5 w-5 text-purple-600" />
                 <span className="text-sm font-medium text-purple-800">
-                  Main Purpose
+                  {t("foreign.purpose")}
                 </span>
               </div>
-              <p className="text-lg font-bold text-purple-900 mt-1">Work</p>
+              <p className="text-lg font-bold text-purple-900 mt-1">{t("purposes.work")}</p>
             </div>
 
             <div className="rounded-lg border bg-orange-50 p-4">
               <div className="flex items-center gap-2">
                 <FileText className="h-5 w-5 text-orange-600" />
                 <span className="text-sm font-medium text-orange-800">
-                  Documents
+                  {t("foreign.documents")}
                 </span>
               </div>
               <p className="text-2xl font-bold text-orange-900 mt-1">
@@ -561,7 +562,7 @@ export const ForeignExperience = () => {
           {/* Experience Timeline */}
           <div className="space-y-6">
             <h3 className="text-lg font-medium text-gray-900">
-              International Experience Timeline
+              {t("timeline.title")}
             </h3>
 
             {foreignExperiences.map((experience) => (
@@ -598,7 +599,7 @@ export const ForeignExperience = () => {
                         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
                           <div className="space-y-1">
                             <p className="text-sm font-medium text-gray-500">
-                              Duration
+                              {t("foreign.duration")}
                             </p>
                             <div className="flex items-center gap-2">
                               <Clock className="h-4 w-4 text-green-500" />
@@ -610,7 +611,7 @@ export const ForeignExperience = () => {
 
                           <div className="space-y-1">
                             <p className="text-sm font-medium text-gray-500">
-                              Start Date
+                              {t("foreign.startDate")}
                             </p>
                             <div className="flex items-center gap-2">
                               <CiCalendar className="h-4 w-4 text-blue-500" />
@@ -622,7 +623,7 @@ export const ForeignExperience = () => {
 
                           <div className="space-y-1">
                             <p className="text-sm font-medium text-gray-500">
-                              End Date
+                              {t("foreign.endDate")}
                             </p>
                             <div className="flex items-center gap-2">
                               <CiCalendar className="h-4 w-4 text-purple-500" />
@@ -636,7 +637,7 @@ export const ForeignExperience = () => {
                         {experience.documents.length > 0 && (
                           <div className="space-y-3">
                             <p className="text-sm font-medium text-gray-700">
-                              Supporting Documents
+                              {t("foreign.documents")}
                             </p>
                             <div className="grid gap-2 md:grid-cols-2">
                               {experience.documents.map((doc, docIndex) => (
@@ -703,7 +704,7 @@ export const ForeignExperience = () => {
                               <DialogContent className="sm:max-w-[500px] p-6 overflow-y-auto">
                                 <DialogHeader>
                                   <DialogTitle>
-                                    Edit Foreign Experience
+                                     {t("translation:common.edit") + " " + t("foreign.title")}
                                   </DialogTitle>
                                 </DialogHeader>
 
@@ -716,7 +717,7 @@ export const ForeignExperience = () => {
                                   }}
                                 >
                                   <div className="space-y-2">
-                                    <Label>Country</Label>
+                                    <Label>{t("foreign.country")}</Label>
                                     <Input
                                       {...editRegister("country", {
                                         required: "Country is required",
@@ -736,7 +737,7 @@ export const ForeignExperience = () => {
                                   </div>
 
                                   <div className="space-y-2">
-                                    <Label>Purpose</Label>
+                                    <Label>{t("foreign.purposeJust")}</Label>
 
                                     <Controller
                                       name="purpose"
@@ -756,7 +757,7 @@ export const ForeignExperience = () => {
                                                 : ""
                                             }`}
                                           >
-                                            <SelectValue placeholder="Select Purpose" />
+                                            <SelectValue placeholder={t("translation:common.select") + " " + t("foreign.purposeJust")} />
                                           </SelectTrigger>
                                           <SelectContent>
                                             <SelectGroup>
@@ -974,7 +975,7 @@ export const ForeignExperience = () => {
                                       type="submit"
                                       className="bg-blue-700 w-25 hover:bg-blue-600"
                                     >
-                                      <Plus className="h-4 w-4 mr-1" /> Add
+                                      <Plus className="h-4 w-4 mr-1" /> {t("translation:common.add")}
                                     </Button>
                                   </DialogFooter>
                                 </form>
@@ -987,30 +988,29 @@ export const ForeignExperience = () => {
                                   onSelect={(e) => e.preventDefault()}
                                 >
                                   <RiDeleteBinLine size={16} />
-                                  <span className="ml-2">Delete</span>
+                                  <span className="ml-2">{t("translation:common.delete")}</span>
                                 </DropdownMenuItem>
                               </AlertDialogTrigger>
 
                               <AlertDialogContent>
                                 <AlertDialogHeader>
                                   <AlertDialogTitle>
-                                    Are you sure you want to delete?
+                                    {t("translation:common.alertTitle")}
                                   </AlertDialogTitle>
                                   <AlertDialogDescription>
-                                    This action cannot be undone. The contact
-                                    will be permanently deleted.
+                                    {t("translation:common.alertDescription")}
                                   </AlertDialogDescription>
                                 </AlertDialogHeader>
 
                                 <AlertDialogFooter>
                                   <AlertDialogCancel className="h-10">
                                     <div className="flex items-center gap-2">
-                                      <MdOutlineCancel size={16} /> No
+                                      <MdOutlineCancel size={16} /> {t("translation:common.no")}
                                     </div>
                                   </AlertDialogCancel>
                                   <AlertDialogAction className="bg-red-600 hover:bg-red-700 h-10">
                                     <div className="flex items-center gap-2">
-                                      <AiOutlineCheck size={16} /> Yes, Delete
+                                      <AiOutlineCheck size={16} /> {t("translation:common.yes") + " " + t("translation:common.delete")}
                                     </div>
                                   </AlertDialogAction>
                                 </AlertDialogFooter>

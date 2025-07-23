@@ -1,0 +1,19 @@
+{
+  "sections": {
+    "profile": "โปรไฟล์",
+    "basicInfo": "ข้อมูลพื้นฐาน",
+    "location": "ที่ตั้ง",
+    "contactInfo": "ข้อมูลการติดต่อ",
+    "physicalInfo": "ข้อมูลทางกายภาพ",
+    "emergencyContact": "ผู้ติดต่อฉุกเฉิน",
+    "college": "วิทยาลัย",
+    "foreignExperience": "ประสบการณ์ต่างประเทศ",
+    "languageProficiency": "ความสามารถทางภาษา",
+    "professionalCertificate": "ประกาศนียบัตรวิชาชีพ",
+    "workplaceInfo": "ข้อมูลที่ทำงาน",
+    "video": "วิดีโอ"
+  },
+  "messages":{
+    "completeProfile": "กรอกข้อมูลทุกส่วนเพื่อปรับปรุงโปรไฟล์ของคุณ"
+  }
+}

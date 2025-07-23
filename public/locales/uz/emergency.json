@@ -1,0 +1,15 @@
+{
+    "details": {
+        "title": "Favqulodda holat uchun aloqa ma'lumotlari",
+        "fullName": "To'liq ism",
+        "relationship": "Qarindoshlik darajasi",
+        "phoneNumber": "Telefon raqami",
+        "dateOfBirth": "Tug'ilgan sana"
+    },
+    "danger": {
+        "title": "Favqulodda aloqa",
+        "description": "Favqulodda holatda bog'laning:",
+        "name": "Ism",
+        "phoneNumber": "Telefon"
+    }
+}

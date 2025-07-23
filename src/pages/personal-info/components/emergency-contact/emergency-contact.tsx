@@ -42,6 +42,8 @@ import {
   PopoverTrigger,
 } from "@/components/ui/popover";
 import { Calendar } from "@/components/ui/calendar";
+import { useTranslation } from "react-i18next";
+
 type EmergencyContactFormValues = {
   relationship: string;
   phone: string;
@@ -51,6 +53,7 @@ type EmergencyContactFormValues = {
 };
 
 export const EmergencyContact = () => {
+  const { t } = useTranslation("emergency");
   const [isDialogOpen, setIsDialogOpen] = useState(false);
   const [open, setOpen] = useState(false);
 
@@ -83,7 +86,7 @@ export const EmergencyContact = () => {
           <CardHeader className="border-b bg-white flex items-center justify-between">
             <CardTitle className="flex items-center gap-2 text-xl font-semibold">
               <Heart className="h-5 w-5 text-red-500" />
-              Emergency Contact Information
+              {t("details.title")}
             </CardTitle>
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
@@ -105,7 +108,7 @@ export const EmergencyContact = () => {
                     <DialogContent className="sm:max-w-[550px] p-8">
                       <DialogHeader>
                         <DialogTitle>
-                          Edit Emergency Contact Information
+                          Edit {t("details.title")}
                         </DialogTitle>
                       </DialogHeader>
 
@@ -114,7 +117,7 @@ export const EmergencyContact = () => {
                         onSubmit={handleSubmit(onSubmit)}
                       >
                         <div className="grid gap-3">
-                          <Label htmlFor="relationship">Relationship</Label>
+                          <Label htmlFor="relationship">{t("details.relationship")}</Label>
                           <Controller
                             name="relationship"
                             control={control}
@@ -159,7 +162,7 @@ export const EmergencyContact = () => {
                         </div>
 
                         <div className="grid gap-3">
-                          <Label htmlFor="phone">Phone Number</Label>
+                          <Label htmlFor="phone">{t("details.phoneNumber")}</Label>
                           <Input
                             id="phone"
                             {...register("phone", {
@@ -176,7 +179,7 @@ export const EmergencyContact = () => {
                         </div>
 
                         <div className="grid gap-3">
-                          <Label htmlFor="fullName">Full Name</Label>
+                          <Label htmlFor="fullName">{t("details.fullName")}</Label>
                           <Input
                             id="fullName"
                             {...register("fullName", {
@@ -198,7 +201,7 @@ export const EmergencyContact = () => {
                         >
                           <div className="flex flex-col gap-3">
                             <Label htmlFor="dateOfBirth" className="px-1">
-                              Date of birth
+                              {t("details.dateOfBirth")}
                             </Label>
 
                             <Controller
@@ -274,7 +277,7 @@ export const EmergencyContact = () => {
             <div className="grid gap-8 md:grid-cols-2">
               <div className="space-y-1">
                 <p className="text-sm font-medium text-gray-500">
-                  Relationship
+                  {t("details.relationship")}
                 </p>
                 <div className="flex items-center gap-2">
                   <User className="h-4 w-4 text-gray-400" />
@@ -286,7 +289,7 @@ export const EmergencyContact = () => {
 
               <div className="space-y-1">
                 <p className="text-sm font-medium text-gray-500">
-                  Phone Number
+                  {t("details.phoneNumber")}
                 </p>
                 <div className="flex items-center gap-2">
                   <Phone className="h-4 w-4 text-green-500" />
@@ -302,7 +305,7 @@ export const EmergencyContact = () => {
               </div>
 
               <div className="space-y-1">
-                <p className="text-sm font-medium text-gray-500">Full Name</p>
+                <p className="text-sm font-medium text-gray-500">{t("details.fullName")}</p>
                 <div className="flex items-center gap-2">
                   <User className="h-4 w-4 text-gray-400" />
                   <p className="text-base text-gray-900 font-medium">
@@ -313,7 +316,7 @@ export const EmergencyContact = () => {
 
               <div className="space-y-1">
                 <p className="text-sm font-medium text-gray-500">
-                  Date of Birth
+                  {t("details.dateOfBirth")}
                 </p>
                 <div className="flex items-center gap-2">
                   {/* <Calendar className="h-4 w-4 text-blue-500" /> */}
@@ -331,10 +334,10 @@ export const EmergencyContact = () => {
                 </div>
                 <div>
                   <h3 className="text-lg font-semibold text-red-900">
-                    Emergency Contact
+                    {t("danger.title")}
                   </h3>
                   <p className="text-sm text-red-700">
-                    In case of emergency, contact:
+                    {t("danger.description")}
                   </p>
                 </div>
               </div>
@@ -342,7 +345,7 @@ export const EmergencyContact = () => {
               <div className="space-y-2">
                 <div className="flex justify-between items-center">
                   <span className="text-sm font-medium text-red-800">
-                    Name:
+                    {t("danger.name")}:
                   </span>
                   <span className="text-sm text-red-900 font-semibold">
                     {emergencyContact.fullName}
@@ -350,7 +353,7 @@ export const EmergencyContact = () => {
                 </div>
                 <div className="flex justify-between items-center">
                   <span className="text-sm font-medium text-red-800">
-                    Relationship:
+                    {t("details.relationship")}:
                   </span>
                   <span className="text-sm text-red-900">
                     {emergencyContact.relationship}
@@ -358,7 +361,7 @@ export const EmergencyContact = () => {
                 </div>
                 <div className="flex justify-between items-center">
                   <span className="text-sm font-medium text-red-800">
-                    Phone:
+                    {t("danger.phoneNumber")}:
                   </span>
                   <a
                     href={`tel:${emergencyContact.phoneNumber}`}

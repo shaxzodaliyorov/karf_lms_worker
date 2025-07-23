@@ -1,0 +1,15 @@
+{
+    "details": {
+        "title": "Thông tin liên hệ khẩn cấp",
+        "fullName": "Họ và tên",
+        "relationship": "Mối quan hệ",
+        "phoneNumber": "Số điện thoại",
+        "dateOfBirth": "Ngày sinh"
+    },
+    "danger": {
+        "title": "Liên hệ khẩn cấp",
+        "description": "Trong trường hợp khẩn cấp, liên hệ:",
+        "name": "Tên",
+        "phoneNumber": "Điện thoại"
+    }
+}

@@ -1,0 +1,19 @@
+{
+  "sections": {
+    "profile": "프로필",
+    "basicInfo": "기본 정보",
+    "location": "위치",
+    "contactInfo": "연락처 정보",
+    "physicalInfo": "신체 정보",
+    "emergencyContact": "비상 연락처",
+    "college": "대학교",
+    "foreignExperience": "해외 경험",
+    "languageProficiency": "언어 능력",
+    "professionalCertificate": "전문 자격증",
+    "workplaceInfo": "직장 정보",
+    "video": "동영상"
+  },
+  "messages":{
+    "completeProfile": "프로필을 향상시키려면 모든 섹션을 완료하세요" 
+  }
+}

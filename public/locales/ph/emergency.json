@@ -1,0 +1,15 @@
+{
+    "details": {
+        "title": "Impormasyon ng Emergency Contact",
+        "fullName": "Buong Pangalan",
+        "relationship": "Relasyon",
+        "phoneNumber": "Numero ng Telepono",
+        "dateOfBirth": "Petsa ng Kapanganakan"
+    },
+    "danger": {
+        "title": "Emergency Contact",
+        "description": "Sa kaso ng emergency, tawagan si:",
+        "name": "Pangalan",
+        "phoneNumber": "Telepono"
+    }
+}
