@@ -1,0 +1,48 @@
+{
+    "workplace": {
+      "title": "වැඩ ස්ථාන තොරතුරු",
+      "subtitle": "වෘත්තීය රැකියා අත්දැකීම් සහ රැකියා ඉතිහාසය",
+      "overview": "රැකියා අත්දැකීම් දළ විශ්ලේෂණය",
+      "stats": {
+        "totalWorkplaces": "සමස්ත වැඩ ස්ථාන",
+        "totalExperience": "සමස්ත අත්දැකීම්",
+        "uniqueFields": "අනන්‍ය ක්ෂේත්‍ර",
+        "totalDocuments": "සමස්ත ලේඛන"
+      },
+      "table": {
+        "companyName": "සමාගමේ නම",
+        "position": "තනතුර",
+        "field": "ක්ෂේත්‍රය",
+        "startDate": "ආරම්භක දිනය",
+        "workingPeriod": "රැකියා කාලය",
+        "documents": "ලේඛන",
+        "actions": "ක්‍රියා"
+      },
+      "form": {
+        "addTitle": "රැකියා අත්දැකීමක් එක් කරන්න",
+        "editTitle": "රැකියා අත්දැකීම සංස්කරණය කරන්න",
+        "positionLabel": "තනතුර",
+        "positionPlaceholder": "තනතුර තෝරන්න",
+        "workingPeriodLabel": "රැකියා කාලය",
+        "workingPeriodPlaceholder": "රැකියා කාලය තෝරන්න",
+        "fieldLabel": "ක්ෂේත්‍රය",
+        "fieldPlaceholder": "ක්ෂේත්‍රය තෝරන්න",
+        "startDateLabel": "ආරම්භක දිනය",
+        "endDateLabel": "අවසන් දිනය",
+        "documentsLabel": "ලේඛන",
+        "saveButton": "සුරකින්න",
+        "updateButton": "යාවත්කාලීන කරන්න"
+      },
+      "status": {
+        "current": "වත්මන්",
+        "previous": "පෙර"
+      },
+      "validation": {
+        "positionRequired": "තනතුර අවශ්‍යයි!",
+        "workingPeriodRequired": "රැකියා කාලය අවශ්‍යයි!",
+        "fieldRequired": "ක්ෂේත්‍රය අවශ්‍යයි!",
+        "startDateRequired": "ආරම්භක දිනය අවශ්‍යයි!",
+        "fileRequired": "අවම වශයෙන් එක් ලේඛනයක් හෝ උඩුගත කරන්න"
+      }
+    }
+  }

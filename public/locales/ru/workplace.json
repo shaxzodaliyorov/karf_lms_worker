@@ -1,0 +1,48 @@
+{
+  "workplace": {
+    "title": "Информация о месте работы",
+    "subtitle": "Профессиональный опыт и история трудоустройства",
+    "overview": "Обзор опыта работы",
+    "stats": {
+      "totalWorkplaces": "Всего мест работы",
+      "totalExperience": "Общий стаж",
+      "uniqueFields": "Различные сферы",
+      "totalDocuments": "Всего документов"
+    },
+    "table": {
+      "companyName": "Название компании",
+      "position": "Должность",
+      "field": "Сфера деятельности",
+      "startDate": "Дата начала",
+      "workingPeriod": "Период работы",
+      "documents": "Документы",
+      "actions": "Действия"
+    },
+    "form": {
+      "addTitle": "Добавить опыт работы",
+      "editTitle": "Редактировать опыт работы",
+      "positionLabel": "Должность",
+      "positionPlaceholder": "Выберите должность",
+      "workingPeriodLabel": "Период работы",
+      "workingPeriodPlaceholder": "Выберите период работы",
+      "fieldLabel": "Сфера деятельности",
+      "fieldPlaceholder": "Выберите сферу деятельности",
+      "startDateLabel": "Дата начала",
+      "endDateLabel": "Дата окончания",
+      "documentsLabel": "Документы",
+      "saveButton": "Сохранить",
+      "updateButton": "Обновить"
+    },
+    "status": {
+      "current": "Текущее место",
+      "previous": "Предыдущее место"
+    },
+    "validation": {
+      "positionRequired": "Укажите должность!",
+      "workingPeriodRequired": "Укажите период работы!",
+      "fieldRequired": "Укажите сферу деятельности!",
+      "startDateRequired": "Укажите дату начала!",
+      "fileRequired": "Загрузите хотя бы один документ"
+    }
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "language": {
+    "title": "Language Proficiency",
+    "subtitle": "Multilingual skills and language certifications",
+    "overview": "Language Skills Overview",
+    "stats": {
+      "totalLanguages": "Total Languages",
+      "nativeLanguages": "Native Languages",
+      "certificates": "Certificates",
+      "avgProficiency": "Avg. Proficiency"
+    },
+    "language": "Language",
+    "proficiencyLevel": "Proficiency Level",
+    "file": "File",
+    "proficiencyLevels": {
+      "speaking": "Speaking",
+      "writingReading": "Writing & Reading",
+      "overallProficiency": "Overall Proficiency"
+    },
+    "nativeLanguageBadge": "Native Language",
+    "overallScore": "Overall"
+  }
+}

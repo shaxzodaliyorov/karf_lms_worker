@@ -1,0 +1,41 @@
+{
+  "certificate": {
+    "title": "ប័ណ្ណសរសើរ",
+    "subtitle": "វិញ្ញាបនប័ត្រនិងវិញ្ញាបនប័ត្រវិជ្ជាជីវៈ",
+    "overview": "ទិដ្ឋភាពទូទៅនៃវិញ្ញាបនប័ត្រ",
+    "stats": {
+      "totalCertificates": "ចំនួនវិញ្ញាបនប័ត្រសរុប",
+      "activeCertificates": "វិញ្ញាបនប័ត្រដែលមានស្ថានភាពសកម្ម",
+      "totalDocuments": "ឯកសារសរុប"
+    },
+    "status": {
+      "active": "សកម្ម",
+      "expired": "ផុតកំណត់",
+      "pending": "កំពុងរង់ចាំ"
+    },
+    "form": {
+      "addTitle": "បន្ថែមវិញ្ញាបនប័ត្រវិជ្ជាជីវៈ",
+      "editTitle": "កែសម្រួលវិញ្ញាបនប័ត្រវិជ្ជាជីវៈ",
+      "languageLabel": "ភាសា",
+      "issuingInstitutionLabel": "ស្ថាប័នចេញផ្សាយ",
+      "issueDateLabel": "កាលបរិច្ឆេទចេញផ្សាយ",
+      "certificateTypeLabel": "ប្រភេទវិញ្ញាបនប័ត្រ",
+      "documentsLabel": "ឯកសារ"
+    },
+    "table": {
+      "certificateType": "ប្រភេទវិញ្ញាបនប័ត្រ",
+      "issuingInstitution": "ស្ថាប័នចេញផ្សាយ",
+      "issueDate": "កាលបរិច្ឆេទចេញផ្សាយ",
+      "status": "ស្ថានភាព",
+      "documents": "ឯកសារ",
+      "actions": "សកម្មភាព"
+    },
+    "validation": {
+      "languageRequired": "សូមជ្រើសរើសភាសា!",
+      "institutionRequired": "សូមបញ្ចូលស្ថាប័នចេញផ្សាយ!",
+      "dateRequired": "សូមបញ្ចូលកាលបរិច្ឆេទចេញផ្សាយ!",
+      "typeRequired": "សូមជ្រើសរើសប្រភេទវិញ្ញាបនប័ត្រ!",
+      "fileRequired": "សូមផ្ទុកឡើងយ៉ាងហោចណាស់មួយឯកសារ"
+    }
+  }
+}

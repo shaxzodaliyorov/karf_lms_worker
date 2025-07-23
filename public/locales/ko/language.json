@@ -1,0 +1,20 @@
+{
+  "language": {
+    "title": "언어 능력",
+    "subtitle": "다국어 능력 및 자격증",
+    "overview": "언어 능력 개요",
+    "stats": {
+      "totalLanguages": "전체 언어",
+      "nativeLanguages": "모국어",
+      "certificates": "자격증",
+      "avgProficiency": "평균 숙련도"
+    },
+    "proficiencyLevels": {
+      "speaking": "말하기",
+      "writingReading": "쓰기 및 읽기",
+      "overallProficiency": "종합 숙련도"
+    },
+    "nativeLanguageBadge": "모국어",
+    "overallScore": "종합"
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "certificate": {
+    "title": "Professional Sertifikat",
+    "subtitle": "Professional sertifikatlar va malakaviy hujjatlar",
+    "overview": "Sertifikatlar haqida umumiy ma'lumot",
+    "stats": {
+      "totalCertificates": "Jami sertifikatlar",
+      "activeCertificates": "Faol sertifikatlar",
+      "totalDocuments": "Jami hujjatlar"
+    },
+    "status": {
+      "active": "Faol",
+      "expired": "Muddati o'tgan",
+      "pending": "Kutilmoqda"
+    },
+    "form": {
+      "addTitle": "Professional sertifikat qo'shish",
+      "editTitle": "Professional sertifikatni tahrirlash",
+      "languageLabel": "Til",
+      "issuingInstitutionLabel": "Beruvchi muassasa",
+      "issueDateLabel": "Berilgan sana",
+      "certificateTypeLabel": "Sertifikat turi",
+      "documentsLabel": "Hujjatlar"
+    },
+    "table": {
+      "certificateType": "Sertifikat turi",
+      "issuingInstitution": "Beruvchi muassasa",
+      "issueDate": "Berilgan sana",
+      "status": "Holati",
+      "documents": "Hujjatlar",
+      "actions": "Amallar"
+    },
+    "validation": {
+      "languageRequired": "Tilni tanlang!",
+      "institutionRequired": "Beruvchi muassasani ko'rsating!",
+      "dateRequired": "Berilgan sanani ko'rsating!",
+      "typeRequired": "Sertifikat turini ko'rsating!",
+      "fileRequired": "Iltimos, kamida bitta hujjat yuklang"
+    }
+  }
+}

@@ -1,0 +1,16 @@
+{
+    "video": {
+        "title": "Portofolio Video",
+        "subtitle": "Pameran dan demonstrasi video profesional",
+        "showcase": "Pameran Video",
+        "stats": {
+            "totalVideos": "Total Video",
+            "totalDuration": "Total Durasi",
+            "latestUpload": "Unggahan Terbaru"
+        },
+        "link": "Tautan Video",
+        "play": "Putar Video",
+        "uploaded": "Diunggah",
+        "duration": "Durasi"
+    }
+}

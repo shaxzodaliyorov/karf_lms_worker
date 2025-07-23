@@ -1,0 +1,20 @@
+{
+  "language": {
+    "title": "សមត្ថភាពភាសា",
+    "subtitle": "ជំនាញភាសាច្រើន និងសញ្ញាបត្រ",
+    "overview": "ទិដ្ឋភាពទូទៅនៃជំនាញភាសា",
+    "stats": {
+      "totalLanguages": "ភាសាសរុប",
+      "nativeLanguages": "ភាសាកំណើត",
+      "certificates": "សញ្ញាបត្រ",
+      "avgProficiency": "កម្រិតជំនាញជាមធ្យម"
+    },
+    "proficiencyLevels": {
+      "speaking": "ការនិយាយ",
+      "writingReading": "ការសរសេរ និងអាន",
+      "overallProficiency": "កម្រិតជំនាញសរុប"
+    },
+    "nativeLanguageBadge": "ភាសាកំណើត",
+    "overallScore": "សរុប"
+  }
+}

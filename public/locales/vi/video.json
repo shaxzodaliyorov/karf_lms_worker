@@ -1,0 +1,16 @@
+{
+    "video": {
+        "title": "Hồ sơ Video",
+        "subtitle": "Trình diễn và giới thiệu video chuyên nghiệp",
+        "showcase": "Triển lãm Video",
+        "stats": {
+            "totalVideos": "Tổng số Video",
+            "totalDuration": "Tổng thời lượng",
+            "latestUpload": "Tải lên gần nhất"
+        },
+        "link": "Liên kết Video",
+        "play": "Phát Video",
+        "uploaded": "Đã tải lên",
+        "duration": "Thời lượng"
+    }
+}

@@ -215,6 +215,9 @@ export const ForeignExperience = () => {
   return (
     <div className="w-full">
       <Card className="shadow-lg">
+
+
+        {/*     ******************     CARD HEADER       ******************     */}
         <CardHeader className="border-b bg-white">
           <div className="flex items-center justify-between">
             <CardTitle className="flex items-center gap-2 text-xl font-semibold">
@@ -222,7 +225,7 @@ export const ForeignExperience = () => {
               {t("foreign.title")}
             </CardTitle>
 
-            {/* Add Modal */}
+            {/*     ******************     ADD MODAL       ******************     */}
             <Dialog>
               <DialogTrigger asChild>
                 <Button variant="outline">
@@ -233,12 +236,12 @@ export const ForeignExperience = () => {
 
               <DialogContent className="max-w-lg overflow-y-auto">
                 <DialogHeader>
-                  <DialogTitle>{t("foreign.title")}</DialogTitle>
+                  <DialogTitle>{t("translation:common.add") + " " + t("foreign.title")}</DialogTitle>
                 </DialogHeader>
 
                 <form
                   onSubmit={handleAddSubmit(onAddSubmit)}
-                  className=" grid gap-2 py-4 max-h-[80vh]  "
+                  className="grid gap-2 py-4 max-h-[80vh]"
                   style={{
                     scrollbarWidth: "none",
                     msOverflowStyle: "none",
@@ -248,7 +251,7 @@ export const ForeignExperience = () => {
                     <Label>{t("foreign.visitedCountry")}</Label>
                     <Input
                       {...addRegister("country", {
-                        required: "Country is required",
+                        required: t("foreign.country") + " " + t("translation:common.isRequired"),
                       })}
                       placeholder={t("translation:common.enter") + " " + t("foreign.visitedCountry")}
                       className={`w-full border ${
@@ -263,12 +266,12 @@ export const ForeignExperience = () => {
                   </div>
 
                   <div className="space-y-2">
-                    <Label>{t("foreign.purpose")}</Label>
+                    <Label>{t("foreign.purposeMain")}</Label>
 
                     <Controller
                       name="purpose"
                       control={addControl}
-                      rules={{ required: "Purpose is required!" }}
+                      rules={{ required: t("foreign.purposeMain") + " " + t("translation:common.isRequired") }}
                       render={({ field }) => (
                         <Select
                           onValueChange={field.onChange}
@@ -281,34 +284,30 @@ export const ForeignExperience = () => {
                                 : ""
                             }`}
                           >
-                            <SelectValue placeholder={t("translation:common.select") + " " + t("foreign.purpose")} />
+                            <SelectValue placeholder={t("translation:common.select") + " " + t("foreign.purposeMain")} />
                           </SelectTrigger>
                           <SelectContent>
                             <SelectGroup>
-                              <SelectItem value="bachelor">
-                                Graduated{" "}
-                              </SelectItem>
-                              <SelectItem value="master">
-                                In Progress
-                              </SelectItem>
-                              <SelectItem value="phd">PhD</SelectItem>
+                              <SelectItem value="work">{t("purposes.work")}</SelectItem>
+                              <SelectItem value="business">{t("purposes.business")}</SelectItem>
+                              <SelectItem value="tourism">{t("purposes.tourism")}</SelectItem>
+                              <SelectItem value="study">{t("purposes.study")}</SelectItem>
+                              <SelectItem value="other">{t("purposes.other")}</SelectItem>
                             </SelectGroup>
                           </SelectContent>
                         </Select>
                       )}
                     />
                     {addErrors.purpose && (
-                      <p className="text-red-500">
-                        {addErrors.purpose.message}
-                      </p>
+                      <p className="text-red-500">{addErrors.purpose.message}</p>
                     )}
                   </div>
 
                   <div className="space-y-2">
-                    <Label>{t("foreign.description")}</Label>
+                    <Label>{t("foreign.subTitle")}</Label>
                     <Input
                       {...addRegister("description", {
-                        required: "Description is required",
+                        required: t("foreign.description") + " " + t("translation:common.isRequired"),
                       })}
                       placeholder={t("translation:common.enter") + " " + t("foreign.description")}
                       className={`w-full border ${
@@ -316,21 +315,19 @@ export const ForeignExperience = () => {
                       }`}
                     />
                     {addErrors.description && (
-                      <p className="text-red-500">
-                        {addErrors.description.message}
-                      </p>
+                      <p className="text-red-500">{addErrors.description.message}</p>
                     )}
                   </div>
 
                   <div className="grid gap-3">
                     <Label htmlFor="dateOfBirth" className="px-1">
-                      {t("foreign.startDate")}
+                      {t("translation:common.startDate")}
                     </Label>
 
                     <Controller
                       name="startDate"
                       control={addControl}
-                      rules={{ required: "Start date is required" }}
+                      rules={{ required: t("translation:common.startDate") + " " + t("translation:common.isRequired") }}
                       render={({ field }) => (
                         <Popover
                           open={startDateOpen}
@@ -346,7 +343,7 @@ export const ForeignExperience = () => {
                             >
                               {field.value instanceof Date
                                 ? field.value.toLocaleDateString()
-                                : t("translation:common.select") + " " + t("foreign.startDate")}
+                                : t("translation:common.select") + " " + t("translation:common.startDate")}
                               <CalendarIcon
                                 color="gray"
                                 className="w-4 h-4 ml-2"
@@ -372,22 +369,20 @@ export const ForeignExperience = () => {
                     />
 
                     {addErrors.startDate && (
-                      <span className="text-red-500 text-sm px-1">
-                        {addErrors.startDate.message}
-                      </span>
+                      <span className="text-red-500 text-sm px-1">{addErrors.startDate.message}</span>
                     )}
                   </div>
 
                   <div className="grid gap-3">
                     <Label htmlFor="graduationDate" className="px-1">
-                      {t("foreign.endDate")}
+                      {t("translation:common.endDate")}
                     </Label>
 
                     <Controller
                       name="endDate"
                       control={addControl}
                       rules={{
-                        required: "Graduation is required",
+                        required: t("translation:common.endDate") + " " + t("translation:common.isRequired"),
                       }}
                       render={({ field }) => (
                         <Popover open={open} onOpenChange={setOpen}>
@@ -401,7 +396,7 @@ export const ForeignExperience = () => {
                             >
                               {field.value instanceof Date
                                 ? field.value.toLocaleDateString()
-                                : t("translation:common.select") + " " + t("foreign.endDate")}
+                                : t("translation:common.select") + " " + t("translation:common.endDate")}
                               <CalendarIcon
                                 color="gray"
                                 className="w-4 h-4 ml-2"
@@ -427,9 +422,7 @@ export const ForeignExperience = () => {
                     />
 
                     {addErrors.endDate && (
-                      <span className="text-red-500 text-sm px-1">
-                        {addErrors.endDate.message}
-                      </span>
+                      <span className="text-red-500 text-sm px-1">{addErrors.endDate.message}</span>
                     )}
                   </div>
 
@@ -439,11 +432,11 @@ export const ForeignExperience = () => {
                         disableDescription ? "text-gray-400 cursor-default" : ""
                       }`}
                     >
-                      {t("foreign.description")}
+                      {t("foreign.subTitle")}
                     </Label>
                     <Input
                       {...addRegister("description", {
-                        required: "Duration is required",
+                        required: t("foreign.description") + " " + t("translation:common.isRequired"),
                       })}
                       placeholder={t("translation:common.enter") + " " + t("foreign.description")}
                       disabled={disableDescription}
@@ -452,9 +445,7 @@ export const ForeignExperience = () => {
                       }`}
                     />
                     {addErrors.description && (
-                      <p className="text-red-500">
-                        {addErrors.description.message}
-                      </p>
+                      <p className="text-red-500">{addErrors.description.message}</p>
                     )}
 
                     <div className="flex items-center  gap-2 mt-2">
@@ -474,7 +465,7 @@ export const ForeignExperience = () => {
                       name="file"
                       control={addControl}
                       rules={{
-                        required: "Please upload at least one file",
+                        required: t("foreign.docPlace") + " " + t("translation:common.isRequired"),
                       }}
                       render={({ field, fieldState }) => (
                         <MultiFileUpload
@@ -487,11 +478,9 @@ export const ForeignExperience = () => {
                   </div>
 
                   <DialogFooter className="py-4">
-                    <Button
-                      type="submit"
-                      className="bg-blue-700 w-25 hover:bg-blue-600"
-                    >
-                      <Plus className="h-4 w-4 mr-1" /> {t("translation.add")}
+                    <Button type="submit" className="bg-blue-700 w-25 hover:bg-blue-600">
+                      <Plus className="h-4 w-4 mr-1" /> 
+                      {t("translation:common.add")}
                     </Button>
                   </DialogFooter>
                 </form>
@@ -500,10 +489,11 @@ export const ForeignExperience = () => {
           </div>
 
           <p className="text-sm text-gray-600 mt-1">
-            {t("foreign.description")}
+            {t("foreign.subTitle")}
           </p>
         </CardHeader>
 
+        {/*     ******************     STATS CONTENT       ******************     */}
         <CardContent className="space-y-6 p-6">
           {/* Experience Summary Stats */}
           <div className="grid gap-4 md:grid-cols-4">
@@ -559,12 +549,14 @@ export const ForeignExperience = () => {
 
           <Separator />
 
-          {/* Experience Timeline */}
+          {/*     ******************     TIMELINE CONTENT       ******************     */}
           <div className="space-y-6">
             <h3 className="text-lg font-medium text-gray-900">
               {t("timeline.title")}
             </h3>
 
+
+            {/*     ******************     EXPERIENCES       ******************     */}
             {foreignExperiences.map((experience) => (
               <div key={experience.id} className="relative">
                 <Card className="border-l-4 border-l-blue-500">
@@ -582,95 +574,53 @@ export const ForeignExperience = () => {
                             <MapPin className="h-4 w-4 text-gray-500" />
                             {experience.visitedCountry}
                           </h4>
-                          <Badge
-                            variant="outline"
-                            className={getPurposeColor(experience.purpose)}
-                          >
-                            {experience.purpose}
-                          </Badge>
+                          <Badge variant="outline" className={getPurposeColor(experience.purpose)}>{experience.purpose}</Badge>
                         </div>
 
-                        {experience.description && (
-                          <p className="text-sm text-gray-600 italic">
-                            {experience.description}
-                          </p>
-                        )}
+                        {experience.description && <p className="text-sm text-gray-600 italic">{experience.description}</p>}
 
                         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
                           <div className="space-y-1">
-                            <p className="text-sm font-medium text-gray-500">
-                              {t("foreign.duration")}
-                            </p>
+                            <p className="text-sm font-medium text-gray-500">{t("foreign.duration")}</p>
                             <div className="flex items-center gap-2">
                               <Clock className="h-4 w-4 text-green-500" />
-                              <p className="text-sm text-gray-900 font-medium">
-                                {experience.duration}
-                              </p>
+                              <p className="text-sm text-gray-900 font-medium">{experience.duration}</p>
                             </div>
                           </div>
 
                           <div className="space-y-1">
-                            <p className="text-sm font-medium text-gray-500">
-                              {t("foreign.startDate")}
-                            </p>
+                            <p className="text-sm font-medium text-gray-500">{t("translation:common.startDate")}</p>
                             <div className="flex items-center gap-2">
                               <CiCalendar className="h-4 w-4 text-blue-500" />
-                              <p className="text-sm text-gray-900">
-                                {experience.startDate}
-                              </p>
+                              <p className="text-sm text-gray-900">{experience.startDate}</p>
                             </div>
                           </div>
 
                           <div className="space-y-1">
-                            <p className="text-sm font-medium text-gray-500">
-                              {t("foreign.endDate")}
-                            </p>
+                            <p className="text-sm font-medium text-gray-500">{t("translation:common.endDate")}</p>
                             <div className="flex items-center gap-2">
                               <CiCalendar className="h-4 w-4 text-purple-500" />
-                              <p className="text-sm text-gray-900">
-                                {experience.endDate}
-                              </p>
+                              <p className="text-sm text-gray-900">{experience.endDate}</p>
                             </div>
                           </div>
                         </div>
 
                         {experience.documents.length > 0 && (
                           <div className="space-y-3">
-                            <p className="text-sm font-medium text-gray-700">
-                              {t("foreign.documents")}
-                            </p>
+                            <p className="text-sm font-medium text-gray-700">{t("foreign.documents")}</p>
                             <div className="grid gap-2 md:grid-cols-2">
                               {experience.documents.map((doc, docIndex) => (
-                                <div
-                                  key={docIndex}
-                                  className="flex items-center justify-between p-3 bg-gray-50 rounded-lg border"
-                                >
+                                <div key={docIndex} className="flex items-center justify-between p-3 bg-gray-50 rounded-lg border">
                                   <div className="flex items-center gap-2">
                                     <FileText className="h-4 w-4 text-red-500" />
                                     <div>
-                                      <p className="text-sm font-medium text-gray-900">
-                                        {doc.name}
-                                      </p>
-                                      <p className="text-xs text-gray-500">
-                                        {doc.size}
-                                      </p>
+                                      <p className="text-sm font-medium text-gray-900">{doc.name}</p>
+                                      <p className="text-xs text-gray-500">{doc.size}</p>
                                     </div>
                                   </div>
                                   <div className="flex gap-1">
-                                    <Button
-                                      size="sm"
-                                      variant="ghost"
-                                      className="h-8 w-8 p-0"
-                                    >
-                                      <Eye className="h-4 w-4" />
-                                    </Button>
-                                    <Button
-                                      size="sm"
-                                      variant="ghost"
-                                      className="h-8 w-8 p-0"
-                                    >
-                                      <Download className="h-4 w-4" />
-                                    </Button>
+                                    <Button size="sm" variant="ghost" className="h-8 w-8 p-0"><Eye className="h-4 w-4" /></Button>
+                                    <Button size="sm" variant="ghost" className="h-8 w-8 p-0"><Download className="h-4 w-4" /></Button>
                                   </div>
                                 </div>
                               ))}
@@ -679,7 +629,9 @@ export const ForeignExperience = () => {
                         )}
                       </div>
                     </div>
+
                     <div className="absolute top-3 right-3">
+                      {/*       ***************     Dropdown Menu      ***************       */}
                       <DropdownMenu>
                         <DropdownMenuTrigger asChild>
                           <Button variant="ghost" size="icon">
@@ -688,16 +640,15 @@ export const ForeignExperience = () => {
                         </DropdownMenuTrigger>
                         <DropdownMenuContent align="start" className="mr-4">
                           <DropdownMenuGroup>
-                            <Dialog
-                              open={isDialogOpen}
-                              onOpenChange={setIsDialogOpen}
-                            >
+                            
+                            
+                            {/* ***************     Edit Dialog       ***************       */}
+                            
+                            <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
                               <DialogTrigger asChild>
-                                <DropdownMenuItem
-                                  onSelect={(e) => e.preventDefault()}
-                                >
+                                <DropdownMenuItem onSelect={(e) => e.preventDefault()}>
                                   <TbEdit size={16} />
-                                  <span className="ml-2">Edit</span>
+                                  <span className="ml-2">{t("translation:common.edit")}</span>
                                 </DropdownMenuItem>
                               </DialogTrigger>
 
@@ -720,101 +671,69 @@ export const ForeignExperience = () => {
                                     <Label>{t("foreign.country")}</Label>
                                     <Input
                                       {...editRegister("country", {
-                                        required: "Country is required",
+                                        required: t("foreign.country") + " " + t("translation:common.isRequired"),
                                       })}
-                                      placeholder="Enter Country visited"
-                                      className={`w-full border ${
-                                        editErrors.country
-                                          ? "border-red-500 "
-                                          : ""
-                                      }`}
+                                      placeholder={t("translation:common.enter") + " " + t("foreign.country")}
+                                      className={`w-full border ${editErrors.country ? "border-red-500 " : ""}`}
                                     />
                                     {editErrors.country && (
-                                      <p className="text-red-500">
-                                        {editErrors.country.message}
-                                      </p>
+                                      <p className="text-red-500">{editErrors.country.message}</p>
                                     )}
                                   </div>
 
                                   <div className="space-y-2">
-                                    <Label>{t("foreign.purposeJust")}</Label>
+                                    <Label>{t("foreign.purpose")}</Label>
 
                                     <Controller
                                       name="purpose"
                                       control={editControl}
                                       rules={{
-                                        required: "Purpose is required!",
+                                        required: t("foreign.purpose") + " " + t("translation:common.isRequired"),
                                       }}
                                       render={({ field }) => (
-                                        <Select
-                                          onValueChange={field.onChange}
-                                          value={field.value}
-                                        >
-                                          <SelectTrigger
-                                            className={`w-full ${
-                                              editErrors.purpose
-                                                ? "border-red-500 focus:ring-red-500"
-                                                : ""
-                                            }`}
-                                          >
-                                            <SelectValue placeholder={t("translation:common.select") + " " + t("foreign.purposeJust")} />
+                                        <Select onValueChange={field.onChange} value={field.value}>
+                                          <SelectTrigger className={`w-full ${editErrors.purpose ? "border-red-500 focus:ring-red-500" : ""}`}>
+                                          <SelectValue placeholder={t("translation:common.select") + " " + t("foreign.purpose")} />
                                           </SelectTrigger>
                                           <SelectContent>
                                             <SelectGroup>
-                                              <SelectItem value="bachelor">
-                                                Graduated{" "}
-                                              </SelectItem>
-                                              <SelectItem value="master">
-                                                In Progress
-                                              </SelectItem>
-                                              <SelectItem value="phd">
-                                                PhD
-                                              </SelectItem>
+                                              <SelectItem value="work">{t("purposes.work")}</SelectItem>
+                                              <SelectItem value="study">{t("purposes.study")}</SelectItem>
+                                              <SelectItem value="tourism">{t("purposes.tourism")}</SelectItem>
+                                              <SelectItem value="business">{t("purposes.business")}</SelectItem>
+                                              <SelectItem value="other">{t("purposes.other")}</SelectItem>
                                             </SelectGroup>
                                           </SelectContent>
                                         </Select>
                                       )}
                                     />
                                     {editErrors.purpose && (
-                                      <p className="text-red-500">
-                                        {editErrors.purpose.message}
-                                      </p>
+                                      <p className="text-red-500">{editErrors.purpose.message}</p>
                                     )}
                                   </div>
 
                                   <div className="space-y-2">
-                                    <Label>Description</Label>
+                                    <Label>{t("foreign.description")}</Label>
                                     <Input
                                       {...editRegister("description", {
-                                        required: "Description is required",
+                                        required: t("foreign.description") + " " + t("translation:common.isRequired"),
                                       })}
-                                      placeholder="Enter duration"
-                                      className={`w-full border ${
-                                        editErrors.description
-                                          ? "border-red-500 "
-                                          : ""
-                                      }`}
+                                      placeholder={t("translation:common.enter") + " " + t("foreign.description")}
+                                      className={`w-full border ${editErrors.description ? "border-red-500 " : ""}`}
                                     />
                                     {editErrors.description && (
-                                      <p className="text-red-500">
-                                        {editErrors.description.message}
-                                      </p>
+                                      <p className="text-red-500">{editErrors.description.message}</p>
                                     )}
                                   </div>
 
                                   <div className="grid gap-3">
-                                    <Label
-                                      htmlFor="dateOfBirth"
-                                      className="px-1"
-                                    >
-                                      Start Date
-                                    </Label>
+                                    <Label htmlFor="startDate" className="px-1">{t("translation:common.startDate")}</Label>
 
                                     <Controller
                                       name="startDate"
                                       control={editControl}
                                       rules={{
-                                        required: "Start date is required",
+                                        required: t("translation:common.startDate") + " " + t("translation:common.isRequired"),
                                       }}
                                       render={({ field }) => (
                                         <Popover
@@ -824,31 +743,19 @@ export const ForeignExperience = () => {
                                           <PopoverTrigger asChild>
                                             <Button
                                               variant="outline"
-                                              id="dateOfBirth"
-                                              className={`w-full justify-between font-normal ${
-                                                addErrors.startDate
-                                                  ? "border-red-500"
-                                                  : ""
-                                              }`}
+                                              id="startDate"
+                                              className={`w-full justify-between font-normal ${editErrors.startDate ? "border-red-500" : ""}`}
                                             >
-                                              {field.value instanceof Date
-                                                ? field.value.toLocaleDateString()
-                                                : "Select date"}
-                                              <CalendarIcon
-                                                color="gray"
-                                                className="w-4 h-4 ml-2"
-                                              />
+                                              {field.value instanceof Date ? field.value.toLocaleDateString() 
+                                              : t("translation:common.select") + " " + t("translation:common.startDate")}
+                                              
+                                              <CalendarIcon color="gray" className="w-4 h-4 ml-2" />
                                             </Button>
                                           </PopoverTrigger>
-                                          <PopoverContent
-                                            className="w-auto overflow-hidden p-0"
-                                            align="start"
-                                          >
+                                          <PopoverContent className="w-auto overflow-hidden p-0" align="start">
                                             <Calendar
                                               mode="single"
-                                              selected={
-                                                field.value || undefined
-                                              }
+                                              selected={field.value || undefined}
                                               onSelect={(date) => {
                                                 field.onChange(date);
                                                 setStartDateOpen(false);
@@ -861,28 +768,21 @@ export const ForeignExperience = () => {
                                     />
 
                                     {editErrors.startDate && (
-                                      <span className="text-red-500 text-sm px-1">
-                                        {editErrors.startDate.message}
-                                      </span>
+                                      <span className="text-red-500 text-sm px-1">{editErrors.startDate.message}</span>
                                     )}
                                   </div>
 
                                   <div className="grid gap-3">
-                                    <Label
-                                      htmlFor="graduationDate"
-                                      className="px-1"
-                                    >
-                                      End Date
-                                    </Label>
+                                    <Label htmlFor="graduationDate" className="px-1">{t("translation:common.endDate")}</Label>
 
                                     <Controller
                                       name="endDate"
                                       control={editControl}
                                       rules={{
-                                        required: "Graduation is required",
+                                        required: t("translation:common.endDate") + " " + t("translation:common.isRequired"),
                                       }}
                                       render={({ field }) => (
-                                        <Popover
+                                        <Popover 
                                           open={open}
                                           onOpenChange={setOpen}
                                         >
@@ -890,30 +790,17 @@ export const ForeignExperience = () => {
                                             <Button
                                               variant="outline"
                                               id="graduationDate"
-                                              className={`w-full justify-between font-normal ${
-                                                editErrors.endDate
-                                                  ? "border-red-500"
-                                                  : ""
-                                              }`}
+                                              className={`w-full justify-between font-normal ${editErrors.endDate ? "border-red-500" : ""}`}
                                             >
-                                              {field.value instanceof Date
-                                                ? field.value.toLocaleDateString()
-                                                : "Select date"}
-                                              <CalendarIcon
-                                                color="gray"
-                                                className="w-4 h-4 ml-2"
-                                              />
+                                              {field.value instanceof Date ? field.value.toLocaleDateString() 
+                                              : t("translation:common.select") + " " + t("translation:common.endDate")}
+                                              <CalendarIcon color="gray" className="w-4 h-4 ml-2" />
                                             </Button>
                                           </PopoverTrigger>
-                                          <PopoverContent
-                                            className="w-auto overflow-hidden p-0"
-                                            align="start"
-                                          >
+                                          <PopoverContent className="w-auto overflow-hidden p-0" align="start">
                                             <Calendar
                                               mode="single"
-                                              selected={
-                                                field.value || undefined
-                                              }
+                                              selected={field.value || undefined}
                                               onSelect={(date) => {
                                                 field.onChange(date);
                                                 setOpen(false);
@@ -926,39 +813,28 @@ export const ForeignExperience = () => {
                                     />
 
                                     {editErrors.endDate && (
-                                      <span className="text-red-500 text-sm px-1">
-                                        {editErrors.endDate.message}
-                                      </span>
+                                      <span className="text-red-500 text-sm px-1">{editErrors.endDate.message}</span>
                                     )}
                                   </div>
 
                                   <div className="space-y-2">
-                                    <Label>Description</Label>
+                                    <Label>{t("foreign.description")}</Label>
                                     <Input
                                       {...editRegister("description", {
-                                        required: "Duration is required",
+                                        required: t("foreign.description") + " " + t("translation:common.isRequired"),
                                       })}
                                       placeholder="Brief description"
-                                      className={`w-full border ${
-                                        editErrors.description
-                                          ? "border-red-500 "
-                                          : ""
-                                      }`}
+                                      className={`w-full border ${editErrors.description ? "border-red-500 " : ""}`}
                                     />
                                     {editErrors.description && (
-                                      <p className="text-red-500">
-                                        {editErrors.description.message}
-                                      </p>
+                                      <p className="text-red-500">{editErrors.description.message}</p>
                                     )}
                                   </div>
 
                                   <Controller
                                     name="file"
                                     control={editControl}
-                                    rules={{
-                                      required:
-                                        "Please upload at least one file",
-                                    }}
+                                    rules={{required:t("foreign.docPlace") + " " + t("translation:common.isRequired")}}
                                     render={({ field, fieldState }) => (
                                       <MultiFileUpload
                                         maxSizeMB={10}
@@ -971,22 +847,18 @@ export const ForeignExperience = () => {
                                   />
 
                                   <DialogFooter className="py-4">
-                                    <Button
-                                      type="submit"
-                                      className="bg-blue-700 w-25 hover:bg-blue-600"
-                                    >
-                                      <Plus className="h-4 w-4 mr-1" /> {t("translation:common.add")}
+                                    <Button type="submit" className="bg-blue-700 w-26 hover:bg-blue-600">
+                                      <Plus className="h-4 w-4 mr-1" /> {t("translation:common.edit")}
                                     </Button>
                                   </DialogFooter>
                                 </form>
                               </DialogContent>
                             </Dialog>
 
+                            {/* ***************     Delete Dialog      ***************       */}
                             <AlertDialog>
                               <AlertDialogTrigger asChild>
-                                <DropdownMenuItem
-                                  onSelect={(e) => e.preventDefault()}
-                                >
+                                <DropdownMenuItem onSelect={(e) => e.preventDefault()}>
                                   <RiDeleteBinLine size={16} />
                                   <span className="ml-2">{t("translation:common.delete")}</span>
                                 </DropdownMenuItem>
@@ -994,12 +866,8 @@ export const ForeignExperience = () => {
 
                               <AlertDialogContent>
                                 <AlertDialogHeader>
-                                  <AlertDialogTitle>
-                                    {t("translation:common.alertTitle")}
-                                  </AlertDialogTitle>
-                                  <AlertDialogDescription>
-                                    {t("translation:common.alertDescription")}
-                                  </AlertDialogDescription>
+                                  <AlertDialogTitle>{t("translation:common.alertTitle")}</AlertDialogTitle>
+                                  <AlertDialogDescription>{t("translation:common.alertDescription")}</AlertDialogDescription>
                                 </AlertDialogHeader>
 
                                 <AlertDialogFooter>
@@ -1010,7 +878,7 @@ export const ForeignExperience = () => {
                                   </AlertDialogCancel>
                                   <AlertDialogAction className="bg-red-600 hover:bg-red-700 h-10">
                                     <div className="flex items-center gap-2">
-                                      <AiOutlineCheck size={16} /> {t("translation:common.yes") + " " + t("translation:common.delete")}
+                                      <AiOutlineCheck size={16} /> {t("translation:common.yes") + ", " + t("translation:common.delete")}
                                     </div>
                                   </AlertDialogAction>
                                 </AlertDialogFooter>

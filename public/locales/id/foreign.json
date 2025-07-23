@@ -1,0 +1,24 @@
+{
+    "foreign": {
+        "title": "Pengalaman Luar Negeri",
+        "subTitle": "Riwayat perjalanan dan pengalaman internasional",
+        "purposeMain": "Tujuan Utama",
+        "documents": "Dokumen Pendukung",
+        "duration": "Total Durasi",
+        "visitedCountry": "Negara yang Dikunjungi",
+        "description": "Deskripsi",
+        "purpose": "Tujuan",
+        "country": "Negara",
+        "docPlace": "Dokumen"
+    },
+    "timeline": {
+        "title": "Linimasa Pengalaman Internasional"
+    },
+    "purposes": {
+        "business": "Bisnis",
+        "tourism": "Pariwisata",
+        "work": "Pekerjaan",
+        "study": "Pendidikan",
+        "other": "Lainnya"
+    }
+}

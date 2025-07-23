@@ -14,15 +14,22 @@
     "zh": "Tionghoa"
   },
   "common": {
-    "language": "Bahasa",
-    "settings": "Pengaturan",
-    "logout": "Keluar",
-    "notifications": "Notifikasi",
-    "personalInfo": "Informasi Pribadi",
-    "isRequired": "wajib diisi",
-    "enter": "Masukkan",
-    "select": "Pilih",
-    "edit": "Edit",
-    "add": "Tambah"
-  }
+      "language": "Bahasa",
+      "settings": "Pengaturan",
+      "logout": "Keluar",
+      "notifications": "Notifikasi",
+      "personalInfo": "Informasi Pribadi",
+      "isRequired": "diperlukan",
+      "enter": "Masukkan",
+      "select": "Pilih",
+      "edit": "Edit",
+      "add": "Tambah",
+      "delete": "Hapus",
+      "no": "Tidak",
+      "yes": "Ya",
+      "alertTitle": "Anda yakin ingin menghapus?",
+      "alertDescription": "Tindakan ini tidak dapat dibatalkan. Kontak akan dihapus secara permanen.",
+      "startDate": "Tanggal Mulai",
+      "endDate": "Tanggal Berakhir"
+    }
 }

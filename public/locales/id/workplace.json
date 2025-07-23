@@ -1,0 +1,48 @@
+{
+  "workplace": {
+    "title": "Informasi Tempat Kerja",
+    "subtitle": "Pengalaman kerja dan riwayat pekerjaan profesional",
+    "overview": "Ringkasan Pengalaman Kerja",
+    "stats": {
+      "totalWorkplaces": "Total Tempat Kerja",
+      "totalExperience": "Total Pengalaman",
+      "uniqueFields": "Bidang Unik",
+      "totalDocuments": "Total Dokumen"
+    },
+    "table": {
+      "companyName": "Nama Perusahaan",
+      "position": "Posisi",
+      "field": "Bidang",
+      "startDate": "Tanggal Mulai",
+      "workingPeriod": "Periode Kerja",
+      "documents": "Dokumen",
+      "actions": "Tindakan"
+    },
+    "form": {
+      "addTitle": "Tambah Pengalaman Kerja",
+      "editTitle": "Edit Pengalaman Kerja",
+      "positionLabel": "Posisi",
+      "positionPlaceholder": "Pilih Posisi",
+      "workingPeriodLabel": "Periode Kerja",
+      "workingPeriodPlaceholder": "Pilih Periode Kerja",
+      "fieldLabel": "Bidang",
+      "fieldPlaceholder": "Pilih Bidang",
+      "startDateLabel": "Tanggal Mulai",
+      "endDateLabel": "Tanggal Berakhir",
+      "documentsLabel": "Dokumen",
+      "saveButton": "Simpan",
+      "updateButton": "Perbarui"
+    },
+    "status": {
+      "current": "Saat Ini",
+      "previous": "Sebelumnya"
+    },
+    "validation": {
+      "positionRequired": "Posisi wajib diisi!",
+      "workingPeriodRequired": "Periode kerja wajib diisi!",
+      "fieldRequired": "Bidang wajib diisi!",
+      "startDateRequired": "Tanggal mulai wajib diisi!",
+      "fileRequired": "Harap unggah setidaknya satu dokumen"
+    }
+  }
+}

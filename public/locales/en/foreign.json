@@ -1,15 +1,15 @@
 {
     "foreign": {
         "title": "Foreign Experience",
-        "description": "International travel and experience history",
-        "startDate": "Start Date",
-        "endDate": "End Date",
-        "purpose": "Main Purpose",
+        "subTitle": "International travel and experience history",
+        "purposeMain": "Main Purpose",
         "documents": "Supporting Documents",
         "duration": "Total Duration",
         "visitedCountry": "Countries Visited",
+        "description": "Description",
+        "purpose": "Purpose",
         "country": "Country",
-        "purposeJust": "Purpose"
+        "docPlace": "Document"
     },
     "timeline": {
         "title": "International Experience Timeline"

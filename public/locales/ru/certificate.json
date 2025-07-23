@@ -1,0 +1,41 @@
+{
+  "certificate": {
+    "title": "Профессиональный сертификат",
+    "subtitle": "Профессиональные сертификаты и учетные данные",
+    "overview": "Обзор сертификатов",
+    "stats": {
+      "totalCertificates": "Всего сертификатов",
+      "activeCertificates": "Активные сертификаты",
+      "totalDocuments": "Всего документов"
+    },
+    "status": {
+      "active": "Активен",
+      "expired": "Истек",
+      "pending": "В ожидании"
+    },
+    "form": {
+      "addTitle": "Добавить профессиональный сертификат",
+      "editTitle": "Редактировать профессиональный сертификат",
+      "languageLabel": "Язык",
+      "issuingInstitutionLabel": "Выдающая организация",
+      "issueDateLabel": "Дата выдачи",
+      "certificateTypeLabel": "Тип сертификата",
+      "documentsLabel": "Документы"
+    },
+    "table": {
+      "certificateType": "Тип сертификата",
+      "issuingInstitution": "Выдающая организация",
+      "issueDate": "Дата выдачи",
+      "status": "Статус",
+      "documents": "Документы",
+      "actions": "Действия"
+    },
+    "validation": {
+      "languageRequired": "Требуется выбрать язык!",
+      "institutionRequired": "Требуется указать выдающую организацию!",
+      "dateRequired": "Требуется указать дату выдачи!",
+      "typeRequired": "Требуется указать тип сертификата!",
+      "fileRequired": "Пожалуйста, загрузите хотя бы один документ"
+    }
+  }
+}

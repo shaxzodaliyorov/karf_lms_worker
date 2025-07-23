@@ -1,0 +1,48 @@
+{
+  "workplace": {
+    "title": "Workplace Information",
+    "subtitle": "Professional work experience and employment history",
+    "overview": "Work Experience Overview",
+    "stats": {
+      "totalWorkplaces": "Total Workplaces",
+      "totalExperience": "Total Experience",
+      "uniqueFields": "Unique Fields",
+      "totalDocuments": "Total Documents"
+    },
+    "table": {
+      "companyName": "Company Name",
+      "position": "Position",
+      "field": "Field",
+      "startDate": "Start Date",
+      "workingPeriod": "Working Period",
+      "documents": "Documents",
+      "actions": "Actions"
+    },
+    "form": {
+      "addTitle": "Add Work Experience",
+      "editTitle": "Edit Work Experience",
+      "positionLabel": "Position",
+      "positionPlaceholder": "Select Position",
+      "workingPeriodLabel": "Working Period",
+      "workingPeriodPlaceholder": "Select Working Period",
+      "fieldLabel": "Field",
+      "fieldPlaceholder": "Select Field",
+      "startDateLabel": "Start Date",
+      "endDateLabel": "End Date",
+      "documentsLabel": "Documents",
+      "saveButton": "Save",
+      "updateButton": "Update"
+    },
+    "status": {
+      "current": "Current",
+      "previous": "Previous"
+    },
+    "validation": {
+      "positionRequired": "Position is required!",
+      "workingPeriodRequired": "Working Period is required!",
+      "fieldRequired": "Field is required!",
+      "startDateRequired": "Start Date is required!",
+      "fileRequired": "Please upload at least one document"
+    }
+  }
+}

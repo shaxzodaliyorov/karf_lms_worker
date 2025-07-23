@@ -1,0 +1,20 @@
+{
+  "language": {
+    "title": "Владение языками",
+    "subtitle": "Многоязычные навыки и сертификаты",
+    "overview": "Обзор языковых навыков",
+    "stats": {
+      "totalLanguages": "Всего языков",
+      "nativeLanguages": "Родные языки",
+      "certificates": "Сертификаты",
+      "avgProficiency": "Средний уровень"
+    },
+    "proficiencyLevels": {
+      "speaking": "Разговорный",
+      "writingReading": "Письмо и чтение",
+      "overallProficiency": "Общий уровень"
+    },
+    "nativeLanguageBadge": "Родной язык",
+    "overallScore": "Общий"
+  }
+}

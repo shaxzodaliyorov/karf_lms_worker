@@ -28,6 +28,8 @@
     "no": "No",
     "yes": "Yes",
     "alertTitle": "Are you sure you want to delete?",
-    "alertDescription": "This action cannot be undone. The contact will be permanently deleted."
+    "alertDescription": "This action cannot be undone. The contact will be permanently deleted.",
+    "startDate": "Start Date",
+    "endDate": "End Date"
   }
 }

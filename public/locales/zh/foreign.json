@@ -1,35 +1,18 @@
 {
     "foreign": {
-        "title": "国外经历",
-        "description": "国际旅行及经历历史",
-        "startDate": "开始日期",
-        "endDate": "结束日期",
-        "purpose": "主要目的",
+        "title": "国外经验",
+        "subTitle": "国际旅行与经历记录",
+        "purposeMain": "主要目的",
         "documents": "支持文件",
         "duration": "总时长",
         "visitedCountry": "到访国家",
+        "description": "描述",
+        "purpose": "目的",
         "country": "国家",
-        "experienceDescription": "描述",
-        "selectPurpose": "选择目的",
-        "briefDescription": "简短描述",
-        "noDescription": "无描述",
-        "uploadDocuments": "上传支持文件",
-        "countriesVisited": "到访国家",
-        "totalDuration": "总时长",
-        "purposeOfWork": "工作",
-        "purposeOfStudy": "学习",
-        "purposeOfTourism": "旅游",
-        "deleteConfirmation": {
-            "title": "确定要删除吗？",
-            "description": "此操作无法撤消。记录将被永久删除。",
-            "cancel": "不，保留",
-            "confirm": "是的，删除"
-        },
-        "editTitle": "编辑国外经历",
-        "addTitle": "添加国外经历"
+        "docPlace": "文件"
     },
     "timeline": {
-        "title": "国际经历时间线"
+        "title": "国际经验时间线"
     },
     "purposes": {
         "business": "商务",
@@ -37,14 +20,5 @@
         "work": "工作",
         "study": "学习",
         "other": "其他"
-    },
-    "actions": {
-        "edit": "编辑",
-        "delete": "删除",
-        "view": "查看",
-        "download": "下载",
-        "cancel": "取消",
-        "save": "保存更改",
-        "add": "添加"
     }
 }

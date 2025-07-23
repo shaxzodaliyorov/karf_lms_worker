@@ -1,0 +1,49 @@
+{
+  "language": {
+    "title": "ဘာသာစကားကျွမ်းကျင်မှု",
+    "subtitle": "ဘာသာစကားအမျိုးမျိုးနှင့်လက်မှတ်များ",
+    "addLanguage": "ဘာသာစကားထည့်ရန်",
+    "overview": "ဘာသာစကားကျွမ်းကျင်မှုအချက်အလက်များ",
+    "stats": {
+      "totalLanguages": "စုစုပေါင်းဘာသာစကားများ",
+      "nativeLanguages": "မိခင်ဘာသာစကား",
+      "certificates": "လက်မှတ်များ",
+      "avgProficiency": "ပျမ်းမျှကျွမ်းကျင်မှု"
+    },
+    "proficiencyLevels": {
+      "speaking": "ပြောဆိုခြင်း",
+      "writingReading": "ရေးသားခြင်းနှင့်ဖတ်ရှုခြင်း",
+      "overallProficiency": "စုစုပေါင်းကျွမ်းကျင်မှု"
+    },
+    "certifications": "လက်မှတ်များ",
+    "nativeLanguageBadge": "မိခင်ဘာသာစကား",
+    "overallScore": "စုစုပေါင်း",
+    "form": {
+      "addTitle": "ဘာသာစကားကျွမ်းကျင်မှုထည့်ရန်",
+      "editTitle": "ဘာသာစကားကျွမ်းကျင်မှုပြင်ဆင်ရန်",
+      "languageLabel": "ဘာသာစကား",
+      "languagePlaceholder": "ဘာသာစကားရွေးချယ်ပါ",
+      "proficiencyLabel": "ကျွမ်းကျင်မှုအဆင့်",
+      "proficiencyPlaceholder": "ဥပမာ - အလယ်အလတ်",
+      "saveButton": "ထည့်ရန်",
+      "updateButton": "ပြင်ဆင်ရန်"
+    },
+    "actions": {
+      "edit": "ပြင်ဆင်ရန်",
+      "delete": "ဖျက်ရန်",
+      "view": "ကြည့်ရန်",
+      "download": "ဒေါင်းလုဒ်"
+    },
+    "deleteDialog": {
+      "title": "ဖျက်မည်မှာသေချာပါသလား?",
+      "description": "ဤလုပ်ဆောင်ချက်ကိုပြန်လည်ပြုပြင်လို့မရပါ။ ဘာသာစကားကျွမ်းကျင်မှုဆိုင်ရာအချက်အလက်များကိုအပြီးတိုင်ဖျက်ပစ်လိမ့်မည်။",
+      "cancel": "မဟုတ်ပါ",
+      "confirm": "ဟုတ်ကဲ့၊ ဖျက်ပါ"
+    },
+    "validation": {
+      "languageRequired": "ဘာသာစကားရွေးချယ်ရန်လိုအပ်ပါသည်!",
+      "proficiencyRequired": "ကျွမ်းကျင်မှုအဆင့်ဖြည့်ရန်လိုအပ်ပါသည်",
+      "fileRequired": "အနည်းဆုံးဖိုင်တစ်ခုအပ်လုဒ်လုပ်ပေးပါ"
+    }
+  }
+}

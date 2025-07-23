@@ -1,0 +1,16 @@
+{
+    "video": {
+        "title": "비디오 포트폴리오",
+        "subtitle": "전문 비디오 쇼케이스 및 데모",
+        "showcase": "비디오 쇼케이스",
+        "stats": {
+            "totalVideos": "총 비디오 수",
+            "totalDuration": "총 재생 시간",
+            "latestUpload": "최근 업로드"
+        },
+        "link": "비디오 링크",
+        "play": "재생",
+        "uploaded": "업로드됨",
+        "duration": "재생 시간"
+    }
+}

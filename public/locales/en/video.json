@@ -1,0 +1,16 @@
+{
+    "video": {
+        "title": "Video Portfolio",
+        "subtitle": "Professional video showcase and demonstrations",
+        "showcase": "Video Showcase",
+        "stats": {
+            "totalVideos": "Total Videos",
+            "totalDuration": "Total Duration",
+            "latestUpload": "Latest Upload"
+        },
+        "link": "Video Link",
+        "play": "Play Video",
+        "uploaded": "Uploaded",
+        "duration": "Duration"
+    }
+}

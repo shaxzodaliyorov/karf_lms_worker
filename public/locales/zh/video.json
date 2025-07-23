@@ -1,0 +1,16 @@
+{
+    "video": {
+        "title": "视频作品集",
+        "subtitle": "专业视频展示与演示",
+        "showcase": "视频展示",
+        "stats": {
+            "totalVideos": "视频总数",
+            "totalDuration": "总时长",
+            "latestUpload": "最近上传"
+        },
+        "link": "视频链接",
+        "play": "播放视频",
+        "uploaded": "上传时间",
+        "duration": "时长"
+    }
+}

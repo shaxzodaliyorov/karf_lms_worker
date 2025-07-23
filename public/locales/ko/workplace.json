@@ -1,0 +1,48 @@
+{
+  "workplace": {
+    "title": "직장 정보",
+    "subtitle": "전문 업무 경력 및 이력",
+    "overview": "경력 개요",
+    "stats": {
+      "totalWorkplaces": "총 근무처",
+      "totalExperience": "총 경력",
+      "uniqueFields": "고유 분야",
+      "totalDocuments": "총 문서 수"
+    },
+    "table": {
+      "companyName": "회사명",
+      "position": "직책",
+      "field": "분야",
+      "startDate": "시작일",
+      "workingPeriod": "근무 기간",
+      "documents": "문서",
+      "actions": "작업"
+    },
+    "form": {
+      "addTitle": "경력 추가",
+      "editTitle": "경력 수정",
+      "positionLabel": "직책",
+      "positionPlaceholder": "직책 선택",
+      "workingPeriodLabel": "근무 기간",
+      "workingPeriodPlaceholder": "근무 기간 선택",
+      "fieldLabel": "분야",
+      "fieldPlaceholder": "분야 선택",
+      "startDateLabel": "시작일",
+      "endDateLabel": "종료일",
+      "documentsLabel": "문서",
+      "saveButton": "저장",
+      "updateButton": "업데이트"
+    },
+    "status": {
+      "current": "현재",
+      "previous": "이전"
+    },
+    "validation": {
+      "positionRequired": "직책을 입력해주세요!",
+      "workingPeriodRequired": "근무 기간을 선택해주세요!",
+      "fieldRequired": "분야를 선택해주세요!",
+      "startDateRequired": "시작일을 입력해주세요!",
+      "fileRequired": "최소 한 개의 문서를 업로드해주세요"
+    }
+  }
+}

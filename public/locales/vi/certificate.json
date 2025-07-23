@@ -1,0 +1,41 @@
+{
+  "certificate": {
+    "title": "Chứng chỉ Chuyên nghiệp",
+    "subtitle": "Chứng chỉ và chứng nhận chuyên môn",
+    "overview": "Tổng quan Chứng chỉ",
+    "stats": {
+      "totalCertificates": "Tổng số Chứng chỉ",
+      "activeCertificates": "Chứng chỉ Còn hiệu lực",
+      "totalDocuments": "Tổng số Tài liệu"
+    },
+    "status": {
+      "active": "Có hiệu lực",
+      "expired": "Hết hạn",
+      "pending": "Đang chờ"
+    },
+    "form": {
+      "addTitle": "Thêm Chứng chỉ Chuyên nghiệp",
+      "editTitle": "Chỉnh sửa Chứng chỉ Chuyên nghiệp",
+      "languageLabel": "Ngôn ngữ",
+      "issuingInstitutionLabel": "Tổ chức Cấp phát",
+      "issueDateLabel": "Ngày Cấp",
+      "certificateTypeLabel": "Loại Chứng chỉ",
+      "documentsLabel": "Tài liệu"
+    },
+    "table": {
+      "certificateType": "Loại Chứng chỉ",
+      "issuingInstitution": "Tổ chức Cấp phát",
+      "issueDate": "Ngày Cấp",
+      "status": "Trạng thái",
+      "documents": "Tài liệu",
+      "actions": "Thao tác"
+    },
+    "validation": {
+      "languageRequired": "Vui lòng chọn ngôn ngữ!",
+      "institutionRequired": "Vui lòng nhập tổ chức cấp phát!",
+      "dateRequired": "Vui lòng nhập ngày cấp!",
+      "typeRequired": "Vui lòng chọn loại chứng chỉ!",
+      "fileRequired": "Vui lòng tải lên ít nhất một tài liệu"
+    }
+  }
+}

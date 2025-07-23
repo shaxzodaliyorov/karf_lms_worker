@@ -1,0 +1,20 @@
+{
+  "language": {
+    "title": "ความสามารถทางภาษา",
+    "subtitle": "ทักษะหลายภาษาและใบรับรอง",
+    "overview": "ภาพรวมความสามารถทางภาษา",
+    "stats": {
+      "totalLanguages": "ภาษาทั้งหมด",
+      "nativeLanguages": "ภาษาแม่",
+      "certificates": "ใบรับรอง",
+      "avgProficiency": "ความสามารถโดยเฉลี่ย"
+    },
+    "proficiencyLevels": {
+      "speaking": "การพูด",
+      "writingReading": "การเขียนและการอ่าน",
+      "overallProficiency": "ความสามารถโดยรวม"
+    },
+    "nativeLanguageBadge": "ภาษาแม่",
+    "overallScore": "รวม"
+  }
+}

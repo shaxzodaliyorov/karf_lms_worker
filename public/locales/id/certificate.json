@@ -1,0 +1,41 @@
+{
+  "certificate": {
+    "title": "Sertifikat Profesional",
+    "subtitle": "Sertifikasi dan kredensial profesional",
+    "overview": "Ringkasan Sertifikat",
+    "stats": {
+      "totalCertificates": "Total Sertifikat",
+      "activeCertificates": "Sertifikat Aktif",
+      "totalDocuments": "Total Dokumen"
+    },
+    "status": {
+      "active": "Aktif",
+      "expired": "Kedaluwarsa",
+      "pending": "Menunggu"
+    },
+    "form": {
+      "addTitle": "Tambah Sertifikat Profesional",
+      "editTitle": "Edit Sertifikat Profesional",
+      "languageLabel": "Bahasa",
+      "issuingInstitutionLabel": "Lembaga Penerbit",
+      "issueDateLabel": "Tanggal Diterbitkan",
+      "certificateTypeLabel": "Jenis Sertifikat",
+      "documentsLabel": "Dokumen"
+    },
+    "table": {
+      "certificateType": "Jenis Sertifikat",
+      "issuingInstitution": "Lembaga Penerbit",
+      "issueDate": "Tanggal Diterbitkan",
+      "status": "Status",
+      "documents": "Dokumen",
+      "actions": "Tindakan"
+    },
+    "validation": {
+      "languageRequired": "Bahasa wajib diisi!",
+      "institutionRequired": "Lembaga penerbit wajib diisi!",
+      "dateRequired": "Tanggal terbit wajib diisi!",
+      "typeRequired": "Jenis sertifikat wajib dipilih!",
+      "fileRequired": "Harap unggah setidaknya satu dokumen"
+    }
+  }
+}

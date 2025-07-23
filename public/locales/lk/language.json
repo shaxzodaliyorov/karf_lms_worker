@@ -1,0 +1,49 @@
+{
+  "language": {
+    "title": "භාෂා දක්ෂතා",
+    "subtitle": "බහුභාෂික කුසලතා සහ සහතිකපත්",
+    "addLanguage": "භාෂාවක් එක් කරන්න",
+    "overview": "භාෂා කුසලතා පිළිබඳ දළ විශ්ලේෂණය",
+    "stats": {
+      "totalLanguages": "සමස්ත භාෂා",
+      "nativeLanguages": "මව් බස",
+      "certificates": "සහතික පත්",
+      "avgProficiency": "සාමාන්‍ය දක්ෂතා මට්ටම"
+    },
+    "proficiencyLevels": {
+      "speaking": "කථනය",
+      "writingReading": "ලිවීම හා කියවීම",
+      "overallProficiency": "සමස්ත දක්ෂතා මට්ටම"
+    },
+    "certifications": "සහතික පත්",
+    "nativeLanguageBadge": "මව් බස",
+    "overallScore": "සමස්ත",
+    "form": {
+      "addTitle": "භාෂා දක්ෂතා එක් කරන්න",
+      "editTitle": "භාෂා දක්ෂතා සංස්කරණය කරන්න",
+      "languageLabel": "භාෂාව",
+      "languagePlaceholder": "භාෂාව තෝරන්න",
+      "proficiencyLabel": "දක්ෂතා මට්ටම",
+      "proficiencyPlaceholder": "උදා: මධ්‍යම",
+      "saveButton": "එක් කරන්න",
+      "updateButton": "යාවත්කාලීන කරන්න"
+    },
+    "actions": {
+      "edit": "සංස්කරණය",
+      "delete": "මකන්න",
+      "view": "පෙන්වන්න",
+      "download": "බාගන්න"
+    },
+    "deleteDialog": {
+      "title": "ඔබට ඇත්තටම මැකීමට අවශ්‍යද?",
+      "description": "මෙම ක්‍රියාව අවලංගු කළ නොහැක. භාෂා දක්ෂතා තොරතුරු ස්ථිරවම මකා දමනු ඇත.",
+      "cancel": "නැත",
+      "confirm": "ඔව්, මකන්න"
+    },
+    "validation": {
+      "languageRequired": "කරුණාකර භාෂාව තෝරන්න!",
+      "proficiencyRequired": "කරුණාකර දක්ෂතා මට්ටම සඳහන් කරන්න",
+      "fileRequired": "කරුණාකර අවම වශයෙන් එක් ගොනුවක් හෝ උඩුගත කරන්න"
+    }
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "workplace": {
+    "title": "ข้อมูลสถานที่ทำงาน",
+    "subtitle": "ประสบการณ์การทำงานและประวัติการจ้างงาน",
+    "overview": "ภาพรวมประสบการณ์การทำงาน",
+    "stats": {
+      "totalWorkplaces": "สถานที่ทำงานทั้งหมด",
+      "totalExperience": "ประสบการณ์รวม",
+      "uniqueFields": "สาขาเฉพาะทาง",
+      "totalDocuments": "เอกสารทั้งหมด"
+    },
+    "table": {
+      "companyName": "ชื่อบริษัท",
+      "position": "ตำแหน่ง",
+      "field": "สาขา",
+      "startDate": "วันที่เริ่มงาน",
+      "workingPeriod": "ระยะเวลาทำงาน",
+      "documents": "เอกสาร",
+      "actions": "การดำเนินการ"
+    },
+    "form": {
+      "addTitle": "เพิ่มประสบการณ์การทำงาน",
+      "editTitle": "แก้ไขประสบการณ์การทำงาน",
+      "positionLabel": "ตำแหน่ง",
+      "positionPlaceholder": "เลือกตำแหน่ง",
+      "workingPeriodLabel": "ระยะเวลาทำงาน",
+      "workingPeriodPlaceholder": "เลือกระยะเวลาทำงาน",
+      "fieldLabel": "สาขา",
+      "fieldPlaceholder": "เลือกสาขา",
+      "startDateLabel": "วันที่เริ่มงาน",
+      "endDateLabel": "วันที่สิ้นสุด",
+      "documentsLabel": "เอกสาร",
+      "saveButton": "บันทึก",
+      "updateButton": "อัปเดต"
+    },
+    "status": {
+      "current": "ปัจจุบัน",
+      "previous": "ก่อนหน้า"
+    },
+    "validation": {
+      "positionRequired": "กรุณาระบุตำแหน่ง!",
+      "workingPeriodRequired": "กรุณาเลือกระยะเวลาทำงาน!",
+      "fieldRequired": "กรุณาเลือกสาขา!",
+      "startDateRequired": "กรุณาระบุวันที่เริ่มงาน!",
+      "fileRequired": "กรุณาอัปโหลดเอกสารอย่างน้อย 1 ฉบับ"
+    }
+  }
+}

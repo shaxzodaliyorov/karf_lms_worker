@@ -1,0 +1,41 @@
+{
+      "certificate": {
+        "title": "专业证书",
+        "subtitle": "专业认证和资质",
+        "overview": "证书概览",
+        "stats": {
+          "totalCertificates": "证书总数",
+          "activeCertificates": "有效证书",
+          "totalDocuments": "文件总数"
+        },
+        "status": {
+          "active": "有效",
+          "expired": "已过期",
+          "pending": "待处理"
+        },
+        "form": {
+          "addTitle": "添加专业证书",
+          "editTitle": "编辑专业证书",
+          "languageLabel": "语言",
+          "issuingInstitutionLabel": "颁发机构",
+          "issueDateLabel": "颁发日期",
+          "certificateTypeLabel": "证书类型",
+          "documentsLabel": "文件"
+        },
+        "table": {
+          "certificateType": "证书类型",
+          "issuingInstitution": "颁发机构",
+          "issueDate": "颁发日期",
+          "status": "状态",
+          "documents": "文件",
+          "actions": "操作"
+        },
+        "validation": {
+          "languageRequired": "语言是必填项！",
+          "institutionRequired": "颁发机构是必填项！",
+          "dateRequired": "颁发日期是必填项！",
+          "typeRequired": "证书类型是必填项！",
+          "fileRequired": "请至少上传一份文件"
+        }
+      }
+    }

@@ -14,15 +14,22 @@
     "zh": "中文"
   },
   "common": {
-    "language": "语言",
-    "settings": "设置",
-    "logout": "退出登录",
-    "notifications": "通知",
-    "personalInfo": "个人信息",
-    "isRequired": "必填",
-    "enter": "输入",
-    "select": "选择",
-    "edit": "编辑",
-    "add": "添加"
-  }
+      "language": "语言",
+      "settings": "设置",
+      "logout": "注销",
+      "notifications": "通知",
+      "personalInfo": "个人信息",
+      "isRequired": "是必填项",
+      "enter": "输入",
+      "select": "选择",
+      "edit": "编辑",
+      "add": "添加",
+      "delete": "删除",
+      "no": "否",
+      "yes": "是",
+      "alertTitle": "确定要删除吗？",
+      "alertDescription": "此操作无法撤销。联系人将被永久删除。",
+      "startDate": "开始日期",
+      "endDate": "结束日期"
+    }
 }

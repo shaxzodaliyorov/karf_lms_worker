@@ -1,0 +1,41 @@
+{
+  "certificate": {
+    "title": "Professional Certificate",
+    "subtitle": "Professional certifications and credentials",
+    "overview": "Certificates Overview",
+    "stats": {
+      "totalCertificates": "Total Certificates",
+      "activeCertificates": "Active Certificates",
+      "totalDocuments": "Total Documents"
+    },
+    "status": {
+      "active": "Active",
+      "expired": "Expired",
+      "pending": "Pending"
+    },
+    "form": {
+      "addTitle": "Add Professional Certificate",
+      "editTitle": "Edit Professional Certificate",
+      "languageLabel": "Language",
+      "issuingInstitutionLabel": "Issuing Institution",
+      "issueDateLabel": "Issue Date",
+      "certificateTypeLabel": "Certificate Type",
+      "documentsLabel": "Documents"
+    },
+    "table": {
+      "certificateType": "Certificate Type",
+      "issuingInstitution": "Issuing Institution",
+      "issueDate": "Issue Date",
+      "status": "Status",
+      "documents": "Documents",
+      "actions": "Actions"
+    },
+    "validation": {
+      "languageRequired": "Language is required!",
+      "institutionRequired": "Issuing Institution is required!",
+      "dateRequired": "Issue Date is required!",
+      "typeRequired": "Certificate Type is required!",
+      "fileRequired": "Please upload at least one document"
+    }
+  }
+}

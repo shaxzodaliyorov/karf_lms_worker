@@ -1,0 +1,48 @@
+{
+  "workplace": {
+    "title": "ព័ត៌មានកន្លែងធ្វើការ",
+    "subtitle": "បទពិសោធន៍ការងារវិជ្ជាជីវៈ និងប្រវត្តិការងារ",
+    "overview": "ទិដ្ឋភាពទូទៅនៃបទពិសោធន៍ការងារ",
+    "stats": {
+      "totalWorkplaces": "កន្លែងធ្វើការសរុប",
+      "totalExperience": "បទពិសោធន៍សរុប",
+      "uniqueFields": "វិស័យពិសេស",
+      "totalDocuments": "ឯកសារសរុប"
+    },
+    "table": {
+      "companyName": "ឈ្មោះក្រុមហ៊ុន",
+      "position": "តួនាទី",
+      "field": "វិស័យ",
+      "startDate": "ថ្ងៃចាប់ផ្តើម",
+      "workingPeriod": "រយៈពេលធ្វើការ",
+      "documents": "ឯកសារ",
+      "actions": "សកម្មភាព"
+    },
+    "form": {
+      "addTitle": "បន្ថែមបទពិសោធន៍ការងារ",
+      "editTitle": "កែសម្រួលបទពិសោធន៍ការងារ",
+      "positionLabel": "តួនាទី",
+      "positionPlaceholder": "ជ្រើសរើសតួនាទី",
+      "workingPeriodLabel": "រយៈពេលធ្វើការ",
+      "workingPeriodPlaceholder": "ជ្រើសរើសរយៈពេលធ្វើការ",
+      "fieldLabel": "វិស័យ",
+      "fieldPlaceholder": "ជ្រើសរើសវិស័យ",
+      "startDateLabel": "ថ្ងៃចាប់ផ្តើម",
+      "endDateLabel": "ថ្ងៃបញ្ចប់",
+      "documentsLabel": "ឯកសារ",
+      "saveButton": "រក្សាទុក",
+      "updateButton": "ធ្វើឱ្យទាន់សម័យ"
+    },
+    "status": {
+      "current": "បច្ចុប្បន្ន",
+      "previous": "ពីមុន"
+    },
+    "validation": {
+      "positionRequired": "តួនាទីត្រូវបំពេញ!",
+      "workingPeriodRequired": "រយៈពេលធ្វើការត្រូវបំពេញ!",
+      "fieldRequired": "វិស័យត្រូវបំពេញ!",
+      "startDateRequired": "ថ្ងៃចាប់ផ្តើមត្រូវបំពេញ!",
+      "fileRequired": "សូមផ្ទុកឡើងយ៉ាងហោចណាស់មួយឯកសារ"
+    }
+  }
+}

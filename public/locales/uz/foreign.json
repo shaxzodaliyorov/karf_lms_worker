@@ -1,0 +1,24 @@
+{
+    "foreign": {
+        "title": "Xorijiy tajriba",
+        "subTitle": "Xalqaro sayohatlar va tajriba tarixi",
+        "purposeMain": "Asosiy maqsad",
+        "documents": "Tasdiqlovchi hujjatlar",
+        "duration": "Umumiy davomiylik",
+        "visitedCountry": "Tashrif buyurilgan mamlakatlar",
+        "description": "Tavsif",
+        "purpose": "Maqsad",
+        "country": "Mamlakat",
+        "docPlace": "Hujjat"
+    },
+    "timeline": {
+        "title": "Xalqaro tajriba xronologiyasi"
+    },
+    "purposes": {
+        "business": "Biznes",
+        "tourism": "Turizm",
+        "work": "Ish",
+        "study": "O'qish",
+        "other": "Boshqa"
+    }
+}

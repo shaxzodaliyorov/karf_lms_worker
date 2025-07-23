@@ -1,0 +1,41 @@
+{
+  "certificate": {
+    "title": "ใบรับรองวิชาชีพ",
+    "subtitle": "การรับรองและใบอนุญาตประกอบวิชาชีพ",
+    "overview": "ภาพรวมใบรับรอง",
+    "stats": {
+      "totalCertificates": "ใบรับรองทั้งหมด",
+      "activeCertificates": "ใบรับรองที่ยังใช้งานได้",
+      "totalDocuments": "เอกสารทั้งหมด"
+    },
+    "status": {
+      "active": "ใช้งานได้",
+      "expired": "หมดอายุ",
+      "pending": "รอดำเนินการ"
+    },
+    "form": {
+      "addTitle": "เพิ่มใบรับรองวิชาชีพ",
+      "editTitle": "แก้ไขใบรับรองวิชาชีพ",
+      "languageLabel": "ภาษา",
+      "issuingInstitutionLabel": "สถาบันผู้ออกใบรับรอง",
+      "issueDateLabel": "วันที่ออกใบรับรอง",
+      "certificateTypeLabel": "ประเภทใบรับรอง",
+      "documentsLabel": "เอกสาร"
+    },
+    "table": {
+      "certificateType": "ประเภทใบรับรอง",
+      "issuingInstitution": "สถาบันผู้ออกใบรับรอง",
+      "issueDate": "วันที่ออกใบรับรอง",
+      "status": "สถานะ",
+      "documents": "เอกสาร",
+      "actions": "การดำเนินการ"
+    },
+    "validation": {
+      "languageRequired": "กรุณาเลือกภาษา!",
+      "institutionRequired": "กรุณาระบุสถาบันผู้ออกใบรับรอง!",
+      "dateRequired": "กรุณาระบุวันที่ออกใบรับรอง!",
+      "typeRequired": "กรุณาเลือกประเภทใบรับรอง!",
+      "fileRequired": "กรุณาอัปโหลดเอกสารอย่างน้อย 1 ฉบับ"
+    }
+  }
+}

@@ -1,0 +1,24 @@
+{
+    "foreign": {
+        "title": "해외 경험",
+        "subTitle": "국제 여행 및 경력 이력",
+        "purposeMain": "주요 목적",
+        "documents": "지원 서류",
+        "duration": "총 기간",
+        "visitedCountry": "방문 국가",
+        "description": "설명",
+        "purpose": "목적",
+        "country": "국가",
+        "docPlace": "문서"
+    },
+    "timeline": {
+        "title": "국제 경험 타임라인"
+    },
+    "purposes": {
+        "business": "비즈니스",
+        "tourism": "관광",
+        "work": "근무",
+        "study": "유학",
+        "other": "기타"
+    }
+}

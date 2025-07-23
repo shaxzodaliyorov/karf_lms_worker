@@ -1,0 +1,20 @@
+{
+  "language": {
+    "title": "语言能力",
+    "subtitle": "多语言技能与语言证书",
+    "overview": "语言技能概览",
+    "stats": {
+      "totalLanguages": "总语言数",
+      "nativeLanguages": "母语",
+      "certificates": "证书",
+      "avgProficiency": "平均熟练度"
+    },
+    "proficiencyLevels": {
+      "speaking": "口语",
+      "writingReading": "写作与阅读",
+      "overallProficiency": "整体熟练度"
+    },
+    "nativeLanguageBadge": "母语",
+    "overallScore": "总体"
+  }
+}

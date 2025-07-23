@@ -1,0 +1,48 @@
+{
+    "workplace": {
+      "title": "Thông tin Nơi làm việc",
+      "subtitle": "Kinh nghiệm làm việc chuyên nghiệp và lịch sử làm việc",
+      "overview": "Tổng quan về Kinh nghiệm làm việc",
+      "stats": {
+        "totalWorkplaces": "Tổng số nơi làm việc",
+        "totalExperience": "Tổng số kinh nghiệm",
+        "uniqueFields": "Lĩnh vực độc đáo",
+        "totalDocuments": "Tổng số tài liệu"
+      },
+      "table": {
+        "companyName": "Tên công ty",
+        "position": "Chức danh",
+        "field": "Lĩnh vực",
+        "startDate": "Ngày bắt đầu",
+        "workingPeriod": "Thời gian làm việc",
+        "documents": "Tài liệu",
+        "actions": "Thao tác"
+      },
+      "form": {
+        "addTitle": "Thêm kinh nghiệm làm việc",
+        "editTitle": "Chỉnh sửa kinh nghiệm làm việc",
+        "positionLabel": "Chức danh",
+        "positionPlaceholder": "Chọn chức danh",
+        "workingPeriodLabel": "Thời gian làm việc",
+        "workingPeriodPlaceholder": "Chọn thời gian làm việc",
+        "fieldLabel": "Lĩnh vực",
+        "fieldPlaceholder": "Chọn lĩnh vực",
+        "startDateLabel": "Ngày bắt đầu",
+        "endDateLabel": "Ngày kết thúc",
+        "documentsLabel": "Tài liệu",
+        "saveButton": "Lưu",
+        "updateButton": "Cập nhật"
+      },
+      "status": {
+        "current": "Hiện tại",
+        "previous": "Trước đây"
+      },
+      "validation": {
+        "positionRequired": "Chức danh là bắt buộc!",
+        "workingPeriodRequired": "Thời gian làm việc là bắt buộc!",
+        "fieldRequired": "Lĩnh vực là bắt buộc!",
+        "startDateRequired": "Ngày bắt đầu là bắt buộc!",
+        "fileRequired": "Vui lòng tải lên ít nhất một tài liệu"
+      }
+    }
+  }

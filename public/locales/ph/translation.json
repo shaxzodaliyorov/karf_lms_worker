@@ -14,15 +14,22 @@
     "zh": "Tsino"
   },
   "common": {
-    "language": "Wika",
-    "settings": "Mga Setting",
-    "logout": "Mag-logout",
-    "notifications": "Mga Abiso",
-    "personalInfo": "Personal Information",
-    "isRequired": "kailangan",
-    "enter": "Ipasok",
-    "select": "Pumili",
-    "edit": "I-edit",
-    "add": "Idagdag"
-  }
+      "language": "Wika",
+      "settings": "Mga Setting",
+      "logout": "Mag-log out",
+      "notifications": "Mga Notification",
+      "personalInfo": "Personal na Impormasyon",
+      "isRequired": "kinakailangan",
+      "enter": "Ilagay",
+      "select": "Piliin",
+      "edit": "I-edit",
+      "add": "Idagdag",
+      "delete": "Tanggalin",
+      "no": "Hindi",
+      "yes": "Oo",
+      "alertTitle": "Sigurado ka bang gusto mong burahin?",
+      "alertDescription": "Hindi na mababawi ang aksyong ito. Permanenteng mabubura ang contact.",
+      "startDate": "Petsa ng Simula",
+      "endDate": "Petsa ng Pagtatapos"
+    }
 }

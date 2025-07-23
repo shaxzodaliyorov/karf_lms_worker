@@ -1,0 +1,41 @@
+{
+  "certificate": {
+    "title": "වෘත්තීය සහතික",
+    "subtitle": "වෘත්තීය සහතික හා සුදුසුකම්",
+    "overview": "සහතික දළ විශ්ලේෂණය",
+    "stats": {
+      "totalCertificates": "සමස්ත සහතික",
+      "activeCertificates": "සක්‍රීය සහතික",
+      "totalDocuments": "සමස්ත ලේඛන"
+    },
+    "status": {
+      "active": "සක්‍රීයයි",
+      "expired": "කල් ඉකුත්වී ඇත",
+      "pending": "පොරොත්තුවෙන්"
+    },
+    "form": {
+      "addTitle": "වෘත්තීය සහතිකයක් එක් කරන්න",
+      "editTitle": "වෘත්තීය සහතිකය සංස්කරණය කරන්න",
+      "languageLabel": "භාෂාව",
+      "issuingInstitutionLabel": "නිකුත් කරන ආයතනය",
+      "issueDateLabel": "නිකුත් කළ දිනය",
+      "certificateTypeLabel": "සහතික වර්ගය",
+      "documentsLabel": "ලේඛන"
+    },
+    "table": {
+      "certificateType": "සහතික වර්ගය",
+      "issuingInstitution": "නිකුත් කරන ආයතනය",
+      "issueDate": "නිකුත් කළ දිනය",
+      "status": "තත්ත්වය",
+      "documents": "ලේඛන",
+      "actions": "ක්‍රියා"
+    },
+    "validation": {
+      "languageRequired": "භාෂාව අවශ්‍යයි!",
+      "institutionRequired": "නිකුත් කරන ආයතනය අවශ්‍යයි!",
+      "dateRequired": "නිකුත් කළ දිනය අවශ්‍යයි!",
+      "typeRequired": "සහතික වර්ගය අවශ්‍යයි!",
+      "fileRequired": "අවම වශයෙන් එක් ලේඛනයක් හෝ උඩුගත කරන්න"
+    }
+  }
+}

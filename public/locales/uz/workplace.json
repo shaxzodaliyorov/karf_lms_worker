@@ -1,0 +1,48 @@
+{
+  "workplace": {
+    "title": "Ish joyi ma'lumotlari",
+    "subtitle": "Professional ish tajribasi va ish tarixi",
+    "overview": "Ish tajribasi haqida umumiy ma'lumot",
+    "stats": {
+      "totalWorkplaces": "Jami ish joylari",
+      "totalExperience": "Umumiy ish staji",
+      "uniqueFields": "Turli sohalar",
+      "totalDocuments": "Jami hujjatlar"
+    },
+    "table": {
+      "companyName": "Korxona nomi",
+      "position": "Lavozim",
+      "field": "Ish sohasi",
+      "startDate": "Boshlanish sanasi",
+      "workingPeriod": "Ish davri",
+      "documents": "Hujjatlar",
+      "actions": "Harakatlar"
+    },
+    "form": {
+      "addTitle": "Ish tajribasini qo'shish",
+      "editTitle": "Ish tajribasini tahrirlash",
+      "positionLabel": "Lavozim",
+      "positionPlaceholder": "Lavozimni tanlang",
+      "workingPeriodLabel": "Ish davri",
+      "workingPeriodPlaceholder": "Ish davrini tanlang",
+      "fieldLabel": "Ish sohasi",
+      "fieldPlaceholder": "Ish sohasini tanlang",
+      "startDateLabel": "Boshlanish sanasi",
+      "endDateLabel": "Tugash sanasi",
+      "documentsLabel": "Hujjatlar",
+      "saveButton": "Saqlash",
+      "updateButton": "Yangilash"
+    },
+    "status": {
+      "current": "Joriy ish joyi",
+      "previous": "Oldingi ish joyi"
+    },
+    "validation": {
+      "positionRequired": "Lavozimni ko'rsatish shart!",
+      "workingPeriodRequired": "Ish davrini ko'rsatish shart!",
+      "fieldRequired": "Ish sohasini ko'rsatish shart!",
+      "startDateRequired": "Boshlanish sanasini ko'rsatish shart!",
+      "fileRequired": "Iltimos, kamida bitta hujjat yuklang"
+    }
+  }
+}

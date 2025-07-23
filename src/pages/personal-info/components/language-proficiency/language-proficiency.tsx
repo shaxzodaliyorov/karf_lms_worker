@@ -28,6 +28,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 import {
   AlertDialog,
   AlertDialogAction,
@@ -68,6 +69,7 @@ type FormValues = {
 };
 
 export const LanguageProficiency = () => {
+  const { t } = useTranslation(["language", "translation"]);
   const [isDialogOpen, setIsDialogOpen] = useState(false);
   const {
     control: addControl,
@@ -240,22 +242,23 @@ export const LanguageProficiency = () => {
               <div>
                 <CardTitle className="flex items-center gap-2 text-xl font-semibold">
                   <Languages className="h-5 w-5 text-blue-600" />
-                  Language Proficiency
+                  {t("language.title")}
                 </CardTitle>
                 <p className="text-sm text-gray-600 mt-1">
-                  Multilingual skills and language certifications
+                  {t("language.subtitle")}
                 </p>
               </div>
 
+              {/*     ******** Add Dialog ******** */}
               <Dialog>
                 <DialogTrigger asChild>
                   <Button variant="outline">
-                    <Plus className="h-4 w-4 mr-1" /> Add
+                    <Plus className="h-4 w-4 mr-1" /> {t("translation:common.add")}
                   </Button>
                 </DialogTrigger>
                 <DialogContent>
                   <DialogHeader>
-                    <DialogTitle>Add Language Proficiency</DialogTitle>
+                    <DialogTitle>{t("language.title")}</DialogTitle>
                   </DialogHeader>
 
                   <form
@@ -267,12 +270,12 @@ export const LanguageProficiency = () => {
                     }}
                   >
                     <div className="space-y-2">
-                      <Label>Language</Label>
+                      <Label>{t("language.language")}</Label>
 
                       <Controller
                         name="language"
                         control={addControl}
-                        rules={{ required: "Language is required!" }}
+                        rules={{ required: t("language.language") + " " + t("translation:common.isRequired") }}
                         render={({ field }) => (
                           <Select
                             onValueChange={field.onChange}
@@ -285,13 +288,13 @@ export const LanguageProficiency = () => {
                                   : ""
                               }`}
                             >
-                              <SelectValue placeholder="Select Language" />
+                              <SelectValue placeholder={t("translation:common.select") + " " + t("language.language")} />
                             </SelectTrigger>
                             <SelectContent>
                               <SelectGroup>
-                                <SelectItem value="bachelor">UZ </SelectItem>
-                                <SelectItem value="master">Eng </SelectItem>
-                                <SelectItem value="phd">Ru</SelectItem>
+                                <SelectItem value="uz">UZ </SelectItem>
+                                <SelectItem value="en">Eng </SelectItem>
+                                <SelectItem value="ru">Ru</SelectItem>
                               </SelectGroup>
                             </SelectContent>
                           </Select>
@@ -304,12 +307,12 @@ export const LanguageProficiency = () => {
                       )}
                     </div>
                     <div className="space-y-2">
-                      <Label>Proficiency Level</Label>
+                      <Label>{t("language.proficiencyLevel")}</Label>
                       <Input
                         {...addRegister("proficiencyLevel", {
-                          required: "Duration is required",
+                          required: t("language.proficiencyLevel") + " " + t("translation:common.isRequired"),
                         })}
-                        placeholder="e.g. Intermediate"
+                        placeholder={t("language.title")}
                         className={`w-full border ${
                           addErrors.proficiencyLevel ? "border-red-500 " : ""
                         }`}
@@ -325,7 +328,7 @@ export const LanguageProficiency = () => {
                       <Controller
                         name="file"
                         control={addControl}
-                        rules={{ required: "Please upload at least one file" }}
+                        rules={{ required: t("language.file") + " " + t("translation:common.isRequired") }}
                         render={({ field, fieldState }) => (
                           <MultiFileUpload
                             maxSizeMB={10}
@@ -338,9 +341,10 @@ export const LanguageProficiency = () => {
                     <DialogFooter>
                       <Button
                         type="submit"
-                        className="bg-blue-700 w-25 hover:bg-blue-600"
+                        className="bg-blue-700 w-26 hover:bg-blue-600"
                       >
-                        <Plus className="h-4 w-4 mr-1" /> Add
+                        <Plus className="h-4 w-4 mr-1" />
+                        {t("translation:common.add")}
                       </Button>
                     </DialogFooter>
                   </form>
@@ -356,48 +360,40 @@ export const LanguageProficiency = () => {
                 <div className="flex items-center gap-2">
                   <Globe className="h-5 w-5 text-blue-600" />
                   <span className="text-sm font-medium text-blue-800">
-                    Total Languages
+                    {t("language.stats.totalLanguages")}
                   </span>
                 </div>
-                <p className="text-2xl font-bold text-blue-900 mt-1">
-                  {totalLanguages}
-                </p>
+                <p className="text-2xl font-bold text-blue-900 mt-1">{totalLanguages}</p>
               </div>
 
               <div className="rounded-lg border bg-green-50 p-4">
                 <div className="flex items-center gap-2">
                   <Languages className="h-5 w-5 text-green-600" />
                   <span className="text-sm font-medium text-green-800">
-                    Native Languages
+                    {t("language.stats.nativeLanguages")}
                   </span>
                 </div>
-                <p className="text-2xl font-bold text-green-900 mt-1">
-                  {nativeLanguages}
-                </p>
+                <p className="text-2xl font-bold text-green-900 mt-1">{nativeLanguages}</p>
               </div>
 
               <div className="rounded-lg border bg-purple-50 p-4">
                 <div className="flex items-center gap-2">
                   <Award className="h-5 w-5 text-purple-600" />
                   <span className="text-sm font-medium text-purple-800">
-                    Certificates
+                    {t("language.stats.certificates")}
                   </span>
                 </div>
-                <p className="text-2xl font-bold text-purple-900 mt-1">
-                  {certificatesCount}
-                </p>
+                <p className="text-2xl font-bold text-purple-900 mt-1">{certificatesCount}</p>
               </div>
 
               <div className="rounded-lg border bg-orange-50 p-4">
                 <div className="flex items-center gap-2">
                   <MessageCircle className="h-5 w-5 text-orange-600" />
                   <span className="text-sm font-medium text-orange-800">
-                    Avg. Proficiency
+                    {t("language.stats.avgProficiency")}
                   </span>
                 </div>
-                <p className="text-2xl font-bold text-orange-900 mt-1">
-                  {averageProficiency}%
-                </p>
+                <p className="text-2xl font-bold text-orange-900 mt-1">{averageProficiency}%</p>
               </div>
             </div>
 
@@ -406,7 +402,7 @@ export const LanguageProficiency = () => {
             {/* Language Proficiency List */}
             <div className="space-y-6">
               <h3 className="text-lg font-medium text-gray-900">
-                Language Skills Overview
+                {t("language.overview")}
               </h3>
 
               <div className="grid gap-6 md:grid-cols-1">
@@ -442,7 +438,7 @@ export const LanguageProficiency = () => {
                               <p className="text-2xl font-bold text-blue-600">
                                 {language.overallScore}%
                               </p>
-                              <p className="text-xs text-gray-500">Overall</p>
+                              <p className="text-xs text-gray-500">{t("language.overallScore")}</p>
                             </div>
                           </div>
 
@@ -452,7 +448,7 @@ export const LanguageProficiency = () => {
                               <div className="flex justify-between items-center">
                                 <span className="text-sm font-medium text-gray-600 flex items-center gap-1">
                                   <MessageCircle className="h-3 w-3" />
-                                  Speaking
+                                  {t("language.proficiencyLevels.speaking")}
                                 </span>
                                 <Badge
                                   variant="outline"
@@ -475,7 +471,7 @@ export const LanguageProficiency = () => {
                               <div className="flex justify-between items-center">
                                 <span className="text-sm font-medium text-gray-600 flex items-center gap-1">
                                   <PenTool className="h-3 w-3" />
-                                  Writing & Reading
+                                  {t("language.proficiencyLevels.writingReading")}
                                 </span>
                                 <Badge
                                   variant="outline"
@@ -498,7 +494,7 @@ export const LanguageProficiency = () => {
                               <div className="flex justify-between items-center">
                                 <span className="text-sm font-medium text-gray-600 flex items-center gap-1">
                                   <Languages className="h-3 w-3" />
-                                  Overall Proficiency
+                                  {t("language.proficiencyLevels.overallProficiency")}
                                 </span>
                                 <Badge
                                   variant="outline"
@@ -522,7 +518,7 @@ export const LanguageProficiency = () => {
                             <div className="space-y-2">
                               <p className="text-sm font-medium text-gray-700 flex items-center gap-1">
                                 <Award className="h-4 w-4" />
-                                Certifications
+                                {t("language.stats.certificates")}
                               </p>
                               <div className="space-y-2">
                                 {language.certificates.map(
@@ -575,6 +571,7 @@ export const LanguageProficiency = () => {
                             </DropdownMenuTrigger>
                             <DropdownMenuContent align="start" className="mr-4">
                               <DropdownMenuGroup>
+                                {/* Edit Dialog */}
                                 <Dialog
                                   open={isDialogOpen}
                                   onOpenChange={setIsDialogOpen}
@@ -584,14 +581,14 @@ export const LanguageProficiency = () => {
                                       onSelect={(e) => e.preventDefault()}
                                     >
                                       <TbEdit size={16} />
-                                      <span className="ml-2">Edit</span>
+                                      <span className="ml-2">{t("translation:common.edit")}</span>
                                     </DropdownMenuItem>
                                   </DialogTrigger>
 
                                   <DialogContent className="sm:max-w-[500px] p-6">
                                     <DialogHeader>
                                       <DialogTitle>
-                                        Edit Foreign Experience
+                                        {t("language.title")}
                                       </DialogTitle>
                                     </DialogHeader>
 
@@ -604,13 +601,13 @@ export const LanguageProficiency = () => {
                                       }}
                                     >
                                       <div className="space-y-2">
-                                        <Label>Language</Label>
+                                        <Label>{t("language.language")}</Label>
 
                                         <Controller
                                           name="language"
                                           control={editControl}
                                           rules={{
-                                            required: "Language is required!",
+                                            required: t("language.language") + " " + t("translation:common.isRequired"),
                                           }}
                                           render={({ field }) => (
                                             <Select
@@ -624,19 +621,13 @@ export const LanguageProficiency = () => {
                                                     : ""
                                                 }`}
                                               >
-                                                <SelectValue placeholder="Select Language" />
+                                                <SelectValue placeholder={t("translation:common.select")} />
                                               </SelectTrigger>
                                               <SelectContent>
                                                 <SelectGroup>
-                                                  <SelectItem value="bachelor">
-                                                    UZ{" "}
-                                                  </SelectItem>
-                                                  <SelectItem value="master">
-                                                    Eng{" "}
-                                                  </SelectItem>
-                                                  <SelectItem value="phd">
-                                                    Ru
-                                                  </SelectItem>
+                                                  <SelectItem value="uz">UZ</SelectItem>
+                                                  <SelectItem value="eng">Eng</SelectItem>
+                                                  <SelectItem value="ru">Ru</SelectItem>
                                                 </SelectGroup>
                                               </SelectContent>
                                             </Select>
@@ -649,10 +640,10 @@ export const LanguageProficiency = () => {
                                         )}
                                       </div>
                                       <div className="space-y-2">
-                                        <Label>Proficiency Level</Label>
+                                        <Label>{t("language.proficiencyLevel")}</Label>
                                         <Input
                                           {...editRegister("proficiencyLevel", {
-                                            required: "Duration is required",
+                                            required: t("language.proficiencyLevel") + " " + t("translation:common.isRequired"),
                                           })}
                                           placeholder="e.g. Intermediate"
                                           className={`w-full border ${
@@ -676,8 +667,7 @@ export const LanguageProficiency = () => {
                                           name="file"
                                           control={editControl}
                                           rules={{
-                                            required:
-                                              "Please upload at least one file",
+                                            required:  t("language.file") + " " + t("translation:common.isRequired") ,
                                           }}
                                           render={({ field, fieldState }) => (
                                             <MultiFileUpload
@@ -693,46 +683,44 @@ export const LanguageProficiency = () => {
                                       <DialogFooter>
                                         <Button
                                           type="submit"
-                                          className="bg-blue-700 w-25 hover:bg-blue-600"
+                                          className="bg-blue-700 w-26 hover:bg-blue-600"
                                         >
-                                          <Plus className="h-4 w-4 mr-1" /> Add
+                                          <Plus className="h-4 w-4 mr-1" /> {t("translation:common.add")}
                                         </Button>
                                       </DialogFooter>
                                     </form>
                                   </DialogContent>
                                 </Dialog>
 
+                                {/* Delete Dialog */}
                                 <AlertDialog>
                                   <AlertDialogTrigger asChild>
                                     <DropdownMenuItem
                                       onSelect={(e) => e.preventDefault()}
                                     >
                                       <RiDeleteBinLine size={16} />
-                                      <span className="ml-2">Delete</span>
+                                      <span className="ml-2">{t("translation:common.delete")}</span>
                                     </DropdownMenuItem>
                                   </AlertDialogTrigger>
 
                                   <AlertDialogContent>
                                     <AlertDialogHeader>
-                                      <AlertDialogTitle>
-                                        Are you sure you want to delete?
-                                      </AlertDialogTitle>
+                                      <AlertDialogTitle>{t("translation:common.alertTitle")}</AlertDialogTitle>
                                       <AlertDialogDescription>
-                                        This action cannot be undone. The
-                                        contact will be permanently deleted.
+                                        {t("translation:common.alertDescription")}
                                       </AlertDialogDescription>
                                     </AlertDialogHeader>
 
                                     <AlertDialogFooter>
                                       <AlertDialogCancel className="h-10">
                                         <div className="flex items-center gap-2">
-                                          <MdOutlineCancel size={16} /> No
+                                          <MdOutlineCancel size={16} /> {t("translation:common.no")}
                                         </div>
                                       </AlertDialogCancel>
                                       <AlertDialogAction className="bg-red-600 hover:bg-red-700 h-10">
                                         <div className="flex items-center gap-2">
-                                          <AiOutlineCheck size={16} /> Yes,
-                                          Delete
+                                          <AiOutlineCheck size={16} /> {t("translation:common.yes")},
+                                        {t("translation:common.delete")}
                                         </div>
                                       </AlertDialogAction>
                                     </AlertDialogFooter>

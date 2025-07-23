@@ -1,0 +1,20 @@
+{
+  "language": {
+    "title": "Kemampuan Bahasa",
+    "subtitle": "Kemampuan multibahasa dan sertifikasi",
+    "overview": "Ikhtisar Kemampuan Bahasa",
+    "stats": {
+      "totalLanguages": "Total Bahasa",
+      "nativeLanguages": "Bahasa Ibu",
+      "certificates": "Sertifikat",
+      "avgProficiency": "Rata-rata Kemahiran"
+    },
+    "proficiencyLevels": {
+      "speaking": "Berbicara",
+      "writingReading": "Menulis & Membaca",
+      "overallProficiency": "Tingkat Kemahiran"
+    },
+    "nativeLanguageBadge": "Bahasa Ibu",
+    "overallScore": "Keseluruhan"
+  }
+}

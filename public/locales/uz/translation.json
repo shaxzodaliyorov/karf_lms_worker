@@ -14,15 +14,22 @@
     "zh": "Xitoycha"
   },
   "common": {
-    "language": "Til",
-    "settings": "Sozlamalar",
-    "logout": "Chiqish",
-    "notifications": "Xabarlar",
-    "personalInfo": "Shaxsiy ma'lumotlar",
-    "isRequired": "majburiy maydon",
-    "enter": "Kiriting",
-    "select": "Tanlang",
-    "edit": "Tahrirlash",
-    "add": "Qo'shish"
-  }
+      "language": "Til",
+      "settings": "Sozlamalar",
+      "logout": "Chiqish",
+      "notifications": "Bildirishnomalar",
+      "personalInfo": "Shaxsiy ma'lumotlar",
+      "isRequired": "talab qilinadi",
+      "enter": "Kiriting",
+      "select": "Tanlang",
+      "edit": "Tahrirlash",
+      "add": "Qo'shish",
+      "delete": "O'chirish",
+      "no": "Yo'q",
+      "yes": "Ha",
+      "alertTitle": "O‘chirishni xohlaysizmi?",
+      "alertDescription": "Bu amalni bekor qilib bo‘lmaydi. Kontakt butunlay o‘chiriladi.",
+      "startDate": "Boshlanish sanasi",
+      "endDate": "Tugash sanasi"
+    }
 }

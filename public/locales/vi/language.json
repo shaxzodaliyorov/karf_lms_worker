@@ -1,0 +1,20 @@
+{
+  "language": {
+    "title": "Trình độ ngoại ngữ",
+    "subtitle": "Kỹ năng đa ngôn ngữ và chứng chỉ",
+    "overview": "Tổng quan kỹ năng ngôn ngữ",
+    "stats": {
+      "totalLanguages": "Tổng số ngôn ngữ",
+      "nativeLanguages": "Tiếng mẹ đẻ",
+      "certificates": "Chứng chỉ",
+      "avgProficiency": "Trình độ trung bình"
+    },
+    "proficiencyLevels": {
+      "speaking": "Nói",
+      "writingReading": "Viết & Đọc",
+      "overallProficiency": "Trình độ tổng thể"
+    },
+    "nativeLanguageBadge": "Tiếng mẹ đẻ",
+    "overallScore": "Tổng thể"
+  }
+}

@@ -1,0 +1,24 @@
+{
+    "foreign": {
+        "title": "Kinh nghiệm nước ngoài",
+        "subTitle": "Lịch sử du lịch và kinh nghiệm quốc tế",
+        "purposeMain": "Mục đích chính",
+        "documents": "Tài liệu hỗ trợ",
+        "duration": "Tổng thời gian",
+        "visitedCountry": "Các quốc gia đã đến",
+        "description": "Mô tả",
+        "purpose": "Mục đích",
+        "country": "Quốc gia",
+        "docPlace": "Tài liệu"
+    },
+    "timeline": {
+        "title": "Dòng thời gian kinh nghiệm quốc tế"
+    },
+    "purposes": {
+        "business": "Kinh doanh",
+        "tourism": "Du lịch",
+        "work": "Làm việc",
+        "study": "Học tập",
+        "other": "Khác"
+    }
+}

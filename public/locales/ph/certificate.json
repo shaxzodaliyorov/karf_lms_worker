@@ -1,0 +1,41 @@
+{
+  "certificate": {
+    "title": "Propesyonal na Sertipiko",
+    "subtitle": "Mga sertipikasyon at kredensyal na propesyonal",
+    "overview": "Pangkalahatang-ideya ng Sertipiko",
+    "stats": {
+      "totalCertificates": "Kabuuang Mga Sertipiko",
+      "activeCertificates": "Aktibong Mga Sertipiko",
+      "totalDocuments": "Kabuuang Mga Dokumento"
+    },
+    "status": {
+      "active": "Aktibo",
+      "expired": "Expired",
+      "pending": "Nakabinbin"
+    },
+    "form": {
+      "addTitle": "Magdagdag ng Propesyonal na Sertipiko",
+      "editTitle": "I-edit ang Propesyonal na Sertipiko",
+      "languageLabel": "Wika",
+      "issuingInstitutionLabel": "Institusyong Nagbigay",
+      "issueDateLabel": "Petsa ng Isyu",
+      "certificateTypeLabel": "Uri ng Sertipiko",
+      "documentsLabel": "Mga Dokumento"
+    },
+    "table": {
+      "certificateType": "Uri ng Sertipiko",
+      "issuingInstitution": "Institusyong Nagbigay",
+      "issueDate": "Petsa ng Isyu",
+      "status": "Katayuan",
+      "documents": "Mga Dokumento",
+      "actions": "Mga Aksyon"
+    },
+    "validation": {
+      "languageRequired": "Kinakailangan ang wika!",
+      "institutionRequired": "Kinakailangan ang institusyong nagbigay!",
+      "dateRequired": "Kinakailangan ang petsa ng isyu!",
+      "typeRequired": "Kinakailangan ang uri ng sertipiko!",
+      "fileRequired": "Mangyaring mag-upload ng kahit isang dokumento"
+    }
+  }
+}

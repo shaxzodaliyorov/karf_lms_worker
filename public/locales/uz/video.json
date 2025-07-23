@@ -1,0 +1,16 @@
+{
+    "video": {
+        "title": "Video Portfoli",
+        "subtitle": "Professional video namoyishlari va demo ko'rsatuvlari",
+        "showcase": "Video Kolleksiya",
+        "stats": {
+            "totalVideos": "Jami Videolar",
+            "totalDuration": "Umumiy Davomiylik",
+            "latestUpload": "So'nggi Yuklangan"
+        },
+        "link": "Video Havolasi",
+        "play": "Videoni Ko'rish",
+        "uploaded": "Yuklangan sana",
+        "duration": "Davomiylik"
+    }
+}

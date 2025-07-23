@@ -1,0 +1,48 @@
+{
+  "workplace": {
+    "title": "Impormasyon sa Lugar ng Trabaho",
+    "subtitle": "Propesyonal na karanasan sa trabaho at kasaysayan ng empleyo",
+    "overview": "Pangkalahatang-ideya ng Karanasan sa Trabaho",
+    "stats": {
+      "totalWorkplaces": "Kabuuang mga Lugar ng Trabaho",
+      "totalExperience": "Kabuuang Karanasan",
+      "uniqueFields": "Mga Natatanging Larangan",
+      "totalDocuments": "Kabuuang Mga Dokumento"
+    },
+    "table": {
+      "companyName": "Pangalan ng Kumpanya",
+      "position": "Posisyon",
+      "field": "Larangan",
+      "startDate": "Petsa ng Simula",
+      "workingPeriod": "Panahon ng Pagtatrabaho",
+      "documents": "Mga Dokumento",
+      "actions": "Mga Aksyon"
+    },
+    "form": {
+      "addTitle": "Magdagdag ng Karanasan sa Trabaho",
+      "editTitle": "I-edit ang Karanasan sa Trabaho",
+      "positionLabel": "Posisyon",
+      "positionPlaceholder": "Pumili ng Posisyon",
+      "workingPeriodLabel": "Panahon ng Pagtatrabaho",
+      "workingPeriodPlaceholder": "Pumili ng Panahon ng Pagtatrabaho",
+      "fieldLabel": "Larangan",
+      "fieldPlaceholder": "Pumili ng Larangan",
+      "startDateLabel": "Petsa ng Simula",
+      "endDateLabel": "Petsa ng Pagtatapos",
+      "documentsLabel": "Mga Dokumento",
+      "saveButton": "I-save",
+      "updateButton": "I-update"
+    },
+    "status": {
+      "current": "Kasalukuyan",
+      "previous": "Nakaraan"
+    },
+    "validation": {
+      "positionRequired": "Kinakailangan ang posisyon!",
+      "workingPeriodRequired": "Kinakailangan ang panahon ng pagtatrabaho!",
+      "fieldRequired": "Kinakailangan ang larangan!",
+      "startDateRequired": "Kinakailangan ang petsa ng simula!",
+      "fileRequired": "Mangyaring mag-upload ng kahit isang dokumento"
+    }
+  }
+}

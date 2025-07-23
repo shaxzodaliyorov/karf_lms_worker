@@ -1,0 +1,24 @@
+{
+    "foreign": {
+        "title": "විදේශ අත්දැකීම්",
+        "subTitle": "ජාත්‍යන්තර ගමන් හා අත්දැකීම් ඉතිහාසය",
+        "purposeMain": "ප්‍රධාන අරමුණ",
+        "documents": "සහාය ලියකියවිලි",
+        "duration": "සම්පූර්ණ කාල සීමාව",
+        "visitedCountry": "පැමිණ ඇති රටවල්",
+        "description": "විස්තර",
+        "purpose": "අරමුණ",
+        "country": "රට",
+        "docPlace": "ලියකියවිල්ල"
+    },
+    "timeline": {
+        "title": "ජාත්‍යන්තර අත්දැකීම් කාලරේඛාව"
+    },
+    "purposes": {
+        "business": "ව්‍යාපාර",
+        "tourism": "චාරිකා",
+        "work": "රැකියාව",
+        "study": "අධ්‍යයනය",
+        "other": "වෙනත්"
+    }
+}

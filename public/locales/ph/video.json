@@ -1,0 +1,16 @@
+{
+    "video": {
+        "title": "Portfolio ng Video",
+        "subtitle": "Propesyonal na pagpapakita at demonstrasyon ng video",
+        "showcase": "Pagpapakita ng Video",
+        "stats": {
+            "totalVideos": "Kabuuang mga Video",
+            "totalDuration": "Kabuuang Tagal",
+            "latestUpload": "Pinakabagong Na-upload"
+        },
+        "link": "Link ng Video",
+        "play": "I-play ang Video",
+        "uploaded": "Na-upload noong",
+        "duration": "Tagal"
+    }
+}

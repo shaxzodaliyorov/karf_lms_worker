@@ -1,0 +1,48 @@
+{
+  "workplace": {
+    "title": "အလုပ်ခွင်ဆိုင်ရာ အချက်အလက်များ",
+    "subtitle": "ကျွမ်းကျင်မှုဆိုင်ရာ အလုပ်အတွေ့အကြုံများနှင့် အလုပ်သမိုင်း",
+    "overview": "အလုပ်အတွေ့အကြုံ အချက်အလက်များ",
+    "stats": {
+      "totalWorkplaces": "စုစုပေါင်း အလုပ်ဌာနများ",
+      "totalExperience": "စုစုပေါင်း အတွေ့အကြုံ",
+      "uniqueFields": "ထူးခြားသော နယ်ပယ်များ",
+      "totalDocuments": "စုစုပေါင်း စာရွက်စာတမ်းများ"
+    },
+    "table": {
+      "companyName": "ကုမ္ပဏီအမည်",
+      "position": "ရာထူး",
+      "field": "နယ်ပယ်",
+      "startDate": "စတင်သည့်ရက်",
+      "workingPeriod": "အလုပ်လုပ်ကိုင်သည့်ကာလ",
+      "documents": "စာရွက်စာတမ်းများ",
+      "actions": "လုပ်ဆောင်ချက်များ"
+    },
+    "form": {
+      "addTitle": "အလုပ်အတွေ့အကြုံထည့်ရန်",
+      "editTitle": "အလုပ်အတွေ့အကြုံပြင်ဆင်ရန်",
+      "positionLabel": "ရာထူး",
+      "positionPlaceholder": "ရာထူးရွေးပါ",
+      "workingPeriodLabel": "အလုပ်လုပ်ကိုင်သည့်ကာလ",
+      "workingPeriodPlaceholder": "အလုပ်လုပ်ကိုင်သည့်ကာလ ရွေးပါ",
+      "fieldLabel": "နယ်ပယ်",
+      "fieldPlaceholder": "နယ်ပယ်ရွေးပါ",
+      "startDateLabel": "စတင်သည့်ရက်",
+      "endDateLabel": "ပြီးဆုံးသည့်ရက်",
+      "documentsLabel": "စာရွက်စာတမ်းများ",
+      "saveButton": "သိမ်းဆည်းမည်",
+      "updateButton": "ပြင်ဆင်မည်"
+    },
+    "status": {
+      "current": "လက်ရှိ",
+      "previous": "ယခင်က"
+    },
+    "validation": {
+      "positionRequired": "ရာထူး ဖြည့်ရန်လိုအပ်ပါသည်!",
+      "workingPeriodRequired": "အလုပ်လုပ်ကိုင်သည့်ကာလ ဖြည့်ရန်လိုအပ်ပါသည်!",
+      "fieldRequired": "နယ်ပယ် ရွေးရန်လိုအပ်ပါသည်!",
+      "startDateRequired": "စတင်သည့်ရက် ဖြည့်ရန်လိုအပ်ပါသည်!",
+      "fileRequired": "စာရွက်စာတမ်းအနည်းဆုံး တစ်ခု တင်ရန်လိုအပ်ပါသည်"
+    }
+  }
+}

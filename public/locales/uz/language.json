@@ -1,0 +1,20 @@
+{
+  "language": {
+    "title": "Til bilish darajasi",
+    "subtitle": "Ko'p tilli bilimlar va sertifikatlar",
+    "overview": "Til bilish darajasi haqida umumiy ma'lumot",
+    "stats": {
+      "totalLanguages": "Jami tillar",
+      "nativeLanguages": "Ona tili",
+      "certificates": "Sertifikatlar",
+      "avgProficiency": "O'rtacha daraja"
+    },
+    "proficiencyLevels": {
+      "speaking": "Gapirish",
+      "writingReading": "Yozish va o'qish",
+      "overallProficiency": "Umumiy daraja"
+    },
+    "nativeLanguageBadge": "Ona tili",
+    "overallScore": "Umumiy"
+  }
+}

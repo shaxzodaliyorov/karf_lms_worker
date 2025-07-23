@@ -13,16 +13,24 @@
     "mm": "Tiếng Miến Điện",
     "zh": "Tiếng Trung"
   },
-  "common": {
-    "language": "Ngôn ngữ",
-    "settings": "Cài đặt",
-    "logout": "Đăng xuất",
-    "notifications": "Thông báo",
-    "personalInfo": "Thông tin cá nhân",
-    "isRequired": "bắt buộc",
-    "enter": "Nhập",
-    "select": "Chọn",
-    "edit": "Chỉnh Sửa",
-    "add": "Thêm"
-  }
+  "vi": {
+    "common": {
+      "language": "Ngôn ngữ",
+      "settings": "Cài đặt",
+      "logout": "Đăng xuất",
+      "notifications": "Thông báo",
+      "personalInfo": "Thông tin cá nhân",
+      "isRequired": "là bắt buộc",
+      "enter": "Nhập",
+      "select": "Chọn",
+      "edit": "Chỉnh sửa",
+      "add": "Thêm",
+      "delete": "Xóa",
+      "no": "Không",
+      "yes": "Có",
+      "alertTitle": "Bạn có chắc chắn muốn xóa không?",
+      "alertDescription": "Hành động này không thể hoàn tác. Liên hệ sẽ bị xóa vĩnh viễn.",
+      "startDate": "Ngày bắt đầu",
+      "endDate": "Ngày kết thúc"
+    }
 }

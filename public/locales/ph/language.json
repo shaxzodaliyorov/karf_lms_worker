@@ -1,0 +1,49 @@
+{
+  "language": {
+    "title": "Kasanayan sa Wika",
+    "subtitle": "Kakayahan sa maraming wika at mga sertipiko",
+    "addLanguage": "Magdagdag ng Wika",
+    "overview": "Pangkalahatang-ideya ng Kasanayan sa Wika",
+    "stats": {
+      "totalLanguages": "Kabuuang Wika",
+      "nativeLanguages": "Katutubong Wika",
+      "certificates": "Mga Sertipiko",
+      "avgProficiency": "Karaniwang Kasanayan"
+    },
+    "proficiencyLevels": {
+      "speaking": "Pagsasalita",
+      "writingReading": "Pagsusulat at Pagbabasa",
+      "overallProficiency": "Pangkalahatang Kasanayan"
+    },
+    "certifications": "Mga Sertipiko",
+    "nativeLanguageBadge": "Katutubong Wika",
+    "overallScore": "Pangkalahatan",
+    "form": {
+      "addTitle": "Magdagdag ng Kasanayan sa Wika",
+      "editTitle": "I-edit ang Kasanayan sa Wika",
+      "languageLabel": "Wika",
+      "languagePlaceholder": "Pumili ng Wika",
+      "proficiencyLabel": "Antas ng Kasanayan",
+      "proficiencyPlaceholder": "Hal: Katamtaman",
+      "saveButton": "Idagdag",
+      "updateButton": "I-update"
+    },
+    "actions": {
+      "edit": "I-edit",
+      "delete": "Burahin",
+      "view": "Tingnan",
+      "download": "I-download"
+    },
+    "deleteDialog": {
+      "title": "Sigurado ka bang gusto mong burahin?",
+      "description": "Hindi na ito mababawi. Ang impormasyon tungkol sa kasanayan sa wika ay permanenteng mabubura.",
+      "cancel": "Hindi",
+      "confirm": "Oo, Burahin"
+    },
+    "validation": {
+      "languageRequired": "Mangyaring pumili ng wika!",
+      "proficiencyRequired": "Mangyaring pumili ng antas ng kasanayan",
+      "fileRequired": "Mangyaring mag-upload ng kahit isang file"
+    }
+  }
+}

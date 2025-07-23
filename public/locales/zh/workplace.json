@@ -1,0 +1,48 @@
+{
+    "workplace": {
+      "title": "工作场所信息",
+      "subtitle": "专业工作经验和就业历史",
+      "overview": "工作经验概览",
+      "stats": {
+        "totalWorkplaces": "总工作场所",
+        "totalExperience": "总工作经验",
+        "uniqueFields": "独特领域",
+        "totalDocuments": "总文件数"
+      },
+      "table": {
+        "companyName": "公司名称",
+        "position": "职位",
+        "field": "领域",
+        "startDate": "开始日期",
+        "workingPeriod": "工作期间",
+        "documents": "文件",
+        "actions": "操作"
+      },
+      "form": {
+        "addTitle": "添加工作经验",
+        "editTitle": "编辑工作经验",
+        "positionLabel": "职位",
+        "positionPlaceholder": "选择职位",
+        "workingPeriodLabel": "工作期间",
+        "workingPeriodPlaceholder": "选择工作期间",
+        "fieldLabel": "领域",
+        "fieldPlaceholder": "选择领域",
+        "startDateLabel": "开始日期",
+        "endDateLabel": "结束日期",
+        "documentsLabel": "文件",
+        "saveButton": "保存",
+        "updateButton": "更新"
+      },
+      "status": {
+        "current": "当前",
+        "previous": "以前"
+      },
+      "validation": {
+        "positionRequired": "职位是必填项！",
+        "workingPeriodRequired": "工作期间是必填项！",
+        "fieldRequired": "领域是必填项！",
+        "startDateRequired": "开始日期是必填项！",
+        "fileRequired": "请至少上传一份文件"
+      }
+    }
+  }
