@@ -1,0 +1,33 @@
+{
+  "language": {
+    "en": "English",
+    "ru": "Russian",
+    "uz": "Uzbek",
+    "ko": "Korean",
+    "vi": "Vietnamese",
+    "lk": "Sri Lanka",
+    "th": "Thailand",
+    "ph": "Philippines",
+    "id": "Indonesia",
+    "kh": "Cambodia",
+    "mm": "Myanmar",   
+    "zh": "Chinese"
+  },
+  "common": {
+    "language": "Language",
+    "settings": "Settings",
+    "logout": "Log out",
+    "notifications": "Notifications",
+    "personalInfo": "Personal Information",
+    "isRequired": "is required",
+    "enter": "Enter",
+    "select": "Select",
+    "edit": "Edit",
+    "add": "Add",
+    "delete": "Delete",
+    "no": "No",
+    "yes": "Yes",
+    "alertTitle": "Are you sure you want to delete?",
+    "alertDescription": "This action cannot be undone. The contact will be permanently deleted."
+  }
+}

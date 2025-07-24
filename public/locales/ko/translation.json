@@ -1,0 +1,28 @@
+{
+  "language": {
+    "en": "영어",
+    "ru": "러시아어",
+    "uz": "우즈베크어",
+    "ko": "한국어",
+    "vi": "베트남어",
+    "lk": "스리랑카어",
+    "th": "태국어",
+    "ph": "필리핀어",
+    "id": "인도네시아어",
+    "kh": "캄보디아어",
+    "mm": "미얀마어",
+    "zh": "중국어"
+  },
+  "common": {
+    "language": "언어",
+    "settings": "설정",
+    "logout": "로그아웃",
+    "notifications": "알림",
+    "personalInfo": "개인 정보",
+    "isRequired": "필수 항목입니다",
+    "enter": "입력",
+    "select": "선택",
+    "edit": "수정",
+    "add": "추가"
+  }
+}

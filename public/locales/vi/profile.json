@@ -1,0 +1,19 @@
+{
+  "sections": {
+    "profile": "Hồ sơ",
+    "basicInfo": "Thông tin cơ bản",
+    "location": "Địa điểm",
+    "contactInfo": "Thông tin liên hệ",
+    "physicalInfo": "Thông tin thể chất",
+    "emergencyContact": "Liên hệ khẩn cấp",
+    "college": "Đại học",
+    "foreignExperience": "Kinh nghiệm nước ngoài",
+    "languageProficiency": "Trình độ ngoại ngữ",
+    "professionalCertificate": "Chứng chỉ chuyên môn",
+    "workplaceInfo": "Thông tin nơi làm việc",
+    "video": "Video"
+  },
+  "messages":{
+    "completeProfile": "Hoàn thành tất cả các mục để cải thiện hồ sơ của bạn"
+  }
+}

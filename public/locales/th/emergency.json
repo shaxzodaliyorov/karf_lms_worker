@@ -1,0 +1,15 @@
+{
+    "details": {
+        "title": "ข้อมูลติดต่อกรณีฉุกเฉิน",
+        "fullName": "ชื่อ-นามสกุล",
+        "relationship": "ความสัมพันธ์",
+        "phoneNumber": "หมายเลขโทรศัพท์",
+        "dateOfBirth": "วันเกิด"
+    },
+    "danger": {
+        "title": "ผู้ติดต่อฉุกเฉิน",
+        "description": "ในกรณีฉุกเฉินติดต่อ:",
+        "name": "ชื่อ",
+        "phoneNumber": "โทรศัพท์"
+    }
+}

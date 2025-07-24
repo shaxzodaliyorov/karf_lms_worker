@@ -1,0 +1,19 @@
+{
+  "sections": {
+    "profile": "Profile",
+    "basicInfo": "Basic Information",
+    "location": "Location",
+    "contactInfo": "Contact Information",
+    "physicalInfo": "Physical Information",
+    "emergencyContact": "Emergency Contact",
+    "college": "College",
+    "foreignExperience": "Foreign Experience",
+    "languageProficiency": "Language Proficiency",
+    "professionalCertificate": "Professional Certificate",
+    "workplaceInfo": "Workplace Information",
+    "video": "Video"
+  },
+  "messages":{
+    "completeProfile": "Complete all sections to enhance your profile" 
+  }
+}

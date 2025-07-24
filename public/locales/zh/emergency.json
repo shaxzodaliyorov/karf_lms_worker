@@ -1,0 +1,15 @@
+{
+    "details": {
+        "title": "紧急联系人信息",
+        "fullName": "全名",
+        "relationship": "关系",
+        "phoneNumber": "电话号码",
+        "dateOfBirth": "出生日期"
+    },
+    "danger": {
+        "title": "紧急联系人",
+        "description": "紧急情况下联系：",
+        "name": "姓名",
+        "phoneNumber": "电话"
+    }
+}

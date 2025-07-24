@@ -1,0 +1,28 @@
+{
+  "language": {
+    "en": "Ingles",
+    "ru": "Ruso",
+    "uz": "Uzbek",
+    "ko": "Koreano",
+    "vi": "Biyetnames",
+    "lk": "Sinhala",
+    "th": "Thai",
+    "ph": "Filipino",
+    "id": "Indones",
+    "kh": "Khmer",
+    "mm": "Burmese",
+    "zh": "Tsino"
+  },
+  "common": {
+    "language": "Wika",
+    "settings": "Mga Setting",
+    "logout": "Mag-logout",
+    "notifications": "Mga Abiso",
+    "personalInfo": "Personal Information",
+    "isRequired": "kailangan",
+    "enter": "Ipasok",
+    "select": "Pumili",
+    "edit": "I-edit",
+    "add": "Idagdag"
+  }
+}

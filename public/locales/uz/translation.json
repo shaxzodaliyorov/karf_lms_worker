@@ -1,0 +1,28 @@
+{
+  "language": {
+    "en": "Inglizcha",
+    "ru": "Ruscha",
+    "uz": "O'zbekcha",
+    "ko": "Koreyscha",
+    "vi": "Vyetnamcha",
+    "lk": "Sinhala",
+    "th": "Taycha",
+    "ph": "Filippincha",
+    "id": "Indonezcha",
+    "kh": "Kxmercha",
+    "mm": "Birmancha",
+    "zh": "Xitoycha"
+  },
+  "common": {
+    "language": "Til",
+    "settings": "Sozlamalar",
+    "logout": "Chiqish",
+    "notifications": "Xabarlar",
+    "personalInfo": "Shaxsiy ma'lumotlar",
+    "isRequired": "majburiy maydon",
+    "enter": "Kiriting",
+    "select": "Tanlang",
+    "edit": "Tahrirlash",
+    "add": "Qo'shish"
+  }
+}

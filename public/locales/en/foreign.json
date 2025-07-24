@@ -1,0 +1,24 @@
+{
+    "foreign": {
+        "title": "Foreign Experience",
+        "description": "International travel and experience history",
+        "startDate": "Start Date",
+        "endDate": "End Date",
+        "purpose": "Main Purpose",
+        "documents": "Supporting Documents",
+        "duration": "Total Duration",
+        "visitedCountry": "Countries Visited",
+        "country": "Country",
+        "purposeJust": "Purpose"
+    },
+    "timeline": {
+        "title": "International Experience Timeline"
+    },
+    "purposes":{
+        "business": "Business",
+        "tourism": "Tourism",
+        "work": "Work",
+        "study": "Study",
+        "other": "Other"
+    }
+}

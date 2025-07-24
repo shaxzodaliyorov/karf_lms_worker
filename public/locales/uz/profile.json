@@ -1,0 +1,20 @@
+{
+    "sections": {
+      "profile": "Profil",
+      "basicInfo": "Asosiy ma'lumotlar",
+      "location": "Manzil",
+      "contactInfo": "Aloqa ma'lumotlari",
+      "physicalInfo": "Jismoniy ma'lumotlar",
+      "emergencyContact": "Favqulodda aloqa",
+      "college": "Kollej",
+      "foreignExperience": "Xorijiy tajriba",
+      "languageProficiency": "Tillarni bilish darajasi",
+      "professionalCertificate": "Kasbiy sertifikat",
+      "workplaceInfo": "Ish joyi haqida ma'lumot",
+      "video": "Video"
+    },
+    "messages":{
+      "completeProfile": "Profiligingizni yaxshilash uchun barcha bo'limlarni to'ldiring"
+    }
+  }
+  

@@ -1,0 +1,19 @@
+{
+  "sections": {
+    "profile": "Profil",
+    "basicInfo": "Informasi Dasar",
+    "location": "Lokasi",
+    "contactInfo": "Informasi Kontak",
+    "physicalInfo": "Informasi Fisik",
+    "emergencyContact": "Kontak Darurat",
+    "college": "Perguruan Tinggi",
+    "foreignExperience": "Pengalaman Luar Negeri",
+    "languageProficiency": "Kemampuan Bahasa",
+    "professionalCertificate": "Sertifikat Profesional",
+    "workplaceInfo": "Informasi Tempat Kerja",
+    "video": "Video"
+  },
+  "messages":{
+    "completeProfile": "Lengkapi semua bagian untuk meningkatkan profil Anda" 
+  }
+}

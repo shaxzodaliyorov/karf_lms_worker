@@ -1,0 +1,33 @@
+{
+    "education": {
+        "title": "교육 이력",
+        "description": "학력 및 자격증 내역",
+        "startDate": "시작일",
+        "endDate": "종료일",
+        "gpa": "학점",
+        "diploma": "학위",
+        "major": "전공",
+        "location": "위치",
+        "duration": "기간"
+    },
+    "status":{
+        "total": "총 교육 기관",
+        "completed": "수료",
+        "inProgress": "진행 중",
+        "graduated": "졸업",
+        "status": "상태"
+    },
+    "degree": {
+        "bachelor": "학사",
+        "master": "석사",
+        "phd": "박사"
+    },
+    "journey": {
+        "title": "학력 사항"
+    },
+    "major":{
+        "cs": "컴퓨터 공학",
+        "ai": "인공지능",
+        "ml": "기계 학습"
+    }
+}
