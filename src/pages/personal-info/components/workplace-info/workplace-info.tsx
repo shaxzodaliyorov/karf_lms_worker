@@ -35,6 +35,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { PiDotsThreeOutlineVerticalFill } from "react-icons/pi";
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 import { TbEdit } from "react-icons/tb";
 import {
   Select,
@@ -78,6 +79,7 @@ type FormValues = {
 };
 
 export const WorkplaceInformation = () => {
+  const { t } = useTranslation(["workplace", "translation"]);
   const [isDialogOpen, setIsDialogOpen] = useState(false);
   const [open, setOpen] = useState(false);
   const [startDateOpen, setStartDateOpen] = useState(false);
@@ -210,10 +212,10 @@ export const WorkplaceInformation = () => {
               <div>
                 <CardTitle className="flex items-center gap-2 text-xl font-semibold">
                   <Briefcase className="h-5 w-5 text-blue-600" />
-                  Workplace Information
+                  {t("workplace.title")}
                 </CardTitle>
                 <p className="text-sm text-gray-600 mt-1">
-                  Professional work experience and employment history
+                  {t("workplace.subtitle")}
                 </p>
               </div>
               <Dialog>
@@ -224,7 +226,7 @@ export const WorkplaceInformation = () => {
                 </DialogTrigger>
                 <DialogContent className="overflow-y-auto">
                   <DialogHeader>
-                    <DialogTitle>Add Work Experience Timeline</DialogTitle>
+                    <DialogTitle>{t("workplace.form.addTitle")}</DialogTitle>
                   </DialogHeader>
 
                   <form
@@ -236,12 +238,12 @@ export const WorkplaceInformation = () => {
                     }}
                   >
                     <div className="space-y-2">
-                      <Label>Position</Label>
+                      <Label>{t("workplace.form.positionLabel")}</Label>
 
                       <Controller
                         name="position"
                         control={addControl}
-                        rules={{ required: "Position is required!" }}
+                        rules={{ required: t("workplace.validation.positionRequired") }}
                         render={({ field }) => (
                           <Select
                             onValueChange={field.onChange}
@@ -254,7 +256,7 @@ export const WorkplaceInformation = () => {
                                   : ""
                               }`}
                             >
-                              <SelectValue placeholder="Select Position" />
+                              <SelectValue placeholder={t("workplace.form.positionPlaceholder")} />
                             </SelectTrigger>
                             <SelectContent>
                               <SelectGroup>
@@ -277,12 +279,12 @@ export const WorkplaceInformation = () => {
                       )}
                     </div>
                     <div className="space-y-2">
-                      <Label>Working Period</Label>
+                      <Label>{t("workplace.form.workingPeriodLabel")}</Label>
 
                       <Controller
                         name="workingPeriod"
                         control={addControl}
-                        rules={{ required: "Working Peroid is required!" }}
+                        rules={{ required: t("workplace.validation.workingPeriodRequired") }}
                         render={({ field }) => (
                           <Select
                             onValueChange={field.onChange}
@@ -295,7 +297,7 @@ export const WorkplaceInformation = () => {
                                   : ""
                               }`}
                             >
-                              <SelectValue placeholder="Select Issuing Institution" />
+                              <SelectValue placeholder={t("workplace.form.workingPeriodPlaceholder")} />
                             </SelectTrigger>
                             <SelectContent>
                               <SelectGroup>
@@ -319,12 +321,12 @@ export const WorkplaceInformation = () => {
                     </div>
 
                     <div className="space-y-2">
-                      <Label>Field</Label>
+                      <Label>{t("workplace.form.fieldLabel")}</Label>
 
                       <Controller
                         name="field"
                         control={addControl}
-                        rules={{ required: "Field is required!" }}
+                        rules={{ required: t("workplace.validation.fieldRequired") }}
                         render={({ field }) => (
                           <Select
                             onValueChange={field.onChange}
@@ -337,7 +339,7 @@ export const WorkplaceInformation = () => {
                                   : ""
                               }`}
                             >
-                              <SelectValue placeholder="Select Field" />
+                              <SelectValue placeholder={t("workplace.form.fieldPlaceholder")} />
                             </SelectTrigger>
                             <SelectContent>
                               <SelectGroup>
@@ -362,13 +364,13 @@ export const WorkplaceInformation = () => {
 
                     <div className="grid gap-3">
                       <Label htmlFor="dateOfBirth" className="px-1">
-                        Start Date
+                        {t("workplace.form.startDateLabel")}
                       </Label>
 
                       <Controller
                         name="startDate"
                         control={addControl}
-                        rules={{ required: "Start date is required" }}
+                        rules={{ required: t("workplace.validation.startDateRequired") }}
                         render={({ field }) => (
                           <Popover
                             open={startDateOpen}
@@ -418,7 +420,7 @@ export const WorkplaceInformation = () => {
 
                     <div className="grid gap-3">
                       <Label htmlFor="graduationDate" className="px-1">
-                        End Date
+                        {t("workplace.form.endDateLabel")}
                       </Label>
 
                       <Controller
@@ -476,7 +478,7 @@ export const WorkplaceInformation = () => {
                       <Controller
                         name="file"
                         control={addControl}
-                        rules={{ required: "Please upload at least one file" }}
+                        rules={{ required: t("workplace.validation.fileRequired") }}
                         render={({ field, fieldState }) => (
                           <MultiFileUpload
                             maxSizeMB={10}
@@ -487,7 +489,7 @@ export const WorkplaceInformation = () => {
                       />
                     </div>
                     <div className="space-y-2">
-                      <Label>Language</Label>
+                      <Label>{t("workplace.form.languageLabel")}</Label>
                       <Input
                         {...addRegister("language", {
                           required: "Language is required",
@@ -508,7 +510,7 @@ export const WorkplaceInformation = () => {
                         type="submit"
                         className="bg-blue-700 w-25 hover:bg-blue-600"
                       >
-                        <Plus className="h-4 w-4 mr-1" /> Add
+                        <Plus className="h-4 w-4 mr-1" /> {t("translation:common.add")}
                       </Button>
                     </DialogFooter>
                   </form>
@@ -522,7 +524,7 @@ export const WorkplaceInformation = () => {
                 <div className="flex items-center gap-2">
                   <Building className="h-5 w-5 text-blue-600" />
                   <span className="text-sm font-medium text-blue-800">
-                    Total Workplaces
+                    {t("workplace.stats.totalWorkplaces")}
                   </span>
                 </div>
                 <p className="text-2xl font-bold text-blue-900 mt-1">
@@ -534,7 +536,7 @@ export const WorkplaceInformation = () => {
                 <div className="flex items-center gap-2">
                   <Clock className="h-5 w-5 text-green-600" />
                   <span className="text-sm font-medium text-green-800">
-                    Total Experience
+                    {t("workplace.stats.totalExperience")}
                   </span>
                 </div>
                 <p className="text-2xl font-bold text-green-900 mt-1">
@@ -546,7 +548,7 @@ export const WorkplaceInformation = () => {
                 <div className="flex items-center gap-2">
                   <Target className="h-5 w-5 text-purple-600" />
                   <span className="text-sm font-medium text-purple-800">
-                    Fields
+                    {t("workplace.stats.uniqueFields")}
                   </span>
                 </div>
                 <p className="text-2xl font-bold text-purple-900 mt-1">
@@ -558,7 +560,7 @@ export const WorkplaceInformation = () => {
                 <div className="flex items-center gap-2">
                   <FileText className="h-5 w-5 text-orange-600" />
                   <span className="text-sm font-medium text-orange-800">
-                    Documents
+                    {t("workplace.stats.totalDocuments")}
                   </span>
                 </div>
                 <p className="text-2xl font-bold text-orange-900 mt-1">
@@ -571,7 +573,7 @@ export const WorkplaceInformation = () => {
 
             <div className="space-y-6">
               <h3 className="text-lg font-medium text-gray-900">
-                Work Experience Timeline
+                {t("workplace.overview")}
               </h3>
 
               {workplaceInformation.map((workplace) => (
@@ -637,7 +639,7 @@ export const WorkplaceInformation = () => {
 
                             <div className="space-y-1">
                               <p className="text-sm font-medium text-gray-500">
-                                Start Date
+                                {t("workplace.form.startDateLabel")}
                               </p>
                               <div className="flex items-center gap-2">
                                 <CiCalendar className="h-4 w-4 text-orange-500" />
@@ -649,7 +651,7 @@ export const WorkplaceInformation = () => {
 
                             <div className="space-y-1">
                               <p className="text-sm font-medium text-gray-500">
-                                End Date
+                                {t("workplace.form.endDateLabel")}
                               </p>
                               <div className="flex items-center gap-2">
                                 <CiCalendar className="h-4 w-4 text-red-500" />
@@ -760,7 +762,7 @@ export const WorkplaceInformation = () => {
                                     }}
                                   >
                                     <div className="space-y-2">
-                                      <Label>Position</Label>
+                                      <Label>{t("workplace.form.positionLabel")}</Label>
 
                                       <Controller
                                         name="position"
@@ -780,7 +782,7 @@ export const WorkplaceInformation = () => {
                                                   : ""
                                               }`}
                                             >
-                                              <SelectValue placeholder="Select Position" />
+                                              <SelectValue placeholder={t("workplace.form.positionPlaceholder")} />
                                             </SelectTrigger>
                                             <SelectContent>
                                               <SelectGroup>
@@ -805,7 +807,7 @@ export const WorkplaceInformation = () => {
                                       )}
                                     </div>
                                     <div className="space-y-2">
-                                      <Label>Working Period</Label>
+                                      <Label>{t("workplace.form.workingPeriodLabel")}</Label>
 
                                       <Controller
                                         name="workingPeriod"
@@ -826,7 +828,7 @@ export const WorkplaceInformation = () => {
                                                   : ""
                                               }`}
                                             >
-                                              <SelectValue placeholder="Select Issuing Institution" />
+                                              <SelectValue placeholder={t("workplace.form.workingPeriodPlaceholder")} />
                                             </SelectTrigger>
                                             <SelectContent>
                                               <SelectGroup>
@@ -852,7 +854,7 @@ export const WorkplaceInformation = () => {
                                     </div>
 
                                     <div className="space-y-2">
-                                      <Label>Field</Label>
+                                      <Label>{t("workplace.form.fieldLabel")}</Label>
 
                                       <Controller
                                         name="field"
@@ -872,7 +874,7 @@ export const WorkplaceInformation = () => {
                                                   : ""
                                               }`}
                                             >
-                                              <SelectValue placeholder="Select Field" />
+                                              <SelectValue placeholder={t("workplace.form.fieldPlaceholder")} />
                                             </SelectTrigger>
                                             <SelectContent>
                                               <SelectGroup>
@@ -902,7 +904,7 @@ export const WorkplaceInformation = () => {
                                         htmlFor="dateOfBirth"
                                         className="px-1"
                                       >
-                                        Start Date
+                                        {t("workplace.form.startDateLabel")}
                                       </Label>
 
                                       <Controller
@@ -970,7 +972,7 @@ export const WorkplaceInformation = () => {
                                         htmlFor="graduationDate"
                                         className="px-1"
                                       >
-                                        End Date
+                                        {t("workplace.form.endDateLabel")}
                                       </Label>
 
                                       <Controller
@@ -1060,7 +1062,7 @@ export const WorkplaceInformation = () => {
                                       />
                                     </div>
                                     <div className="space-y-2">
-                                      <Label>Language</Label>
+                                      <Label>{t("workplace.form.languageLabel")}</Label>
                                       <Input
                                         {...editRegister("language", {
                                           required: "Language is required",
@@ -1103,23 +1105,22 @@ export const WorkplaceInformation = () => {
                                 <AlertDialogContent>
                                   <AlertDialogHeader>
                                     <AlertDialogTitle>
-                                      Are you sure you want to delete?
+                                      {t("translation:common.confirmDelete")}
                                     </AlertDialogTitle>
                                     <AlertDialogDescription>
-                                      This action cannot be undone. The contact
-                                      will be permanently deleted.
+                                      {t("translation:common.deleteWarning")}
                                     </AlertDialogDescription>
                                   </AlertDialogHeader>
 
                                   <AlertDialogFooter>
                                     <AlertDialogCancel className="h-10">
                                       <div className="flex items-center gap-2">
-                                        <MdOutlineCancel size={16} /> No
+                                        <MdOutlineCancel size={16} /> {t("translation:common.no")}
                                       </div>
                                     </AlertDialogCancel>
                                     <AlertDialogAction className="bg-red-600 hover:bg-red-700 h-10">
                                       <div className="flex items-center gap-2">
-                                        <AiOutlineCheck size={16} /> Yes, Delete
+                                        <AiOutlineCheck size={16} /> {t("translation:common.yesDelete")}
                                       </div>
                                     </AlertDialogAction>
                                   </AlertDialogFooter>
@@ -1155,7 +1156,7 @@ export const WorkplaceInformation = () => {
                 <div className="space-y-3">
                   <div className="flex justify-between items-center">
                     <span className="text-sm font-medium text-blue-800">
-                      Total Experience:
+                      {t("workplace.stats.totalExperience")}:
                     </span>
                     <span className="text-sm text-blue-900 font-semibold">
                       {totalExperience.toFixed(1)} years
@@ -1198,7 +1199,7 @@ export const WorkplaceInformation = () => {
                   </div>
                   <div className="flex justify-between items-center">
                     <span className="text-sm font-medium text-blue-800">
-                      Documents:
+                      {t("workplace.stats.totalDocuments")}:
                     </span>
                     <span className="text-sm text-blue-900">
                       {totalDocuments} files

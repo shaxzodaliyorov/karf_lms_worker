@@ -63,6 +63,7 @@ import {
 } from "@/components/ui/popover";
 import { useState } from "react";
 import { Calendar } from "@/components/ui/calendar";
+import { useTranslation } from "react-i18next";
 type FormValues = {
   diploma: string;
   major: string;
@@ -75,6 +76,9 @@ type FormValues = {
 };
 
 export const College = () => {
+  const { t } = useTranslation(["collage", "translation"]);
+  // const { c} = useTranslation("trasnlation");
+
   // const [date, setDate] = useState<Date | undefined>(new Date());
   const [open, setOpen] = useState(false);
   const [startDateOpen, setStartDateOpen] = useState(false);
@@ -115,34 +119,34 @@ export const College = () => {
     {
       id: 1,
       collegeName: "Harvard University",
-      major: "Computer Science",
-      degree: "Bachelor's Degree",
+      major: t("major.cs"),
+      degree: t("degree.bachelor"),
       startDate: "01/09/2016",
       graduationDate: "15/06/2020",
       location: "Cambridge, MA, USA",
-      status: "Graduated",
+      status: t("status.graduated"),
       gpa: "3.8/4.0",
     },
     {
       id: 2,
       collegeName: "Stanford University",
-      major: "Artificial Intelligence",
-      degree: "Master's Degree",
+      major: t("major.ai"),
+      degree: t("degree.master"),
       startDate: "01/09/2020",
       graduationDate: "15/06/2022",
       location: "Stanford, CA, USA",
-      status: "Graduated",
+      status: t("status.graduated"),
       gpa: "3.9/4.0",
     },
     {
       id: 3,
       collegeName: "MIT",
-      major: "Machine Learning",
-      degree: "PhD",
+      major: t("major.ml"),
+      degree: t("degree.phd"),
       startDate: "01/09/2022",
       graduationDate: "Expected 2026",
       location: "Cambridge, MA, USA",
-      status: "In Progress",
+      status: t("status.inProgress"),
       gpa: "4.0/4.0",
     },
   ];
@@ -164,24 +168,26 @@ export const College = () => {
     return `${years} years, ${months} months`;
   };
 
+  // Status Colors (Graduated, InProgress)
   const getStatusColor = (status: string) => {
     switch (status) {
-      case "Graduated":
+      case t("status.graduated"):
         return "bg-green-50 text-green-700 border-green-200";
-      case "In Progress":
+      case t("status.inProgress"):
         return "bg-blue-50 text-blue-700 border-blue-200";
       default:
         return "bg-gray-50 text-gray-700 border-gray-200";
     }
   };
 
+  // Badges Colors (Bachelor, Master, PhD)
   const getDegreeColor = (degree: string) => {
     switch (degree) {
-      case "Bachelor's Degree":
+      case t("degree.bachelor"):
         return "bg-orange-50 text-orange-700 border-orange-200";
-      case "Master's Degree":
+      case t("degree.master"):
         return "bg-purple-50 text-purple-700 border-purple-200";
-      case "PhD":
+      case t("degree.phd"):
         return "bg-red-50 text-red-700 border-red-200";
       default:
         return "bg-gray-50 text-gray-700 border-gray-200";
@@ -191,26 +197,29 @@ export const College = () => {
   return (
     <div className="w-full">
       <Card className="shadow-lg">
+        {/*   **********    SECTION HEADER     ********** */}
         <CardHeader className="border-b bg-white">
           <div className="flex items-center justify-between">
             <div>
               <CardTitle className="flex items-center gap-2 text-xl font-semibold">
                 <GraduationCap className="h-5 w-5 text-blue-600" />
-                Education History
+                {t("education.title")}
               </CardTitle>
               <p className="text-sm 4-gray-600 mt-1">
-                Complete academic background and qualifications
+                {t("education.description")}
               </p>
             </div>
+
+            {/*   **********    ADD DIPLOMA / EDUCATION     ********** */}
             <Dialog>
               <DialogTrigger asChild>
                 <Button variant="outline">
-                  <Plus className="h-4 w-4 mr-1" /> Add
+                  <Plus className="h-4 w-4 mr-1" /> {t("translation:common.add")}
                 </Button>
               </DialogTrigger>
               <DialogContent className="max-w-lg max-h-[93vh] overflow-y-auto">
                 <DialogHeader>
-                  <DialogTitle>Add Academic Journey</DialogTitle>
+                  <DialogTitle>{t("translation:common.add") + " " + t("journey.title")}</DialogTitle>
                 </DialogHeader>
 
                 <form
@@ -221,13 +230,17 @@ export const College = () => {
                     msOverflowStyle: "none",
                   }}
                 >
+                  {/* **********  DIPLOMA ********** */}
                   <div className="space-y-2">
-                    <Label>Diploma</Label>
+                    <Label>{t("education.diploma")}</Label>
 
                     <Controller
                       name="diploma"
                       control={addControl}
-                      rules={{ required: "Diploma is required!" }}
+                      rules={{
+                        required:
+                          t("education.diploma") + " " + t("translation:common.isRequired"),
+                      }}
                       render={({ field }) => (
                         <Select
                           onValueChange={field.onChange}
@@ -240,17 +253,23 @@ export const College = () => {
                                 : ""
                             }`}
                           >
-                            <SelectValue placeholder="Select Diploma" />
+                            <SelectValue
+                              placeholder={`${t("translation:common.select")} ${t(
+                                "education.diploma"
+                              )}`}
+                            />
                           </SelectTrigger>
                           <SelectContent>
                             <SelectGroup>
                               <SelectItem value="bachelor">
-                                Bachelor's Degree
+                                {t("degree.bachelor")}
                               </SelectItem>
                               <SelectItem value="master">
-                                Master's Degree
+                                {t("degree.master")}
                               </SelectItem>
-                              <SelectItem value="phd">PhD</SelectItem>
+                              <SelectItem value="phd">
+                                {t("degree.phd")}
+                              </SelectItem>
                             </SelectGroup>
                           </SelectContent>
                         </Select>
@@ -264,12 +283,14 @@ export const College = () => {
                   </div>
 
                   <div className="space-y-2">
-                    <Label>Major</Label>
+                    <Label>{t("education.major")}</Label>
 
                     <Controller
                       name="major"
                       control={addControl}
-                      rules={{ required: "Major is required!" }}
+                      rules={{
+                        required: t("education.major") + " " + t("translation:common.isRequired"),
+                      }}
                       render={({ field }) => (
                         <Select
                           onValueChange={field.onChange}
@@ -282,17 +303,23 @@ export const College = () => {
                                 : ""
                             }`}
                           >
-                            <SelectValue placeholder="Select Major" />
+                            <SelectValue
+                              placeholder={`${t("translation:common.select")} ${t(
+                                "education.major"
+                              )}`}
+                            />
                           </SelectTrigger>
                           <SelectContent>
                             <SelectGroup>
-                              <SelectItem value="bachelor">
-                                Graduated{" "}
+                              <SelectItem value="cs">
+                                {t("major.cs")}
                               </SelectItem>
-                              <SelectItem value="master">
-                                In Progress
+                              <SelectItem value="ai">
+                                {t("major.ai")}
                               </SelectItem>
-                              <SelectItem value="phd">PhD</SelectItem>
+                              <SelectItem value="ml">
+                                {t("major.ml")}
+                              </SelectItem>
                             </SelectGroup>
                           </SelectContent>
                         </Select>
@@ -303,13 +330,17 @@ export const College = () => {
                     )}
                   </div>
 
+                  {/* **********  DURATION ********** */}
                   <div className="space-y-2">
-                    <Label>Duration</Label>
+                    <Label>{t("education.duration")}</Label>
                     <Input
                       {...addRegister("duration", {
-                        required: "Duration is required",
+                        required:
+                          t("education.duration") + " " + t("translation:common.isRequired"),
                       })}
-                      placeholder="Enter duration"
+                      placeholder={`${t("translation:common.enter")} ${t(
+                        "education.duration"
+                      )}`}
                       className={`w-full border ${
                         addErrors.duration ? "border-red-500 " : ""
                       }`}
@@ -321,13 +352,18 @@ export const College = () => {
                     )}
                   </div>
 
+                  {/* **********  LOCATION ********** */}
+
                   <div className="space-y-2">
-                    <Label>Location</Label>
+                    <Label>{t("education.location")}</Label>
 
                     <Controller
                       name="location"
                       control={addControl}
-                      rules={{ required: "Location is required!" }}
+                      rules={{
+                        required:
+                          t("education.location") + " " + t("translation:common.isRequired"),
+                      }}
                       render={({ field }) => (
                         <Select
                           onValueChange={field.onChange}
@@ -340,15 +376,19 @@ export const College = () => {
                                 : ""
                             }`}
                           >
-                            <SelectValue placeholder="Select Status" />
+                            <SelectValue
+                              placeholder={`${t("translation:common.select")} ${t(
+                                "education.location"
+                              )}`}
+                            />
                           </SelectTrigger>
                           <SelectContent>
                             <SelectGroup>
-                              <SelectItem value="bachelor">
+                              <SelectItem value="cambridge">
                                 Cambridge{" "}
                               </SelectItem>
-                              <SelectItem value="master">MA</SelectItem>
-                              <SelectItem value="phd">USA</SelectItem>
+                              <SelectItem value="ma">MA</SelectItem>
+                              <SelectItem value="usa">USA</SelectItem>
                             </SelectGroup>
                           </SelectContent>
                         </Select>
@@ -361,15 +401,20 @@ export const College = () => {
                     )}
                   </div>
 
+                  {/* **********  START DATE ********** */}
+
                   <div className="grid gap-3">
                     <Label htmlFor="dateOfBirth" className="px-1">
-                      Start Date
+                      {t("education.startDate")}
                     </Label>
 
                     <Controller
                       name="startDate"
                       control={addControl}
-                      rules={{ required: "Start date is required" }}
+                      rules={{
+                        required:
+                          t("education.startDate") + " " + t("translation:common.isRequired"),
+                      }}
                       render={({ field }) => (
                         <Popover
                           open={startDateOpen}
@@ -385,7 +430,9 @@ export const College = () => {
                             >
                               {field.value instanceof Date
                                 ? field.value.toLocaleDateString()
-                                : "Select date"}
+                                : `${t("translation:common.select")} ${t(
+                                    "education.startDate"
+                                  )}`}
                               <CalendarIcon
                                 color="gray"
                                 className="w-4 h-4 ml-2"
@@ -417,16 +464,19 @@ export const College = () => {
                     )}
                   </div>
 
+                  {/* **********  GRADUATION DATE ********** */}
+
                   <div className="grid gap-3">
                     <Label htmlFor="graduationDate" className="px-1">
-                      Graduation Date
+                      {t("education.endDate")}
                     </Label>
 
                     <Controller
                       name="graduationDate"
                       control={addControl}
                       rules={{
-                        required: "Graduation is required",
+                        required:
+                          t("education.endDate") + " " + t("translation:common.isRequired"),
                       }}
                       render={({ field }) => (
                         <Popover open={open} onOpenChange={setOpen}>
@@ -440,7 +490,9 @@ export const College = () => {
                             >
                               {field.value instanceof Date
                                 ? field.value.toLocaleDateString()
-                                : "Select date"}
+                                : `${t("translation:common.select")} ${t(
+                                    "education.endDate"
+                                  )}`}
                               <CalendarIcon
                                 color="gray"
                                 className="w-4 h-4 ml-2"
@@ -472,13 +524,17 @@ export const College = () => {
                     )}
                   </div>
 
+                  {/* **********  GPA ********** */}
+
                   <div className="space-y-2">
-                    <Label>GPA</Label>
+                    <Label>{t("education.gpa")}</Label>
 
                     <Controller
                       name="gpa"
                       control={addControl}
-                      rules={{ required: "GPA is required!" }}
+                      rules={{
+                        required: t("education.gpa") + " " + t("translation:common.isRequired"),
+                      }}
                       render={({ field }) => (
                         <Select
                           onValueChange={field.onChange}
@@ -491,17 +547,17 @@ export const College = () => {
                                 : ""
                             }`}
                           >
-                            <SelectValue placeholder="Select Location" />
+                            <SelectValue
+                              placeholder={`${t("translation:common.select")} ${t(
+                                "education.gpa"
+                              )}`}
+                            />
                           </SelectTrigger>
                           <SelectContent>
                             <SelectGroup>
-                              <SelectItem value="bachelor">
-                                Graduated{" "}
-                              </SelectItem>
-                              <SelectItem value="master">
-                                In Progress
-                              </SelectItem>
-                              <SelectItem value="phd">PhD</SelectItem>
+                              <SelectItem value="4.0">4.0</SelectItem>
+                              <SelectItem value="3.0">3.0</SelectItem>
+                              <SelectItem value="2.0">2.0</SelectItem>
                             </SelectGroup>
                           </SelectContent>
                         </Select>
@@ -515,9 +571,9 @@ export const College = () => {
                   <DialogFooter className="py-4">
                     <Button
                       type="submit"
-                      className="bg-blue-700 w-25 text-white hover:bg-blue-600"
+                      className="bg-blue-700 w-26 text-white hover:bg-blue-600"
                     >
-                      <Plus className="h-4 w-4 mr-1" /> Add
+                      <Plus className="h-4 w-4 mr-1" /> {t("translation:common.add")}
                     </Button>
                   </DialogFooter>
                 </form>
@@ -527,12 +583,13 @@ export const College = () => {
         </CardHeader>
 
         <CardContent className="space-y-6 p-6">
+          {/*   **********    EDUCATION HISTORY     ********** */}
           <div className="grid gap-4 md:grid-cols-3">
             <div className="rounded-lg border bg-blue-50 p-4">
               <div className="flex items-center gap-2">
                 <School className="h-5 w-5 text-blue-600" />
                 <span className="text-sm font-medium text-blue-800">
-                  Total Institutions
+                  {t("status.total")}
                 </span>
               </div>
               <p className="text-2xl font-bold text-blue-900 mt-1">
@@ -544,13 +601,14 @@ export const College = () => {
               <div className="flex items-center gap-2">
                 <GraduationCap className="h-5 w-5 text-green-600" />
                 <span className="text-sm font-medium text-green-800">
-                  Completed
+                  {t("status.completed")}
                 </span>
               </div>
               <p className="text-2xl font-bold text-green-900 mt-1">
                 {
-                  educationHistory.filter((edu) => edu.status === "Graduated")
-                    .length
+                  educationHistory.filter(
+                    (edu) => edu.status === t("status.graduated")
+                  ).length
                 }
               </p>
             </div>
@@ -559,13 +617,14 @@ export const College = () => {
               <div className="flex items-center gap-2">
                 <BookOpen className="h-5 w-5 text-orange-600" />
                 <span className="text-sm font-medium text-orange-800">
-                  In Progress
+                  {t("status.inProgress")}
                 </span>
               </div>
               <p className="text-2xl font-bold text-orange-900 mt-1">
                 {
-                  educationHistory.filter((edu) => edu.status === "In Progress")
-                    .length
+                  educationHistory.filter(
+                    (edu) => edu.status === t("status.inProgress")
+                  ).length
                 }
               </p>
             </div>
@@ -573,9 +632,10 @@ export const College = () => {
 
           <Separator />
 
+          {/*   **********    ACADEMIC JOURNEY     ********** */}
           <div className="">
             <h3 className="text-lg font-medium text-gray-900">
-              Academic Journey
+              {t("journey.title")}
             </h3>
           </div>
 
@@ -611,7 +671,7 @@ export const College = () => {
                         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
                           <div className="space-y-1">
                             <p className="text-sm font-medium text-gray-500">
-                              Major
+                              {t("education.major")}
                             </p>
                             <div className="flex items-center gap-2">
                               <BookOpen className="h-4 w-4 text-green-500" />
@@ -623,10 +683,9 @@ export const College = () => {
 
                           <div className="space-y-1">
                             <p className="text-sm font-medium text-gray-500">
-                              Duration
+                              {t("education.duration")}
                             </p>
                             <div className="flex items-center gap-2">
-                              {/* <Calendar className="h-4 w-4 text-orange-500" /> */}
                               <p className="text-sm text-gray-900">
                                 {calculateDuration(
                                   education.startDate,
@@ -638,7 +697,7 @@ export const College = () => {
 
                           <div className="space-y-1">
                             <p className="text-sm font-medium text-gray-500">
-                              Location
+                              {t("education.location")}
                             </p>
                             <div className="flex items-center gap-2">
                               <MapPin className="h-4 w-4 text-purple-500" />
@@ -650,10 +709,9 @@ export const College = () => {
 
                           <div className="space-y-1">
                             <p className="text-sm font-medium text-gray-500">
-                              Start Date
+                              {t("education.startDate")}
                             </p>
                             <div className="flex items-center gap-2">
-                              {/* <Calendar className="h-4 w-4 text-blue-500" /> */}
                               <p className="text-sm text-gray-900">
                                 {education.startDate}
                               </p>
@@ -676,7 +734,7 @@ export const College = () => {
 
                           <div className="space-y-1">
                             <p className="text-sm font-medium text-gray-500">
-                              GPA
+                              {t("education.gpa")}
                             </p>
                             <div className="flex items-center gap-2">
                               <div className="h-4 w-4 rounded-full bg-yellow-400"></div>
@@ -688,6 +746,9 @@ export const College = () => {
                         </div>
                       </div>
                     </div>
+
+                    {/*     ************     EDIT & DELETE  EDUCATION  ************     */}
+
                     <div className="absolute top-3 right-3">
                       <DropdownMenu>
                         <DropdownMenuTrigger asChild>
@@ -699,36 +760,39 @@ export const College = () => {
                           <DropdownMenuGroup>
                             <Dialog>
                               <DialogTrigger asChild>
-                                <DropdownMenuItem
+                              <DropdownMenuItem
                                   onSelect={(e) => e.preventDefault()}
                                 >
-                                  <TbEdit size={16} />
-                                  <span className="ml-2">Edit</span>
+                                  <TbEdit className="h-4 w-4 mr-1" /> {t("translation:common.edit")}
                                 </DropdownMenuItem>
                               </DialogTrigger>
-                              <DialogContent className="max-w-lg max-h-[93vh]">
+                              <DialogContent className="max-w-lg max-h-[93vh] overflow-y-auto">
                                 <DialogHeader>
                                   <DialogTitle>
-                                    Edit Academic Journey
+                                    {t("translation:common.edit") + " " + t("journey.title")}
                                   </DialogTitle>
                                 </DialogHeader>
 
                                 <form
                                   onSubmit={handleEditSubmit(onEditSubmit)}
-                                  className="grid gap-2 py-4 max-h-[80vh] overflow-y-auto "
+                                  className=" grid gap-2 py-4 max-h-[80vh]  "
                                   style={{
                                     scrollbarWidth: "none",
                                     msOverflowStyle: "none",
                                   }}
                                 >
+                                  {/* **********  DIPLOMA ********** */}
                                   <div className="space-y-2">
-                                    <Label>Diploma</Label>
+                                    <Label>{t("education.diploma")}</Label>
 
                                     <Controller
                                       name="diploma"
                                       control={editControl}
                                       rules={{
-                                        required: "Diploma is required!",
+                                        required:
+                                          t("education.diploma") +
+                                          " " +
+                                          t("isRequired"),
                                       }}
                                       render={({ field }) => (
                                         <Select
@@ -737,43 +801,52 @@ export const College = () => {
                                         >
                                           <SelectTrigger
                                             className={`w-full ${
-                                              editErrors.diploma
+                                              addErrors.diploma
                                                 ? "border-red-500 focus:ring-red-500"
                                                 : ""
                                             }`}
                                           >
-                                            <SelectValue placeholder="Select Diploma" />
+                                            <SelectValue
+                                              placeholder={`${t(
+                                                "translation:common.select"
+                                              )} ${t("education.diploma")}`}
+                                            />
                                           </SelectTrigger>
                                           <SelectContent>
                                             <SelectGroup>
                                               <SelectItem value="bachelor">
-                                                Bachelor's Degree
+                                                {t("degree.bachelor")}
                                               </SelectItem>
                                               <SelectItem value="master">
-                                                Master's Degree
+                                                {t("degree.master")}
                                               </SelectItem>
                                               <SelectItem value="phd">
-                                                PhD
+                                                {t("degree.phd")}
                                               </SelectItem>
                                             </SelectGroup>
                                           </SelectContent>
                                         </Select>
                                       )}
                                     />
-                                    {editErrors.diploma && (
+                                    {addErrors.diploma && (
                                       <p className="text-red-500">
-                                        {editErrors.diploma.message}
+                                        {addErrors.diploma.message}
                                       </p>
                                     )}
                                   </div>
 
                                   <div className="space-y-2">
-                                    <Label>Major</Label>
+                                    <Label>{t("education.major")}</Label>
 
                                     <Controller
                                       name="major"
                                       control={editControl}
-                                      rules={{ required: "Major is required!" }}
+                                      rules={{
+                                        required:
+                                          t("education.major") +
+                                          " " +
+                                          t("isRequired"),
+                                      }}
                                       render={({ field }) => (
                                         <Select
                                           onValueChange={field.onChange}
@@ -786,18 +859,22 @@ export const College = () => {
                                                 : ""
                                             }`}
                                           >
-                                            <SelectValue placeholder="Select Major" />
+                                            <SelectValue
+                                              placeholder={`${t(
+                                                "translation:common.select"
+                                              )} ${t("education.major")}`}
+                                            />
                                           </SelectTrigger>
                                           <SelectContent>
                                             <SelectGroup>
-                                              <SelectItem value="bachelor">
-                                                Graduated{" "}
+                                              <SelectItem value="cs">
+                                                {t("major.cs")}
                                               </SelectItem>
-                                              <SelectItem value="master">
-                                                In Progress
+                                              <SelectItem value="ai">
+                                                {t("major.ai")}
                                               </SelectItem>
-                                              <SelectItem value="phd">
-                                                PhD
+                                              <SelectItem value="ml">
+                                                {t("major.ml")}
                                               </SelectItem>
                                             </SelectGroup>
                                           </SelectContent>
@@ -811,13 +888,19 @@ export const College = () => {
                                     )}
                                   </div>
 
+                                  {/* **********  DURATION ********** */}
                                   <div className="space-y-2">
-                                    <Label>Duration</Label>
+                                    <Label>{t("education.duration")}</Label>
                                     <Input
                                       {...editRegister("duration", {
-                                        required: "Duration is required",
+                                        required:
+                                          t("education.duration") +
+                                          " " +
+                                          t("isRequired"),
                                       })}
-                                      placeholder="Enter duration"
+                                      placeholder={`${t("translation:common.enter")} ${t(
+                                        "education.duration"
+                                      )}`}
                                       className={`w-full border ${
                                         editErrors.duration
                                           ? "border-red-500 "
@@ -831,14 +914,19 @@ export const College = () => {
                                     )}
                                   </div>
 
+                                  {/* **********  LOCATION ********** */}
+
                                   <div className="space-y-2">
-                                    <Label>Location</Label>
+                                    <Label>{t("education.location")}</Label>
 
                                     <Controller
                                       name="location"
                                       control={editControl}
                                       rules={{
-                                        required: "Location is required!",
+                                        required:
+                                          t("education.location") +
+                                          " " +
+                                          t("isRequired"),
                                       }}
                                       render={({ field }) => (
                                         <Select
@@ -852,17 +940,21 @@ export const College = () => {
                                                 : ""
                                             }`}
                                           >
-                                            <SelectValue placeholder="Select Status" />
+                                            <SelectValue
+                                              placeholder={`${t(
+                                                "translation:common.select"
+                                              )} ${t("education.location")}`}
+                                            />
                                           </SelectTrigger>
                                           <SelectContent>
                                             <SelectGroup>
-                                              <SelectItem value="bachelor">
+                                              <SelectItem value="cambridge">
                                                 Cambridge{" "}
                                               </SelectItem>
-                                              <SelectItem value="master">
+                                              <SelectItem value="ma">
                                                 MA
                                               </SelectItem>
-                                              <SelectItem value="phd">
+                                              <SelectItem value="usa">
                                                 USA
                                               </SelectItem>
                                             </SelectGroup>
@@ -877,19 +969,24 @@ export const College = () => {
                                     )}
                                   </div>
 
+                                  {/* **********  START DATE ********** */}
+
                                   <div className="grid gap-3">
                                     <Label
                                       htmlFor="dateOfBirth"
                                       className="px-1"
                                     >
-                                      Start Date
+                                      {t("education.startDate")}
                                     </Label>
 
                                     <Controller
                                       name="startDate"
                                       control={editControl}
                                       rules={{
-                                        required: "Start date is required",
+                                        required:
+                                          t("education.startDate") +
+                                          " " +
+                                          t("isRequired"),
                                       }}
                                       render={({ field }) => (
                                         <Popover
@@ -908,7 +1005,9 @@ export const College = () => {
                                             >
                                               {field.value instanceof Date
                                                 ? field.value.toLocaleDateString()
-                                                : "Select date"}
+                                                : `${t("translation:common.select")} ${t(
+                                                    "education.startDate"
+                                                  )}`}
                                               <CalendarIcon
                                                 color="gray"
                                                 className="w-4 h-4 ml-2"
@@ -942,19 +1041,24 @@ export const College = () => {
                                     )}
                                   </div>
 
+                                  {/* **********  GRADUATION DATE ********** */}
+
                                   <div className="grid gap-3">
                                     <Label
                                       htmlFor="graduationDate"
                                       className="px-1"
                                     >
-                                      Graduation Date
+                                      {t("education.endDate")}
                                     </Label>
 
                                     <Controller
                                       name="graduationDate"
                                       control={editControl}
                                       rules={{
-                                        required: "Graduation is required",
+                                        required:
+                                          t("education.graduationDate") +
+                                          " " +
+                                          t("isRequired"),
                                       }}
                                       render={({ field }) => (
                                         <Popover
@@ -973,11 +1077,13 @@ export const College = () => {
                                             >
                                               {field.value instanceof Date
                                                 ? field.value.toLocaleDateString()
-                                                : "Select date"}
+                                                : `${t("translation:common.select")} ${t(
+                                                    "education.endDate"
+                                                  )}`}
                                               <CalendarIcon
                                                 color="gray"
                                                 className="w-4 h-4 ml-2"
-                                              />{" "}
+                                              />
                                             </Button>
                                           </PopoverTrigger>
                                           <PopoverContent
@@ -1007,13 +1113,20 @@ export const College = () => {
                                     )}
                                   </div>
 
+                                  {/* **********  GPA ********** */}
+
                                   <div className="space-y-2">
-                                    <Label>GPA</Label>
+                                    <Label>{t("education.gpa")}</Label>
 
                                     <Controller
                                       name="gpa"
                                       control={editControl}
-                                      rules={{ required: "GPA is required!" }}
+                                      rules={{
+                                        required:
+                                          t("education.gpa") +
+                                          " " +
+                                          t("isRequired"),
+                                      }}
                                       render={({ field }) => (
                                         <Select
                                           onValueChange={field.onChange}
@@ -1026,18 +1139,22 @@ export const College = () => {
                                                 : ""
                                             }`}
                                           >
-                                            <SelectValue placeholder="Select Location" />
+                                            <SelectValue
+                                              placeholder={`${t(
+                                                "translation:common.select"
+                                              )} ${t("education.gpa")}`}
+                                            />
                                           </SelectTrigger>
                                           <SelectContent>
                                             <SelectGroup>
-                                              <SelectItem value="bachelor">
-                                                Graduated{" "}
+                                              <SelectItem value="4.0">
+                                                4.0
                                               </SelectItem>
-                                              <SelectItem value="master">
-                                                In Progress
+                                              <SelectItem value="3.0">
+                                                3.0
                                               </SelectItem>
-                                              <SelectItem value="phd">
-                                                PhD
+                                              <SelectItem value="2.0">
+                                                2.0
                                               </SelectItem>
                                             </SelectGroup>
                                           </SelectContent>
@@ -1054,9 +1171,9 @@ export const College = () => {
                                   <DialogFooter className="py-4">
                                     <Button
                                       type="submit"
-                                      className="bg-blue-700 w-25 hover:bg-blue-600"
+                                      className="bg-blue-700 w-25 text-white hover:bg-blue-600"
                                     >
-                                      <Plus className="h-4 w-4 mr-1" /> Add
+                                      <TbEdit className="h-4 w-4 mr-1" /> {t("translation:common.edit")}
                                     </Button>
                                   </DialogFooter>
                                 </form>
@@ -1069,30 +1186,29 @@ export const College = () => {
                                   onSelect={(e) => e.preventDefault()}
                                 >
                                   <RiDeleteBinLine size={16} />
-                                  <span className="ml-2">Delete</span>
+                                  <span className="ml-2">{t("translation:common.delete")}</span>
                                 </DropdownMenuItem>
                               </AlertDialogTrigger>
 
                               <AlertDialogContent>
                                 <AlertDialogHeader>
                                   <AlertDialogTitle>
-                                    Are you sure you want to delete?
+                                    {t("translation:common.alertTitle")}
                                   </AlertDialogTitle>
                                   <AlertDialogDescription>
-                                    This action cannot be undone. The contact
-                                    will be permanently deleted.
+                                    {t("translation:common.alertDescription")}
                                   </AlertDialogDescription>
                                 </AlertDialogHeader>
 
                                 <AlertDialogFooter>
                                   <AlertDialogCancel className="h-10">
                                     <div className="flex items-center gap-2">
-                                      <MdOutlineCancel size={16} /> No
+                                      <MdOutlineCancel size={16} /> {t("translation:common.no")}
                                     </div>
                                   </AlertDialogCancel>
                                   <AlertDialogAction className="bg-red-600 hover:bg-red-700 h-10">
                                     <div className="flex items-center gap-2">
-                                      <AiOutlineCheck size={16} /> Yes, Delete
+                                      <AiOutlineCheck size={16} /> {t("translation:common.yes")}, {t("translation:common.delete")}
                                     </div>
                                   </AlertDialogAction>
                                 </AlertDialogFooter>

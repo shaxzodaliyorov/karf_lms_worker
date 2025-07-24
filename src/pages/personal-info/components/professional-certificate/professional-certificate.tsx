@@ -1,5 +1,6 @@
 "use client";
 
+import { useTranslation } from "react-i18next";
 import {
   Award,
   Building,
@@ -76,6 +77,7 @@ type FormValues = {
 };
 
 export const ProfessionalCertificate = () => {
+  const { t } = useTranslation(["certificate", "translation"]);
   const [isDialogOpen, setIsDialogOpen] = useState(false);
   const [startDateOpen, setStartDateOpen] = useState(false);
 
@@ -191,10 +193,10 @@ export const ProfessionalCertificate = () => {
               <div>
                 <CardTitle className="flex items-center gap-2 text-xl font-semibold">
                   <Award className="h-5 w-5 text-blue-600" />
-                  Professional Certificate
+                  {t("certificate.title")}
                 </CardTitle>
                 <p className="text-sm text-gray-600 mt-1">
-                  Professional certifications and credentials
+                  {t("certificate.subtitle")}
                 </p>
               </div>
 
@@ -202,12 +204,12 @@ export const ProfessionalCertificate = () => {
               <Dialog>
                 <DialogTrigger asChild>
                   <Button variant="outline">
-                    <Plus className="h-4 w-4 mr-1" /> Add
+                    <Plus className="h-4 w-4 mr-1" /> {t("translation:common.add")}
                   </Button>
                 </DialogTrigger>
                 <DialogContent>
                   <DialogHeader>
-                    <DialogTitle>Add Professional Certificate</DialogTitle>
+                    <DialogTitle>{t("certificate.form.addTitle")}</DialogTitle>
                   </DialogHeader>
 
                   <form
@@ -237,7 +239,7 @@ export const ProfessionalCertificate = () => {
                                   : ""
                               }`}
                             >
-                              <SelectValue placeholder="Select Language" />
+                              <SelectValue placeholder={t("translation:common.select")} />
                             </SelectTrigger>
                             <SelectContent>
                               <SelectGroup>
@@ -388,7 +390,7 @@ export const ProfessionalCertificate = () => {
                 <div className="flex items-center gap-2">
                   <Award className="h-5 w-5 text-blue-600" />
                   <span className="text-sm font-medium text-blue-800">
-                    Total Certificates
+                    {t("certificate.stats.totalCertificates")}
                   </span>
                 </div>
                 <p className="text-2xl font-bold text-blue-900 mt-1">
@@ -400,7 +402,7 @@ export const ProfessionalCertificate = () => {
                 <div className="flex items-center gap-2">
                   <CheckCircle className="h-5 w-5 text-green-600" />
                   <span className="text-sm font-medium text-green-800">
-                    Active Certificates
+                    {t("certificate.stats.activeCertificates")}
                   </span>
                 </div>
                 <p className="text-2xl font-bold text-green-900 mt-1">
@@ -412,7 +414,7 @@ export const ProfessionalCertificate = () => {
                 <div className="flex items-center gap-2">
                   <FileText className="h-5 w-5 text-purple-600" />
                   <span className="text-sm font-medium text-purple-800">
-                    Documents
+                    {t("certificate.stats.totalDocuments")}
                   </span>
                 </div>
                 <p className="text-2xl font-bold text-purple-900 mt-1">
@@ -426,7 +428,7 @@ export const ProfessionalCertificate = () => {
             {/* Certificates List */}
             <div className="space-y-6">
               <h3 className="text-lg font-medium text-gray-900">
-                Certificate Details
+                {t("certificate.overview")}
               </h3>
 
               {professionalCertificates.map((certificate) => (
@@ -544,7 +546,7 @@ export const ProfessionalCertificate = () => {
                                     onSelect={(e) => e.preventDefault()}
                                   >
                                     <TbEdit size={16} />
-                                    <span className="ml-2">Edit</span>
+                                    <span className="ml-2">{t("translation:common.edit")}</span>
                                   </DropdownMenuItem>
                                 </DialogTrigger>
 
@@ -584,7 +586,7 @@ export const ProfessionalCertificate = () => {
                                                   : ""
                                               }`}
                                             >
-                                              <SelectValue placeholder="Select Language" />
+                                              <SelectValue placeholder={t("translation:common.select")} />
                                             </SelectTrigger>
                                             <SelectContent>
                                               <SelectGroup>
@@ -759,18 +761,17 @@ export const ProfessionalCertificate = () => {
                                     onSelect={(e) => e.preventDefault()}
                                   >
                                     <RiDeleteBinLine size={16} />
-                                    <span className="ml-2">Delete</span>
+                                    <span className="ml-2">{t("translation:common.delete")}</span>
                                   </DropdownMenuItem>
                                 </AlertDialogTrigger>
 
                                 <AlertDialogContent>
                                   <AlertDialogHeader>
                                     <AlertDialogTitle>
-                                      Are you sure you want to delete?
+                                      {t("translation:common.alertTitle")}
                                     </AlertDialogTitle>
                                     <AlertDialogDescription>
-                                      This action cannot be undone. The contact
-                                      will be permanently deleted.
+                                      {t("translation:common.alertDescription")}
                                     </AlertDialogDescription>
                                   </AlertDialogHeader>
 

@@ -49,11 +49,14 @@ import { MdOutlineCancel } from "react-icons/md";
 import { AiOutlineCheck } from "react-icons/ai";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
+import { useTranslation } from "react-i18next";
+
 type CertificateFormValues = {
   videoLink: string;
 };
 
 export const VideoDetails = () => {
+  const { t } = useTranslation(["video", "translation"]);
   const [isDialogOpen, setIsDialogOpen] = useState(false);
   const {
     register: addRegister,
@@ -142,21 +145,20 @@ export const VideoDetails = () => {
               <div>
                 <CardTitle className="flex items-center gap-2 text-xl font-semibold">
                   <Video className="h-5 w-5 text-blue-600" />
-                  Video Portfolio
+                  {t("video.title")}
                 </CardTitle>
-                <p className="text-sm text-gray-600 mt-1">
-                  Professional video showcase and demonstrations
-                </p>
+                <p className="text-sm text-gray-600 mt-1">{t("video.subtitle")}</p>
               </div>
               <Dialog>
                 <DialogTrigger asChild>
                   <Button variant="outline">
-                    <Plus className="h-4 w-4 mr-1" /> Add
+                    <Plus className="h-4 w-4 mr-1" /> 
+                    {t("translation:common.add")}
                   </Button>
                 </DialogTrigger>
                 <DialogContent>
                   <DialogHeader>
-                    <DialogTitle>Add Video Portfolio</DialogTitle>
+                    <DialogTitle>{t("video.title")}</DialogTitle>
                   </DialogHeader>
 
                   <form
@@ -164,7 +166,7 @@ export const VideoDetails = () => {
                     className="space-y-4"
                   >
                     <div className="grid gap-2">
-                      <Label htmlFor="videoLink">Video Link</Label>
+                      <Label htmlFor="videoLink">{t("video.link")}</Label>
                       <Input
                         id="videoLink"
                         placeholder="https://www.youtube.com/watch?v=..."
@@ -191,7 +193,7 @@ export const VideoDetails = () => {
                         type="submit"
                         className="bg-blue-700 w-25 hover:bg-blue-600"
                       >
-                        Add
+                        {t("translation:common.add")}
                       </Button>
                     </DialogFooter>
                   </form>
@@ -205,9 +207,7 @@ export const VideoDetails = () => {
               <div className="rounded-lg border bg-blue-50 p-4">
                 <div className="flex items-center gap-2">
                   <Video className="h-5 w-5 text-blue-600" />
-                  <span className="text-sm font-medium text-blue-800">
-                    Total Videos
-                  </span>
+                  <span className="text-sm font-medium text-blue-800">{t("video.stats.totalVideos")}</span>
                 </div>
                 <p className="text-2xl font-bold text-blue-900 mt-1">
                   {totalVideos}
@@ -217,9 +217,7 @@ export const VideoDetails = () => {
               <div className="rounded-lg border bg-green-50 p-4">
                 <div className="flex items-center gap-2">
                   <Clock className="h-5 w-5 text-green-600" />
-                  <span className="text-sm font-medium text-green-800">
-                    Total Duration
-                  </span>
+                  <span className="text-sm font-medium text-green-800">{t("video.stats.totalDuration")}</span>
                 </div>
                 <p className="text-2xl font-bold text-green-900 mt-1">
                   {Math.round(totalDuration)}min
@@ -229,9 +227,7 @@ export const VideoDetails = () => {
               <div className="rounded-lg border bg-purple-50 p-4">
                 <div className="flex items-center gap-2">
                   <Play className="h-5 w-5 text-purple-600" />
-                  <span className="text-sm font-medium text-purple-800">
-                    Latest Upload
-                  </span>
+                  <span className="text-sm font-medium text-purple-800">{t("video.stats.latestUpload")}</span>
                 </div>
                 <p className="text-lg font-bold text-purple-900 mt-1">
                   10/07/2023
@@ -244,7 +240,7 @@ export const VideoDetails = () => {
             {/* Video Portfolio */}
             <div className="space-y-6">
               <h3 className="text-lg font-medium text-gray-900">
-                Video Showcase
+                {t("video.showcase")}
               </h3>
 
               <div className="grid gap-6 lg:grid-cols-1">
@@ -300,11 +296,11 @@ export const VideoDetails = () => {
 
                           <div className="flex justify-between text-xs text-gray-500">
                             <span>
-                              Duration:{" "}
+                              {t("video.duration")}:{" "}
                               {videoInformation.interviewVideo.duration}
                             </span>
                             <span>
-                              Uploaded:{" "}
+                              {t("video.uploaded")}:{" "}
                               {videoInformation.interviewVideo.uploadDate}
                             </span>
                           </div>
@@ -314,7 +310,7 @@ export const VideoDetails = () => {
                         <div className="flex gap-2">
                           <Button size="sm" className="flex-1">
                             <Play className="h-4 w-4 mr-2" />
-                            Play Video
+                            {t("video.play")}
                           </Button>
                           <Button size="sm" variant="outline">
                             <Eye className="h-4 w-4" />
@@ -340,14 +336,14 @@ export const VideoDetails = () => {
                                   onSelect={(e) => e.preventDefault()}
                                 >
                                   <TbEdit size={16} />
-                                  <span className="ml-2">Edit</span>
+                                  <span className="ml-2">{t("translation:common.edit")}</span>
                                 </DropdownMenuItem>
                               </DialogTrigger>
 
                               <DialogContent className="sm:max-w-[500px] p-6">
                                 <DialogHeader>
                                   <DialogTitle>
-                                    Edit Foreign Experience
+                                    {t("translation:common.edit")} {t("video.title")}
                                   </DialogTitle>
                                 </DialogHeader>
 
@@ -357,14 +353,14 @@ export const VideoDetails = () => {
                                 >
                                   <div className="grid gap-2">
                                     <Label htmlFor="videoLink">
-                                      Video Link
+                                      {t("video.link")}
                                     </Label>
                                     <Input
                                       id="videoLink"
                                       placeholder="https://www.youtube.com/watch?v=..."
                                       type="url"
                                       {...editRegister("videoLink", {
-                                        required: "Video link is required",
+                                        required: t("video.link") + " " + t("translation:common.isRequired"),
                                         pattern: {
                                           value:
                                             /^(https?:\/\/)?(www\.)?youtube\.com\/watch\?v=.+$/,
@@ -389,7 +385,7 @@ export const VideoDetails = () => {
                                       type="submit"
                                       className="bg-blue-700 w-25 hover:bg-blue-600"
                                     >
-                                      <Plus className="h-4 w-4 mr-1" /> Add
+                                      <Plus className="h-4 w-4 mr-1" /> {t("translation:common.edit")}
                                     </Button>
                                   </DialogFooter>
                                 </form>
@@ -402,30 +398,29 @@ export const VideoDetails = () => {
                                   onSelect={(e) => e.preventDefault()}
                                 >
                                   <RiDeleteBinLine size={16} />
-                                  <span className="ml-2">Delete</span>
+                                  <span className="ml-2">{t("translation:common.delete")}</span>
                                 </DropdownMenuItem>
                               </AlertDialogTrigger>
 
                               <AlertDialogContent>
                                 <AlertDialogHeader>
                                   <AlertDialogTitle>
-                                    Are you sure you want to delete?
+                                    {t("translation:common.alertTitle")}
                                   </AlertDialogTitle>
                                   <AlertDialogDescription>
-                                    This action cannot be undone. The contact
-                                    will be permanently deleted.
+                                    {t("translation:common.alertDescription")}
                                   </AlertDialogDescription>
                                 </AlertDialogHeader>
 
                                 <AlertDialogFooter>
                                   <AlertDialogCancel className="h-10">
                                     <div className="flex items-center gap-2">
-                                      <MdOutlineCancel size={16} /> No
+                                      <MdOutlineCancel size={16} /> {t("translation:common.no")}
                                     </div>
                                   </AlertDialogCancel>
                                   <AlertDialogAction className="bg-red-600 hover:bg-red-700 h-10">
                                     <div className="flex items-center gap-2">
-                                      <AiOutlineCheck size={16} /> Yes, Delete
+                                      <AiOutlineCheck size={16} /> {t("translation:common.yes")}, {t("translation:common.delete")}
                                     </div>
                                   </AlertDialogAction>
                                 </AlertDialogFooter>
@@ -495,14 +490,14 @@ export const VideoDetails = () => {
 
                           <div className="flex justify-between text-xs text-gray-500">
                             <span>
-                              Duration:{" "}
+                              {t("video.duration")}:{" "}
                               {
                                 videoInformation.skillsVerificationVideo
                                   .duration
                               }
                             </span>
                             <span>
-                              Uploaded:{" "}
+                              {t("video.uploaded")}:{" "}
                               {
                                 videoInformation.skillsVerificationVideo
                                   .uploadDate
@@ -515,7 +510,7 @@ export const VideoDetails = () => {
                         <div className="flex gap-2">
                           <Button size="sm" className="flex-1">
                             <Play className="h-4 w-4 mr-2" />
-                            Play Video
+                            {t("video.play")}
                           </Button>
                           <Button size="sm" variant="outline">
                             <Download className="h-4 w-4" />
@@ -532,6 +527,7 @@ export const VideoDetails = () => {
                         </DropdownMenuTrigger>
                         <DropdownMenuContent align="start" className="mr-4">
                           <DropdownMenuGroup>
+                            {/* Edit */}
                             <Dialog
                               open={isDialogOpen}
                               onOpenChange={setIsDialogOpen}
@@ -541,14 +537,14 @@ export const VideoDetails = () => {
                                   onSelect={(e) => e.preventDefault()}
                                 >
                                   <TbEdit size={16} />
-                                  <span className="ml-2">Edit</span>
+                                  <span className="ml-2">{t("translation:common.edit")}</span>
                                 </DropdownMenuItem>
                               </DialogTrigger>
 
                               <DialogContent className="sm:max-w-[500px] p-6">
                                 <DialogHeader>
                                   <DialogTitle>
-                                    Edit Foreign Experience
+                                    {t("translation:common.edit")} {t("video.title")}
                                   </DialogTitle>
                                 </DialogHeader>
 
@@ -558,14 +554,14 @@ export const VideoDetails = () => {
                                 >
                                   <div className="grid gap-2">
                                     <Label htmlFor="videoLink">
-                                      Video Link
+                                      {t("video.link")}
                                     </Label>
                                     <Input
                                       id="videoLink"
                                       placeholder="https://example.com/video.mp4"
                                       type="url"
                                       {...editRegister("videoLink", {
-                                        required: "Video link is required",
+                                        required: t("video.link") + " " + t("translation:common.isRequired"),
                                         pattern: {
                                           value:
                                             /^(https?:\/\/)(www\.)?((youtube\.com\/watch\?v=.+)|(vimeo\.com\/.+)|([^\s]+\.mp4))$/,
@@ -590,7 +586,8 @@ export const VideoDetails = () => {
                                       type="submit"
                                       className="bg-blue-700 w-25 hover:bg-blue-600"
                                     >
-                                      <Plus className="h-4 w-4 mr-1" /> Add
+                                      <Plus className="h-4 w-4 mr-1" />
+                                      {t("translation:common.add")}
                                     </Button>
                                   </DialogFooter>
                                 </form>
@@ -603,30 +600,31 @@ export const VideoDetails = () => {
                                   onSelect={(e) => e.preventDefault()}
                                 >
                                   <RiDeleteBinLine size={16} />
-                                  <span className="ml-2">Delete</span>
+                                  <span className="ml-2">
+                                    {t("translation:common.delete")}
+                                  </span>
                                 </DropdownMenuItem>
                               </AlertDialogTrigger>
 
                               <AlertDialogContent>
                                 <AlertDialogHeader>
                                   <AlertDialogTitle>
-                                    Are you sure you want to delete?
+                                    {t("translation:common.alertTitle")}
                                   </AlertDialogTitle>
                                   <AlertDialogDescription>
-                                    This action cannot be undone. The contact
-                                    will be permanently deleted.
+                                    {t("translation:common.alertDescription")}
                                   </AlertDialogDescription>
                                 </AlertDialogHeader>
 
                                 <AlertDialogFooter>
                                   <AlertDialogCancel className="h-10">
                                     <div className="flex items-center gap-2">
-                                      <MdOutlineCancel size={16} /> No
+                                      <MdOutlineCancel size={16} /> {t("translation:common.no")}
                                     </div>
                                   </AlertDialogCancel>
                                   <AlertDialogAction className="bg-red-600 hover:bg-red-700 h-10">
                                     <div className="flex items-center gap-2">
-                                      <AiOutlineCheck size={16} /> Yes, Delete
+                                      <AiOutlineCheck size={16} /> {t("translation:common.yes")}, {t("translation:common.delete")}
                                     </div>
                                   </AlertDialogAction>
                                 </AlertDialogFooter>
@@ -689,11 +687,11 @@ export const VideoDetails = () => {
 
                           <div className="flex justify-between text-xs text-gray-500">
                             <span>
-                              Duration:{" "}
+                              {t("video.duration")}:{" "}
                               {videoInformation.experienceVideo.duration}
                             </span>
                             <span>
-                              Uploaded:{" "}
+                              {t("video.uploaded")}:{" "}
                               {videoInformation.experienceVideo.uploadDate}
                             </span>
                           </div>
@@ -703,7 +701,7 @@ export const VideoDetails = () => {
                         <div className="flex gap-2">
                           <Button size="sm" className="flex-1">
                             <Play className="h-4 w-4 mr-2" />
-                            Play Video
+                            {t("video.play")}
                           </Button>
                           <Button size="sm" variant="outline">
                             <ExternalLink className="h-4 w-4" />
@@ -729,14 +727,14 @@ export const VideoDetails = () => {
                                   onSelect={(e) => e.preventDefault()}
                                 >
                                   <TbEdit size={16} />
-                                  <span className="ml-2">Edit</span>
+                                  <span className="ml-2">{t("translation:common.edit")}</span>
                                 </DropdownMenuItem>
                               </DialogTrigger>
 
                               <DialogContent className="sm:max-w-[500px] p-6">
                                 <DialogHeader>
                                   <DialogTitle>
-                                    Edit Foreign Experience
+                                    {t("translation:common.edit") + " " + t("video.title")}
                                   </DialogTitle>
                                 </DialogHeader>
 
@@ -746,14 +744,14 @@ export const VideoDetails = () => {
                                 >
                                   <div className="grid gap-2">
                                     <Label htmlFor="videoLink">
-                                      Video Link
+                                      {t("video.link")}
                                     </Label>
                                     <Input
                                       id="videoLink"
                                       placeholder="https://example.com/video.mp4"
                                       type="url"
                                       {...editRegister("videoLink", {
-                                        required: "Video link is required",
+                                        required: (t("video.link") + " " + t("translation:common.isRequired")),
                                         pattern: {
                                           value:
                                             /^(https?:\/\/)(www\.)?((youtube\.com\/watch\?v=.+)|(vimeo\.com\/.+)|([^\s]+\.mp4))$/,
@@ -779,7 +777,7 @@ export const VideoDetails = () => {
                                       type="submit"
                                       className="bg-blue-700 w-25 hover:bg-blue-600"
                                     >
-                                      <Plus className="h-4 w-4 mr-1" /> Add
+                                      <Plus className="h-4 w-4 mr-1" /> {t("translation:common.add")}
                                     </Button>
                                   </DialogFooter>
                                 </form>
@@ -792,30 +790,29 @@ export const VideoDetails = () => {
                                   onSelect={(e) => e.preventDefault()}
                                 >
                                   <RiDeleteBinLine size={16} />
-                                  <span className="ml-2">Delete</span>
+                                  <span className="ml-2">{t("translation:common.delete")}</span>
                                 </DropdownMenuItem>
                               </AlertDialogTrigger>
 
                               <AlertDialogContent>
                                 <AlertDialogHeader>
                                   <AlertDialogTitle>
-                                    Are you sure you want to delete?
+                                    {t("translation:common.alertTitle")}
                                   </AlertDialogTitle>
                                   <AlertDialogDescription>
-                                    This action cannot be undone. The contact
-                                    will be permanently deleted.
+                                    {t("translation:common.alertDescription")}
                                   </AlertDialogDescription>
                                 </AlertDialogHeader>
 
                                 <AlertDialogFooter>
                                   <AlertDialogCancel className="h-10">
                                     <div className="flex items-center gap-2">
-                                      <MdOutlineCancel size={16} /> No
+                                      <MdOutlineCancel size={16} /> {t("translation:common.no")}
                                     </div>
                                   </AlertDialogCancel>
                                   <AlertDialogAction className="bg-red-600 hover:bg-red-700 h-10">
                                     <div className="flex items-center gap-2">
-                                      <AiOutlineCheck size={16} /> Yes, Delete
+                                      <AiOutlineCheck size={16} /> {t("translation:common.yes")}, {t("translation:common.delete")}
                                     </div>
                                   </AlertDialogAction>
                                 </AlertDialogFooter>
